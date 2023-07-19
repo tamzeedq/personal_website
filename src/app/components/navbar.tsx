@@ -3,16 +3,16 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-gradient-to-b from-black to-transparent fixed top-0 left-0 w-full z-10">
         <div className="flex-1">
             <Link href='/' className="btn btn-ghost normal-case text-xl">Tamzeed Quazi</Link>
         </div>
         <div className="flex-none">
-            <ul className="menu menu-horizontal px-1">
-                <li><Link href='/about'>About</Link></li>
-                <li><Link href='/projects'>Projects</Link></li>
-                <li><Link href='/resume'>Resume</Link></li>
-                <li><Link href='/contact'>Contact</Link></li>
+            <ul className="menu menu-horizontal">
+                <li className='pr-1'><Link href='/about'>About</Link></li>
+                <li className='pr-1'><Link href='/projects'>Projects</Link></li>
+                <li className='pr-1'><Link href='/resume'>Resume</Link></li>
+                <li className=''><Link href='/contact'>Contact</Link></li>
                 {/* <li>
                     <details>
                     <summary>

@@ -5,7 +5,7 @@ import{ GiSpiderMask } from 'react-icons/gi'
 
 const Footer = () => {
   return (
-    <footer className="footer flex flex-row justify-between items-center p-4 bg-neutral text-neutral-content">
+    <footer className="footer flex flex-row justify-between items-center p-4 bg-neutral text-neutral-content bg-zinc-800">
         <div className="flex items-center">
           <GiSpiderMask size={25}></GiSpiderMask>
           <p>Tamzeed Quazi - 2023</p>
