@@ -2,12 +2,21 @@ import Link from 'next/link'
 import React from 'react'
 
 const Navbar = () => {
+    //fixed top-0 left-0 w-full z-10
+    // bg-gradient-to-b from-black to-transparent
+    // border-2 border-sky-500
   return (
-    <div className="navbar bg-gradient-to-b from-black to-transparent fixed top-0 left-0 w-full z-10">
-        <div className="flex-1">
-            <Link href='/' className="btn btn-ghost normal-case text-xl">Tamzeed Quazi</Link>
+    <div className="navbar bg-zinc-800 flex flex-row justify-between">
+        <div className="flex">
+            <Link href='/' className="btn btn-ghost normal-case text-xl">
+                <div className="avatar">
+                    <div className="w-[18%] rounded-full shadow-xl border-2 border-white">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/2/21/Web_of_Spider-Man_Vol_1_129-1.png" alt="Spider-Man" />
+                    </div>
+                </div>
+            </Link>
         </div>
-        <div className="flex-none">
+        <div className="flex">
             <ul className="menu menu-horizontal">
                 <li className='pr-1'><Link href='/about'>About</Link></li>
                 <li className='pr-1'><Link href='/projects'>Projects</Link></li>
