@@ -68,8 +68,8 @@ export default function Home() {
         id="about" 
         className='min-h-screen bg-zinc-900 flex items-center justify-center' 
       >
-        <div className='border-2 border-sky-500 join h-[75vh] w-[75%] transform transition-transform hover:scale-105'>
-          <div className='bg-zinc-600 rounded-md join-item p-10 w-[60%]'>
+        {/* <div className='border-2 border-sky-500 join h-[75vh] w-[75%] flex flex-col sm:flex-row transform transition-transform hover:scale-105'>
+          <div className='bg-zinc-600 rounded-md join-item p-10 w-full sm:w-60% overflow-auto'>
             <h1>About me</h1>
             <hr />
             <p>
@@ -77,23 +77,43 @@ export default function Home() {
               <br />
               <br />
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex similique autem harum sed placeat itaque quo aliquam nulla vitae, sit quis rem eum deserunt nostrum molestiae, odio quibusdam suscipit unde. Eius, autem a debitis nam repudiandae dolorum sunt repellat consectetur nihil? Temporibus sint fuga magni inventore ad exercitationem nemo hic!
-            </p>
+              {/* Add more text if necessary */}
+            {/* </p>
           </div>
-          <div className='join-item w-[40%]'>
+          <div className='join-item w-full sm:w-40%'>
             <img 
-            className='w-full h-full' 
-            src='https://cdna.artstation.com/p/assets/images/images/033/956/654/large/stonie-williams-img-1650.jpg?1611014891'></img>
+              className='w-full h-full object-cover'
+              src='https://cdna.artstation.com/p/assets/images/images/033/956/654/large/stonie-williams-img-1650.jpg?1611014891'
+              alt='Profile'
+            />
           </div>          
+        </div> */}
+        <div className="max-w-md mx-auto bg-zinc-800 rounded-xl shadow-md overflow-hidden md:max-w-2xl transform transition-transform hover:scale-105">
+          <div className="md:flex">
+            <div className="md:shrink-0">
+              <img className="h-48 w-full object-cover md:h-full md:w-48" src="https://cdna.artstation.com/p/assets/images/images/033/956/654/large/stonie-williams-img-1650.jpg?1611014891" alt="Tamzeed Photo"/>
+            </div>
+            <div className="p-8">
+              <div className="uppercase tracking-wide text-sm text-2xl font-bold">About Me</div>
+              <p className="mt-2">
+                Looking to take your team away on a retreat to enjoy awesome food and take in some sunshine? We have a list of places to do just that.
+                <br />
+                <br />
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, dicta vero laboriosam quaerat odit voluptas pariatur, blanditiis dolores dolor nam qui expedita reprehenderit. Necessitatibus distinctio excepturi natus voluptates similique facilis. Hic excepturi maiores laboriosam dolore! In, facilis? Corporis, quod voluptates voluptas necessitatibus tempora, veritatis natus magni nobis architecto sit quae?
+              </p>
+            </div>
+          </div>
         </div>
       </div>
+
 
       {/* Interests flex justify-center items-center*/}
       <div id="interests" className='min-h-screen flex flex-col items-center justify-center gap-4'>
         <label className='border-2 border-sky-500'>Interests</label>
-        <div className='grid gap-4 grid-cols-2 grid-rows-2 border-2 border-sky-500'>
+        <div className='grid gap-4 md:grid-cols-2 md:grid-rows-2 sm:grid-rows-4 border-2 border-sky-500'>
         <div className="card w-96 bg-base-100 shadow-xl bg-zinc-800 transform transition-transform hover:scale-105">
             <figure className="px-10 pt-10">
-              <BiCodeBlock></BiCodeBlock>
+              <BiCodeBlock size={50}></BiCodeBlock>
             </figure>
             <div className="card-body items-center text-center">
               <h2 className="card-title">Web Development</h2>
@@ -104,7 +124,7 @@ export default function Home() {
 
           <div className="card w-96 bg-base-100 shadow-xl bg-zinc-800 transform transition-transform hover:scale-105">
             <figure className="px-10 pt-10">
-              <BiGitBranch></BiGitBranch>
+              <BiGitBranch size={50}></BiGitBranch>
             </figure>
             <div className="card-body items-center text-center">
               <h2 className="card-title">Software Development</h2>
@@ -114,7 +134,7 @@ export default function Home() {
 
           <div className="card w-96 bg-base-100 shadow-xl bg-zinc-800 transform transition-transform hover:scale-105">
             <figure className="px-10 pt-10">
-              <BsFillLightningChargeFill></BsFillLightningChargeFill>
+              <BsFillLightningChargeFill size={50}></BsFillLightningChargeFill>
             </figure>
             <div className="card-body items-center text-center">
               <h2 className="card-title">Electronics</h2>
@@ -124,7 +144,7 @@ export default function Home() {
 
           <div className="card w-96 bg-base-100 shadow-xl bg-zinc-800 transform transition-transform hover:scale-105">
             <figure className="px-10 pt-10">
-              <BsCpuFill></BsCpuFill>
+              <BsCpuFill size={50}></BsCpuFill>
             </figure>
             <div className="card-body items-center text-center">
               <h2 className="card-title">Machine Learning</h2>
