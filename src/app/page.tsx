@@ -9,18 +9,14 @@ import { FiMonitor } from 'react-icons/fi';
 import { BiCodeBlock, BiGitBranch } from 'react-icons/bi';
 
 export default function Home() {
-  const router = useRouter();
+  // const router = useRouter();
 
-  // useEffect(() => {
-  //   // Scroll to the section indicated in the URL hash
-  //   if (router.asPath !== router.route) {
-  //     const hash = router.asPath.substring(router.asPath.indexOf('#'));
-  //     const element = document.querySelector(hash);
-  //     if (element) {
-  //       element.scrollIntoView({ behavior: 'smooth' });
-  //     }
-  //   }
-  // }, [router.asPath]);
+  const handleClickScroll = (elementID: string) => {
+    const element = document.getElementById(elementID);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <main className="min-h-screen items-center justify-between">
@@ -47,18 +43,10 @@ export default function Home() {
         </div>
         <div>
           <ul className='text-right text-xl cursor-pointer'>
-            <li className='hover:underline hover:underline-offset-8 py-1'>
-              <Link href="/#about">About</Link>
-            </li>
-            <li className='hover:underline hover:underline-offset-8 py-1'>
-              <Link href="/#interests">Interests</Link>
-            </li>
-            <li className='hover:underline hover:underline-offset-8 py-1'>
-              <Link href="/#skills">Skills</Link>
-            </li>
-            <li className='hover:underline hover:underline-offset-8 py-1'>
-              <Link href="/#projects">Project Showcase</Link>
-            </li>
+            <li className='hover:underline hover:underline-offset-8 py-1' onClick={(e) => handleClickScroll("about")}>About</li>
+            <li className='hover:underline hover:underline-offset-8 py-1' onClick={(e) => handleClickScroll("interests")}>Interests</li>
+            <li className='hover:underline hover:underline-offset-8 py-1' onClick={(e) => handleClickScroll("skills")}>Skills</li>
+            <li className='hover:underline hover:underline-offset-8 py-1' onClick={(e) => handleClickScroll("projects")}>Projects</li>
           </ul>
         </div>
       </div>
@@ -109,8 +97,8 @@ export default function Home() {
 
       {/* Interests flex justify-center items-center*/}
       <div id="interests" className='min-h-screen flex flex-col items-center justify-center gap-4'>
-        <label className='border-2 border-sky-500'>Interests</label>
-        <div className='grid gap-4 md:grid-cols-2 md:grid-rows-2 sm:grid-rows-4 border-2 border-sky-500'>
+        <label className=''>Interests</label>
+        <div className='grid gap-4 md:grid-cols-2 md:grid-rows-2 sm:grid-rows-4'>
         <div className="card w-96 bg-base-100 shadow-xl bg-zinc-800 transform transition-transform hover:scale-105">
             <figure className="px-10 pt-10">
               <BiCodeBlock size={50}></BiCodeBlock>
