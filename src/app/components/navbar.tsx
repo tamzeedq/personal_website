@@ -1,42 +1,79 @@
+'use client'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react';
+import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
+
 
 const Navbar = () => {
     //fixed top-0 left-0 w-full z-10
     // bg-gradient-to-b from-black to-transparent
     // border-2 border-sky-500
+    const [nav, setNav] = useState(false);
+
+    const handleNav = () => {
+        setNav(!nav);
+    };
   return (
-    <div className="navbar bg-zinc-800 flex flex-row justify-between">
-        <div className="flex">
-            <Link href='/' className="btn btn-ghost normal-case text-xl">
-                <div className="avatar">
-                    <div className="w-[18%] rounded-full shadow-xl border-2 border-white">
-                        <img src="https://upload.wikimedia.org/wikipedia/en/2/21/Web_of_Spider-Man_Vol_1_129-1.png" alt="Spider-Man" />
-                    </div>
+    <div className='navbar-container relative z-50'>
+      <div className='flex h-[] justify-between items-center bg-zinc-800 mx-auto px-4 text-white'>
+        <Link href='/'>
+            <div className='rounded-full border-2 border-transparent group overflow-hidden hover:border-white transition duration-300'>
+                <img
+                    className='w-10 h-10 object-cover'
+                    src="https://upload.wikimedia.org/wikipedia/en/2/21/Web_of_Spider-Man_Vol_1_129-1.png"
+                    alt="Spider-Man"
+                />
+            </div>
+        </Link>
+        <ul className='hidden md:flex'>
+            <li className='p-4'><Link href='/about'>About</Link></li>
+            <li className='p-4'><Link href='/projects'>Projects</Link></li>
+            <li className='p-4'><Link href='/resume'>Resume</Link></li>
+            <li className='p-4'><Link href='/contact'>Contact</Link></li>
+        </ul>
+        <div onClick={handleNav} className='block md:hidden cursor-pointer'>
+            {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
+        </div>
+        <ul className={nav ? 'fixed left-0 top-0 w-full border-r border-r-gray-900 bg-zinc-800 ease-in-out duration-500 z-40 transform translate-y-0 transition-transform ease-out' : 'ease-in-out duration-500 fixed left-0 w-full transform -translate-y-full transition-transform ease-out'}>
+            <li className='p-4 border-b border-gray-600'>
+                <div className='flex flex-row justify-between items-center'>
+                    <Link href='/' onClick={handleNav}>
+                        <div className='rounded-full border-2 border-transparent group overflow-hidden hover:border-white transition duration-300'>
+                            <img
+                                className='w-10 h-10 object-cover'
+                                src="https://upload.wikimedia.org/wikipedia/en/2/21/Web_of_Spider-Man_Vol_1_129-1.png"
+                                alt="Spider-Man"
+                            />
+                        </div>
+                    </Link>
+                    <AiOutlineClose className='cursor-pointer' onClick={handleNav} size={20}></AiOutlineClose>
                 </div>
-            </Link>
-        </div>
-        <div className="flex">
-            <ul className="menu menu-horizontal">
-                <li className='pr-1'><Link href='/about'>About</Link></li>
-                <li className='pr-1'><Link href='/projects'>Projects</Link></li>
-                <li className='pr-1'><Link href='/resume'>Resume</Link></li>
-                <li className=''><Link href='/contact'>Contact</Link></li>
-                {/* <li>
-                    <details>
-                    <summary>
-                        Parent
-                    </summary>
-                    <ul className="p-2 bg-base-100">
-                        <li><a>Link 1</a></li>
-                        <li><a>Link 2</a></li>
-                    </ul>
-                    </details>
-                </li> */}
-            </ul>
-        </div>
+            </li>
+
+            <li className='p-4 border-b border-gray-600'>
+                <Link href='/about' className='block' onClick={handleNav}>
+                        About
+                </Link>
+            </li>
+            <li className='p-4 border-b border-gray-600'>
+                <Link href='/projects' className='block' onClick={handleNav}>
+                        Projects
+                </Link>
+            </li>
+            <li className='p-4 border-b border-gray-600'>
+                <Link href='/resume' className='block' onClick={handleNav}>
+                        Resume
+                </Link>
+            </li>
+            <li className='p-4 border-b border-gray-600'>
+                <Link href='/contact' className='block' onClick={handleNav}>
+                        Contact
+                </Link>
+            </li>
+        </ul>
+      </div>
     </div>
   )
 }
 
-export default Navbar
+export default Navbar;

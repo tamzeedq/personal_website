@@ -31,11 +31,6 @@ export default function Home() {
         }}
       >
         <div className='flex flex-row items-center gap-4'>
-          {/* <div className="avatar">
-            <div className="w-32 rounded-full shadow-xl border-2 border-white">
-              <img src="https://upload.wikimedia.org/wikipedia/en/2/21/Web_of_Spider-Man_Vol_1_129-1.png" alt="Spider-Man" />
-            </div>
-          </div> */}
           <div>
             <h1 className='text-5xl drop-shadow-xl'>TAMZEED QUAZI</h1>
             <h5 className='text-xl drop-shadow text-zinc-100'>Student Developer</h5>
@@ -56,26 +51,6 @@ export default function Home() {
         id="about" 
         className='min-h-screen bg-zinc-900 flex items-center justify-center' 
       >
-        {/* <div className='border-2 border-sky-500 join h-[75vh] w-[75%] flex flex-col sm:flex-row transform transition-transform hover:scale-105'>
-          <div className='bg-zinc-600 rounded-md join-item p-10 w-full sm:w-60% overflow-auto'>
-            <h1>About me</h1>
-            <hr />
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi, commodi odit eius eum, quos voluptatum quaerat magnam amet, eligendi vel assumenda quo. Neque vero quia molestiae quae, error sed. Accusantium cum reprehenderit quibusdam laborum autem inventore, quod dolorem dicta sint eius, iusto omnis officiis quisquam, modi maiores quis velit itaque.
-              <br />
-              <br />
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex similique autem harum sed placeat itaque quo aliquam nulla vitae, sit quis rem eum deserunt nostrum molestiae, odio quibusdam suscipit unde. Eius, autem a debitis nam repudiandae dolorum sunt repellat consectetur nihil? Temporibus sint fuga magni inventore ad exercitationem nemo hic!
-              {/* Add more text if necessary */}
-            {/* </p>
-          </div>
-          <div className='join-item w-full sm:w-40%'>
-            <img 
-              className='w-full h-full object-cover'
-              src='https://cdna.artstation.com/p/assets/images/images/033/956/654/large/stonie-williams-img-1650.jpg?1611014891'
-              alt='Profile'
-            />
-          </div>          
-        </div> */}
         <div className="max-w-md mx-auto bg-zinc-800 rounded-xl shadow-md overflow-hidden md:max-w-2xl transform transition-transform hover:scale-105">
           <div className="md:flex">
             <div className="md:shrink-0">
