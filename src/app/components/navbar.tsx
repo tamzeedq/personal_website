@@ -26,11 +26,32 @@ const Navbar = () => {
             </div>
         </Link>
         <ul className='hidden md:flex'>
-            <li className='p-4 hover:text-red-400'><Link href='/about'>About</Link></li>
-            <li className='p-4 hover:text-red-400'><Link href='/projects'>Projects</Link></li>
-            <li className='p-4 hover:text-red-400'><Link href='/resume'>Resume</Link></li>
-            <li className='p-4 hover:text-red-400'><Link href='/contact'>Contact</Link></li>
+            <li className='p-4 group'>
+                <a href='/about' className='relative'>
+                    About
+                    <span className='absolute bottom-0 left-0 w-full h-0.5 bg-red-400 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left'></span>
+                </a>
+            </li>
+            <li className='p-4 group'>
+                <a href='/projects' className='relative'>
+                    Projects
+                    <span className='absolute bottom-0 left-0 w-full h-0.5 bg-red-400 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left'></span>
+                </a>
+            </li>
+            <li className='p-4 group'>
+                <a href='/resume' className='relative'>
+                    Resume
+                    <span className='absolute bottom-0 left-0 w-full h-0.5 bg-red-400 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left'></span>
+                </a>
+            </li>
+            <li className='p-4 group'>
+                <a href='/contact' className='relative'>
+                    Contact
+                    <span className='absolute bottom-0 left-0 w-full h-0.5 bg-red-400 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left'></span>
+                </a>
+            </li>
         </ul>
+
         <div onClick={handleNav} className='block md:hidden cursor-pointer hover:text-red-400'>
             {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
         </div>

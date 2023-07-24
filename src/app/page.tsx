@@ -31,8 +31,8 @@ export default function Home() {
           backgroundPosition: "center", 
         }}
       >
-        <div>
-          <h1 className='text-5xl drop-shadow-xl'>TAMZEED QUAZI</h1>
+        <div className='flex flex-col justify-center items-center'>
+          <h1 className='text-7xl drop-shadow-xl'>TAMZEED QUAZI</h1>
           <h5 className='text-xl drop-shadow text-zinc-100'>Student Developer</h5>
         </div>
         <button className='btn btn-circle btn-sm btn-outline absolute bottom-2 right-1 bg-transparent' onClick={(e) => handleClickScroll("about")}><BsArrowDownShort></BsArrowDownShort></button>
