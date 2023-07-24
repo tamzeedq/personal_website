@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { BsCpuFill, BsFillLightningChargeFill } from 'react-icons/bs';
+import { BsCpuFill, BsFillLightningChargeFill, BsArrowDownShort, BsArrowUpShort } from 'react-icons/bs';
 import { FiMonitor } from 'react-icons/fi';
 import { BiCodeBlock, BiGitBranch } from 'react-icons/bi';
 
@@ -22,34 +22,26 @@ export default function Home() {
     <main className="min-h-screen items-center justify-between">
       
       {/* Header */}
-      <div 
-        className='flex flex-row justify-between py-24 px-8'
+      <div
+        id='header' 
+        className='flex flex-col justify-between py-24 px-8 relative'
         style={{ 
           backgroundImage: "url(https://cdn.pixabay.com/photo/2019/11/20/17/42/buildings-4640671_1280.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center", 
         }}
       >
-        <div className='flex flex-row items-center gap-4'>
-          <div>
-            <h1 className='text-5xl drop-shadow-xl'>TAMZEED QUAZI</h1>
-            <h5 className='text-xl drop-shadow text-zinc-100'>Student Developer</h5>
-          </div>
-        </div>
         <div>
-          <ul className='text-right text-xl cursor-pointer'>
-            <li className='hover:underline hover:underline-offset-8 py-1' onClick={(e) => handleClickScroll("about")}>About</li>
-            <li className='hover:underline hover:underline-offset-8 py-1' onClick={(e) => handleClickScroll("interests")}>Interests</li>
-            <li className='hover:underline hover:underline-offset-8 py-1' onClick={(e) => handleClickScroll("skills")}>Skills</li>
-            <li className='hover:underline hover:underline-offset-8 py-1' onClick={(e) => handleClickScroll("projects")}>Projects</li>
-          </ul>
+          <h1 className='text-5xl drop-shadow-xl'>TAMZEED QUAZI</h1>
+          <h5 className='text-xl drop-shadow text-zinc-100'>Student Developer</h5>
         </div>
+        <button className='btn btn-circle btn-sm btn-outline absolute bottom-2 right-1 bg-transparent' onClick={(e) => handleClickScroll("about")}><BsArrowDownShort></BsArrowDownShort></button>
       </div>
 
       {/* About  https://cdna.artstation.com/p/assets/images/images/033/956/654/large/stonie-williams-img-1650.jpg?1611014891 */}
       <div 
         id="about" 
-        className='min-h-screen bg-zinc-900 flex items-center justify-center' 
+        className='min-h-screen bg-zinc-900 flex items-center justify-center relative' 
       >
         <div className="max-w-md mx-auto bg-zinc-800 rounded-xl shadow-md overflow-hidden md:max-w-2xl transform transition-transform hover:scale-105">
           <div className="md:flex">
@@ -67,14 +59,15 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <button className='btn btn-circle btn-sm btn-outline absolute bottom-2 right-1 bg-transparent' onClick={(e) => handleClickScroll("interests")}><BsArrowDownShort></BsArrowDownShort></button>
       </div>
 
 
       {/* Interests flex justify-center items-center*/}
-      <div id="interests" className='min-h-screen flex flex-col items-center justify-center gap-4'>
+      <div id="interests" className='min-h-screen flex flex-col items-center justify-center gap-4 relative'>
         <label className=''>Interests</label>
-        <div className='grid gap-4 md:grid-cols-2 md:grid-rows-2 sm:grid-rows-4'>
-        <div className="card w-96 bg-base-100 shadow-xl bg-zinc-800 transform transition-transform hover:scale-105">
+        <div className='grid gap-4 md:grid-cols-2 md:grid-rows-2 sm:grid-rows-4 py-10'>
+          <div className="card w-[100%] bg-base-100 shadow-xl bg-zinc-800 transform transition-transform hover:scale-105">
             <figure className="px-10 pt-10">
               <BiCodeBlock size={50}></BiCodeBlock>
             </figure>
@@ -85,7 +78,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="card w-96 bg-base-100 shadow-xl bg-zinc-800 transform transition-transform hover:scale-105">
+          <div className="card w-[100%] bg-base-100 shadow-xl bg-zinc-800 transform transition-transform hover:scale-105">
             <figure className="px-10 pt-10">
               <BiGitBranch size={50}></BiGitBranch>
             </figure>
@@ -95,7 +88,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="card w-96 bg-base-100 shadow-xl bg-zinc-800 transform transition-transform hover:scale-105">
+          <div className="card w-[100%] bg-base-100 shadow-xl bg-zinc-800 transform transition-transform hover:scale-105">
             <figure className="px-10 pt-10">
               <BsFillLightningChargeFill size={50}></BsFillLightningChargeFill>
             </figure>
@@ -105,7 +98,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="card w-96 bg-base-100 shadow-xl bg-zinc-800 transform transition-transform hover:scale-105">
+          <div className="card w-[100%] bg-base-100 shadow-xl bg-zinc-800 transform transition-transform hover:scale-105">
             <figure className="px-10 pt-10">
               <BsCpuFill size={50}></BsCpuFill>
             </figure>
@@ -115,16 +108,19 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <button className='btn btn-circle btn-sm btn-outline absolute bottom-2 right-1 bg-transparent' onClick={(e) => handleClickScroll("skills")}><BsArrowDownShort></BsArrowDownShort></button>
       </div>
 
       {/* Skills */}
-      <div id="skills" className='min-h-screen bg-zinc-900'>
+      <div id="skills" className='min-h-screen bg-zinc-900 relative'>
         <p>Skills section</p>
+        <button className='btn btn-circle btn-sm btn-outline absolute bottom-2 right-1 bg-transparent' onClick={(e) => handleClickScroll("projects")}><BsArrowDownShort></BsArrowDownShort></button>
       </div>
       
       {/* Project Showcase */}
-      <div id="projects" className='min-h-screen'>
+      <div id="projects" className='min-h-screen relative'>
         <p>Project Showcase</p>
+        <button className='btn btn-circle btn-sm btn-outline absolute bottom-2 right-1 bg-transparent' onClick={(e) => handleClickScroll("header")}><BsArrowUpShort></BsArrowUpShort></button>
       </div>
     </main>
   );
