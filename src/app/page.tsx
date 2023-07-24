@@ -90,7 +90,7 @@ export default function Home() {
               <BiGitBranch size={50}></BiGitBranch>
             </figure>
             <div className="card-body items-center text-center">
-              <h2 className="card-title">Software Development</h2>
+              <h2 className="card-title">Software Engineering</h2>
               <p>If a dog chews shoes whose shoes does he choose?</p>
             </div>
           </div>
