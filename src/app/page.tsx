@@ -65,58 +65,66 @@ export default function Home() {
 
       {/* Interests flex justify-center items-center*/}
       <div id="interests" className='min-h-screen flex flex-col items-center justify-center gap-4 relative'>
-        <label className=''>Interests</label>
-        <div className='grid gap-4 md:grid-cols-2 md:grid-rows-2 sm:grid-rows-4 py-10'>
-          <div className="card w-[100%] bg-base-100 shadow-xl bg-zinc-800 transform transition-transform hover:scale-105">
+        <label className=''>Interests and Skills</label>
+        <div className='grid gap-4 md:grid-cols-2 md:grid-rows-2 sm:grid-rows-4 py-10 w-[75%]'>
+          <div className="group card w-[100%] bg-base-100 shadow-xl bg-zinc-800 transform transition-transform hover:scale-105">
             <figure className="px-10 pt-10">
               <BiCodeBlock size={50}></BiCodeBlock>
             </figure>
             <div className="card-body items-center text-center">
               <h2 className="card-title">Web Development</h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-              
+              <div className='flex flex-row gap-x-2'>
+                <div className="badge badge-neutral group-hover:block hidden">ReactJS</div>
+                <div className="badge badge-neutral group-hover:block hidden">HTML</div>
+                <div className="badge badge-neutral group-hover:block hidden">CSS</div>
+                <div className="badge badge-neutral group-hover:block hidden">PostGresSQL</div>
+              </div>
             </div>
           </div>
 
-          <div className="card w-[100%] bg-base-100 shadow-xl bg-zinc-800 transform transition-transform hover:scale-105">
+          <div className="group card w-[100%] bg-base-100 shadow-xl bg-zinc-800 transform transition-transform hover:scale-105">
             <figure className="px-10 pt-10">
               <BiGitBranch size={50}></BiGitBranch>
             </figure>
             <div className="card-body items-center text-center">
               <h2 className="card-title">Software Engineering</h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
+              <div className='flex flex-row gap-x-2'>
+                <div className="badge badge-neutral group-hover:block hidden">Java</div>
+                <div className="badge badge-neutral group-hover:block hidden">C++</div>
+                <div className="badge badge-neutral group-hover:block hidden">Python</div>
+              </div>
             </div>
           </div>
 
-          <div className="card w-[100%] bg-base-100 shadow-xl bg-zinc-800 transform transition-transform hover:scale-105">
+          <div className="group card w-[100%] bg-base-100 shadow-xl bg-zinc-800 transform transition-transform hover:scale-105">
             <figure className="px-10 pt-10">
               <BsFillLightningChargeFill size={50}></BsFillLightningChargeFill>
             </figure>
             <div className="card-body items-center text-center">
               <h2 className="card-title">Electronics</h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
+              <div className='flex flex-row gap-x-2'>
+                <div className="badge badge-neutral group-hover:block hidden">Arduino</div>
+                <div className="badge badge-neutral group-hover:block hidden">C++</div>
+              </div>
             </div>
           </div>
 
-          <div className="card w-[100%] bg-base-100 shadow-xl bg-zinc-800 transform transition-transform hover:scale-105">
+          <div className="group card w-[100%] bg-base-100 shadow-xl bg-zinc-800 transform transition-transform hover:scale-105">
             <figure className="px-10 pt-10">
-              <BsCpuFill size={50}></BsCpuFill>
+            <BsCpuFill size={50}></BsCpuFill>
             </figure>
             <div className="card-body items-center text-center">
               <h2 className="card-title">Machine Learning</h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
+              {/* <div className='flex flex-row gap-x-2'>
+                <div className="badge badge-neutral group-hover:block hidden">Currently Learning</div>
+              </div> */}
             </div>
           </div>
         </div>
-        <button className='btn btn-circle btn-sm btn-outline absolute bottom-2 right-1 bg-transparent' onClick={(e) => handleClickScroll("skills")}><BsArrowDownShort></BsArrowDownShort></button>
-      </div>
-
-      {/* Skills */}
-      <div id="skills" className='min-h-screen bg-zinc-900 relative'>
-        <p>Skills section</p>
         <button className='btn btn-circle btn-sm btn-outline absolute bottom-2 right-1 bg-transparent' onClick={(e) => handleClickScroll("projects")}><BsArrowDownShort></BsArrowDownShort></button>
       </div>
-      
+
+
       {/* Project Showcase */}
       <div id="projects" className='min-h-screen relative'>
         <p>Project Showcase</p>
