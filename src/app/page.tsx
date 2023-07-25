@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import { BsCpuFill, BsFillLightningChargeFill, BsArrowDownShort, BsArrowUpShort } from 'react-icons/bs';
 import { FiMonitor } from 'react-icons/fi';
 import { BiCodeBlock, BiGitBranch } from 'react-icons/bi';
+import HoverCard from './components/hoverCard';
 
 export default function Home() {
   // const router = useRouter();
@@ -126,8 +127,30 @@ export default function Home() {
 
 
       {/* Project Showcase */}
-      <div id="projects" className='min-h-screen relative'>
-        <p>Project Showcase</p>
+      <div id="projects" className='min-h-screen relative flex flex-col justify-center items-center '>
+        <h1 className='text-6xl'>Projects</h1>
+        
+        <div className='flex md:flex-row flex-col justify-center items-center gap-4'>
+
+          <HoverCard
+            imageSrc="https://i.pinimg.com/474x/3a/97/57/3a9757fd27af9a5baf6292335e8c22a0.jpg"
+            title="Card 1"
+            description="This is the description of Card 1."
+          />
+
+          <HoverCard
+            imageSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbxfKsFWHUOHWTl5gpq8Ic1tIMzEB_vKB4oDZyYCe2WDEpN_AzF04evWh6Pj7a-I6yICY&usqp=CAU"
+            title="Card 1"
+            description="This is the description of Card 1."
+          />
+
+          <HoverCard
+            imageSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqlE6gUsPdGAL-Dbpibi9Z-gRmqgS2Qb4o3IIIVUPzTg2QA4l0WGhGakZGM0GeyAoOJMg&usqp=CAU"
+            title="Card 1"
+            description="This is the description of Card 1."
+          />
+          
+        </div>
         <button className='btn btn-circle btn-sm btn-outline absolute bottom-2 right-1 bg-transparent' onClick={(e) => handleClickScroll("header")}><BsArrowUpShort></BsArrowUpShort></button>
       </div>
     </main>

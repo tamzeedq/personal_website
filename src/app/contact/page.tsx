@@ -15,17 +15,17 @@ const Contact = () => {
         {/* Image stuff */}
         <div className='flex justify-center'>
           <img
-            className='rounded-full w-20 h-20 absolute -translate-y-[75%]'
+            className='rounded-full w-20 h-20 absolute -translate-y-[85%]'
             src='https://staticg.sportskeeda.com/editor/2023/06/31e33-16861465340175-1920.jpg'
             alt=''
           />
         </div>
         {/* Contact info stuff */}
-        <h1 className='font-bold'>Get in touch!</h1>
-        <p>
+        <h1 className='font-bold text-5xl text-center'>Get in touch!</h1>
+        {/* <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab, ea soluta repudiandae esse
           obcaecati reiciendis.
-        </p>
+        </p> */}
         <div className='flex items-center justify-center gap-x-2'>
           <button className='btn btn-sm btn-circle hover:scale-105 hover:text-amber-300'>
             <Link href="https://github.com/tamzeedq">
