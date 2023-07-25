@@ -39,7 +39,7 @@ const Navbar = () => {
                 </a>
             </li>
             <li className='p-4 group'>
-                <a href='/resume' className='relative'>
+                <a href='https://drive.google.com/file/d/12H-IXikMOWN9UNcgz_lisb-YlVxYy0Fz/view?usp=drive_link' target='_blank' className='relative'>
                     Resume
                     <span className='absolute bottom-0 left-0 w-full h-0.5 bg-red-400 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left'></span>
                 </a>

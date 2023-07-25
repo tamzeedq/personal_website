@@ -72,7 +72,7 @@ export default function Home() {
               <BiCodeBlock size={50}></BiCodeBlock>
             </figure>
             <div className="card-body items-center text-center">
-              <h2 className="card-title">Web Development</h2>
+              <h2 className="card-title">Full Stack Development</h2>
               <div className='flex flex-row gap-x-2'>
                 <div className="badge badge-neutral group-hover:block hidden">ReactJS</div>
                 <div className="badge badge-neutral group-hover:block hidden">HTML</div>
