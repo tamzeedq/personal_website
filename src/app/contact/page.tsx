@@ -39,12 +39,13 @@ const Contact = () => {
           </button>
           <button className='btn btn-sm btn-circle hover:scale-105 hover:text-teal-200'>
             <Link href="https://www.linkedin.com/in/tamzeedquazi/">
-
               <FaLinkedin></FaLinkedin>
             </Link>
           </button>
           <button className='btn btn-sm btn-circle hover:scale-105 hover:text-red-200'>
-            <HiOutlineMail></HiOutlineMail>
+            <Link href="mailto:tamzeed.q@gmail.com">
+              <HiOutlineMail></HiOutlineMail>
+            </Link>
           </button>
         </div>
       </div>

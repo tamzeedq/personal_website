@@ -1,4 +1,7 @@
+import Link from 'next/link'
 import React from 'react'
+import { AiFillGithub } from 'react-icons/ai'
+import ImageCarousel from '../components/imageCarousel'
 
 const Projects = () => {
   return (
@@ -9,15 +12,179 @@ const Projects = () => {
 
       <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400">
         <input type="checkbox" /> 
-        <div className="collapse-title text-xl font-medium">
-          Click me to show/hide content
+        <div className="collapse-title text-xl font-bold text-center">
+          Personal Website        
         </div>
         <div className="collapse-content text-white"> 
-          <p>hello</p>
+          <ul className='flex flex-col gap-4'>
+            <li>
+              Created a website that pulls from the Open Weather API to show the weather and a quick summary
+              for the day of a user-inputted location
+            </li>
+            <li>
+              Utilized React’s component format and automatic re-render to spontaneously create cards for each
+              location’s weather for clear display and comparison with other locations
+            </li>
+            <li className='flex gap-2'>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">ReactJS</div>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">TypeScript</div>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">NextJS</div>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">Tailwind CSS</div>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">Netlify</div>
+            </li>
+            <li className='btn btn-sm hover:scale-105 text-white w-[50%] hover:text-red-400'>
+              <Link href='https://github.com/tamzeedq/personal_website' target='_blank' className='flex gap-2 items-center'>
+                View Project on GitHub <AiFillGithub size={25}></AiFillGithub>
+              </Link>
+            </li>
+            <li>
+              <ImageCarousel
+                imageURLS={["https://c4.wallpaperflare.com/wallpaper/1000/316/848/spider-man-2018-game-wallpaper-preview.jpg", "https://c4.wallpaperflare.com/wallpaper/689/1001/110/spiderman-ps4-spiderman-superheroes-games-wallpaper-preview.jpg", "https://c4.wallpaperflare.com/wallpaper/826/109/269/spiderman-into-the-spider-verse-2018-movies-movies-spiderman-wallpaper-preview.jpg"]}
+              ></ImageCarousel>
+            </li>
+          </ul>
         </div>
       </div>
 
       <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400">
+        <input type="checkbox" /> 
+        <div className="collapse-title text-xl font-bold text-center">
+          React Weather App
+        </div>
+        <div className="collapse-content text-white"> 
+          <ul className='flex flex-col gap-4'>
+            <li>
+              Created a website that pulls from the Open Weather API to show the weather and a quick summary
+              for the day of a user-inputted location
+            </li>
+            <li>
+              Utilized React’s component format and automatic re-render to spontaneously create cards for each
+              location’s weather for clear display and comparison with other locations
+            </li>
+            <li className='flex gap-2'>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">HTML</div>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">CSS</div>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">ReactJS</div>
+            </li>
+            <li className='btn btn-sm hover:scale-105 text-white w-[50%] hover:text-red-400'>
+              <Link href='https://github.com/tamzeedq/react-weather-app' target='_blank' className='flex gap-2 items-center'>
+                View Project on GitHub <AiFillGithub size={25}></AiFillGithub>
+              </Link>
+            </li>
+            <li>
+              <ImageCarousel
+                imageURLS={["https://c4.wallpaperflare.com/wallpaper/1000/316/848/spider-man-2018-game-wallpaper-preview.jpg", "https://c4.wallpaperflare.com/wallpaper/689/1001/110/spiderman-ps4-spiderman-superheroes-games-wallpaper-preview.jpg", "https://c4.wallpaperflare.com/wallpaper/826/109/269/spiderman-into-the-spider-verse-2018-movies-movies-spiderman-wallpaper-preview.jpg"]}
+              ></ImageCarousel>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400">
+        <input type="checkbox" /> 
+        <div className="collapse-title text-xl font-bold text-center">
+          Sorting Algorithm Visualizer
+        </div>
+        <div className="collapse-content text-white"> 
+          <ul className='flex flex-col gap-4'>
+            <li>
+              Created a website to visualize the sorting of a randomly generated array by manipulating the HTML
+              DOM with JavaScript
+            </li>
+            <li>Implemented adjustable size for the array and speed of solution</li>
+            <li>The website visualizes bubble sort, insertion sort, selection sort, and quick sort</li>
+            <li className='flex gap-2'>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">HTML</div>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">CSS</div>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">JavaScript</div>
+            </li>
+            <li className='btn btn-sm hover:scale-105 text-white w-[50%] hover:text-red-400'>
+              <Link href='https://github.com/tamzeedq/SortingAlgorithmVisualizer' target='_blank' className='flex gap-2 items-center'>
+                View Project on GitHub <AiFillGithub size={25}></AiFillGithub>
+              </Link>
+            </li>
+            <li>
+              <ImageCarousel
+                imageURLS={["https://c4.wallpaperflare.com/wallpaper/1000/316/848/spider-man-2018-game-wallpaper-preview.jpg", "https://c4.wallpaperflare.com/wallpaper/689/1001/110/spiderman-ps4-spiderman-superheroes-games-wallpaper-preview.jpg", "https://c4.wallpaperflare.com/wallpaper/826/109/269/spiderman-into-the-spider-verse-2018-movies-movies-spiderman-wallpaper-preview.jpg"]}
+              ></ImageCarousel>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400">
+        <input type="checkbox" /> 
+        <div className="collapse-title text-xl font-bold text-center">
+          Hoppon Bot
+        </div>
+        <div className="collapse-content text-white"> 
+          <ul className='flex flex-col gap-4'>
+            <li>
+              Used the Discord API to create a server bot with convenient functionality
+            </li>
+            <li>
+              Command to flip a coin, plays a GIF and posts the result
+            </li>
+            <li>
+              Creates customizable polls in server chats by creating an embedded message with interactive
+              reactions to vote based on the input of the user for the options
+            </li>
+            <li className='flex gap-2'>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">Python</div>
+            </li>
+            <li className='btn btn-sm hover:scale-105 text-white w-[50%] hover:text-red-400'>
+              <Link href='https://github.com/tamzeedq/DiscordBot' target='_blank' className='flex gap-2 items-center'>
+                View Project on GitHub <AiFillGithub size={25}></AiFillGithub>
+              </Link>
+            </li>
+            <li>
+              <ImageCarousel
+                imageURLS={["https://c4.wallpaperflare.com/wallpaper/1000/316/848/spider-man-2018-game-wallpaper-preview.jpg", "https://c4.wallpaperflare.com/wallpaper/689/1001/110/spiderman-ps4-spiderman-superheroes-games-wallpaper-preview.jpg", "https://c4.wallpaperflare.com/wallpaper/826/109/269/spiderman-into-the-spider-verse-2018-movies-movies-spiderman-wallpaper-preview.jpg"]}
+              ></ImageCarousel>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400">
+        <input type="checkbox" /> 
+        <div className="collapse-title text-xl font-bold text-center">
+          Fitness Tracker
+        </div>
+        <div className="collapse-content text-white"> 
+          <ul className='flex flex-col gap-4'>
+            <li>
+              Tracks your diet and workouts for a week including calories burned and eaten, protein,
+              carbohydrates, fats, and personal notes for each day
+            </li>
+            <li>
+              The week can be saved to a JSON file and then reloaded anytime and an event log is printed to the
+              console of any changes made at the end of a session
+            </li>
+            <li>
+              JUnit testing used to assure user story functionality
+            </li>
+            <li className='flex gap-2'>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">Java</div>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">JUnit</div>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">Java Swing</div>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">JSON</div>
+            </li>
+            <li className='btn btn-sm hover:scale-105 text-white w-[50%] hover:text-red-400'>
+              <Link href='https://github.com/tamzeedq/FitnessTrackerApp' target='_blank' className='flex gap-2 items-center'>
+                View Project on GitHub <AiFillGithub size={25}></AiFillGithub>
+              </Link>
+            </li>
+            <li>
+              <ImageCarousel
+                imageURLS={["https://c4.wallpaperflare.com/wallpaper/1000/316/848/spider-man-2018-game-wallpaper-preview.jpg", "https://c4.wallpaperflare.com/wallpaper/689/1001/110/spiderman-ps4-spiderman-superheroes-games-wallpaper-preview.jpg", "https://c4.wallpaperflare.com/wallpaper/826/109/269/spiderman-into-the-spider-verse-2018-movies-movies-spiderman-wallpaper-preview.jpg"]}
+              ></ImageCarousel>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {/* <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400">
         <input type="checkbox" /> 
         <div className="collapse-title text-xl font-medium">
           Click me to show/hide content
@@ -25,37 +192,7 @@ const Projects = () => {
         <div className="collapse-content text-white"> 
           <p>hello</p>
         </div>
-      </div>
-
-      <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400">
-        <input type="checkbox" /> 
-        <div className="collapse-title text-xl font-medium">
-          Click me to show/hide content
-        </div>
-        <div className="collapse-content text-white"> 
-          <p>hello</p>
-        </div>
-      </div>
-
-      <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400">
-        <input type="checkbox" /> 
-        <div className="collapse-title text-xl font-medium">
-          Click me to show/hide content
-        </div>
-        <div className="collapse-content text-white"> 
-          <p>hello</p>
-        </div>
-      </div>
-
-      <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400">
-        <input type="checkbox" /> 
-        <div className="collapse-title text-xl font-medium">
-          Click me to show/hide content
-        </div>
-        <div className="collapse-content text-white"> 
-          <p>hello</p>
-        </div>
-      </div>
+      </div> */}
     </div>
   )
 }
