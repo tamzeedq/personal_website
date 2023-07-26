@@ -4,7 +4,7 @@ const About = () => {
   return (
     <div className='max-h-screen flex'>
       <div className='w-[50%] max-h-[100%]'>
-        <img className='w-full h-full object-cover' src="https://i.ebayimg.com/images/g/w2sAAOSwkm1fXNDp/s-l1200.webp" alt="Tamzeed Photo" />
+        <img className='w-full h-full object-cover' src="/images/tamzeed/alley_pic.jpg" alt="Tamzeed Photo" />
       </div>
       
       <div className='w-[50%] max-h-[100%] p-16 overflow-y-scroll no-scrollbar'>

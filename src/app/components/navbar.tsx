@@ -20,8 +20,8 @@ const Navbar = () => {
             <div className='rounded-full border-2 border-transparent group overflow-hidden hover:border-red-400 transition duration-300'>
                 <img
                     className='w-10 h-10 object-cover'
-                    src="https://upload.wikimedia.org/wikipedia/en/2/21/Web_of_Spider-Man_Vol_1_129-1.png"
-                    alt="Spider-Man"
+                    src="/images/tamzeed/profile_pic.jpg"
+                    alt=""
                 />
             </div>
         </Link>

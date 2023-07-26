@@ -18,12 +18,10 @@ const Projects = () => {
         <div className="collapse-content text-white"> 
           <ul className='flex flex-col gap-4'>
             <li>
-              Created a website that pulls from the Open Weather API to show the weather and a quick summary
-              for the day of a user-inputted location
+              Used NextJS 13 and React as the framework, Tailwind CSS for styling, TypeScript, and hosted on Netlify
             </li>
             <li>
-              Utilized React’s component format and automatic re-render to spontaneously create cards for each
-              location’s weather for clear display and comparison with other locations
+              Click Around !
             </li>
             <li className='flex gap-2'>
               <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">ReactJS</div>
@@ -37,11 +35,11 @@ const Projects = () => {
                 View Project on GitHub <AiFillGithub size={25}></AiFillGithub>
               </Link>
             </li>
-            <li>
+            {/* <li>
               <ImageCarousel
                 imageURLS={["https://c4.wallpaperflare.com/wallpaper/1000/316/848/spider-man-2018-game-wallpaper-preview.jpg", "https://c4.wallpaperflare.com/wallpaper/689/1001/110/spiderman-ps4-spiderman-superheroes-games-wallpaper-preview.jpg", "https://c4.wallpaperflare.com/wallpaper/826/109/269/spiderman-into-the-spider-verse-2018-movies-movies-spiderman-wallpaper-preview.jpg"]}
               ></ImageCarousel>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
@@ -73,7 +71,7 @@ const Projects = () => {
             </li>
             <li>
               <ImageCarousel
-                imageURLS={["https://c4.wallpaperflare.com/wallpaper/1000/316/848/spider-man-2018-game-wallpaper-preview.jpg", "https://c4.wallpaperflare.com/wallpaper/689/1001/110/spiderman-ps4-spiderman-superheroes-games-wallpaper-preview.jpg", "https://c4.wallpaperflare.com/wallpaper/826/109/269/spiderman-into-the-spider-verse-2018-movies-movies-spiderman-wallpaper-preview.jpg"]}
+                imageURLS={["/images/weather_project/weather_app_1.png", "/images/weather_project/weather_app_2.png", "/images/weather_project/weather_app_3.png"]}
               ></ImageCarousel>
             </li>
           </ul>
@@ -105,7 +103,7 @@ const Projects = () => {
             </li>
             <li>
               <ImageCarousel
-                imageURLS={["https://c4.wallpaperflare.com/wallpaper/1000/316/848/spider-man-2018-game-wallpaper-preview.jpg", "https://c4.wallpaperflare.com/wallpaper/689/1001/110/spiderman-ps4-spiderman-superheroes-games-wallpaper-preview.jpg", "https://c4.wallpaperflare.com/wallpaper/826/109/269/spiderman-into-the-spider-verse-2018-movies-movies-spiderman-wallpaper-preview.jpg"]}
+                imageURLS={["/images/algorithm_project/algorithm_project1.png", "/images/algorithm_project/algorithm_project2.png", "/images/algorithm_project/algorithm_project3.png"]}
               ></ImageCarousel>
             </li>
           </ul>
@@ -139,7 +137,7 @@ const Projects = () => {
             </li>
             <li>
               <ImageCarousel
-                imageURLS={["https://c4.wallpaperflare.com/wallpaper/1000/316/848/spider-man-2018-game-wallpaper-preview.jpg", "https://c4.wallpaperflare.com/wallpaper/689/1001/110/spiderman-ps4-spiderman-superheroes-games-wallpaper-preview.jpg", "https://c4.wallpaperflare.com/wallpaper/826/109/269/spiderman-into-the-spider-verse-2018-movies-movies-spiderman-wallpaper-preview.jpg"]}
+                imageURLS={["/images/hoppon_project/hoppon_bot1.png", "/images/hoppon_project/hoppon_bot2.png", "/images/hoppon_project/hoppon_bot3.png"]}
               ></ImageCarousel>
             </li>
           </ul>
@@ -175,11 +173,11 @@ const Projects = () => {
                 View Project on GitHub <AiFillGithub size={25}></AiFillGithub>
               </Link>
             </li>
-            <li>
+            {/* <li>
               <ImageCarousel
                 imageURLS={["https://c4.wallpaperflare.com/wallpaper/1000/316/848/spider-man-2018-game-wallpaper-preview.jpg", "https://c4.wallpaperflare.com/wallpaper/689/1001/110/spiderman-ps4-spiderman-superheroes-games-wallpaper-preview.jpg", "https://c4.wallpaperflare.com/wallpaper/826/109/269/spiderman-into-the-spider-verse-2018-movies-movies-spiderman-wallpaper-preview.jpg"]}
               ></ImageCarousel>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

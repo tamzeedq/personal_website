@@ -16,7 +16,7 @@ const Contact = () => {
         <div className='flex justify-center'>
           <img
             className='rounded-full w-20 h-20 absolute -translate-y-[85%]'
-            src='https://staticg.sportskeeda.com/editor/2023/06/31e33-16861465340175-1920.jpg'
+            src="/images/tamzeed/profile_pic.jpg"
             alt=''
           />
         </div>
