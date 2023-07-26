@@ -25,7 +25,7 @@ export default function Home() {
       {/* Header */}
       <div
         id='header' 
-        className='flex flex-col justify-between py-24 px-8 relative'
+        className='min-h-screen flex flex-col justify-center items-center py-24 px-8 relative'
         style={{ 
           backgroundImage: "url(https://cdn.pixabay.com/photo/2019/11/20/17/42/buildings-4640671_1280.jpg)",
           backgroundSize: "cover",
@@ -36,11 +36,11 @@ export default function Home() {
           <h1 className='text-7xl drop-shadow-xl'>TAMZEED QUAZI</h1>
           <h5 className='text-xl drop-shadow text-zinc-100'>Student Developer</h5>
         </div>
-        <button className='btn btn-circle btn-sm btn-outline absolute bottom-2 right-1 bg-transparent' onClick={(e) => handleClickScroll("about")}><BsArrowDownShort></BsArrowDownShort></button>
+        {/* <button className='btn btn-circle btn-sm btn-outline absolute bottom-2 right-1 bg-transparent' onClick={(e) => handleClickScroll("about")}><BsArrowDownShort></BsArrowDownShort></button> */}
       </div>
 
       {/* About  https://cdna.artstation.com/p/assets/images/images/033/956/654/large/stonie-williams-img-1650.jpg?1611014891 */}
-      <div 
+      {/* <div 
         id="about" 
         className='min-h-screen bg-zinc-900 flex items-center justify-center relative' 
       >
@@ -61,11 +61,11 @@ export default function Home() {
           </div>
         </div>
         <button className='btn btn-circle btn-sm btn-outline absolute bottom-2 right-1 bg-transparent' onClick={(e) => handleClickScroll("interests")}><BsArrowDownShort></BsArrowDownShort></button>
-      </div>
+      </div> */}
 
 
       {/* Interests flex justify-center items-center*/}
-      <div id="interests" className='min-h-screen flex flex-col items-center justify-center gap-4 relative'>
+      {/* <div id="interests" className='min-h-screen flex flex-col items-center justify-center gap-4 relative'>
         <label className=''>Interests and Skills</label>
         <div className='grid gap-4 md:grid-cols-2 md:grid-rows-2 sm:grid-rows-4 py-10 w-[75%]'>
           <div className="group card w-[100%] bg-base-100 shadow-xl bg-zinc-800 transform transition-transform hover:scale-105">
@@ -118,16 +118,16 @@ export default function Home() {
               <h2 className="card-title">Machine Learning</h2>
               {/* <div className='flex flex-row gap-x-2'>
                 <div className="badge badge-neutral group-hover:block hidden">Currently Learning</div>
-              </div> */}
+              </div> *
             </div>
           </div>
         </div>
         <button className='btn btn-circle btn-sm btn-outline absolute bottom-2 right-1 bg-transparent' onClick={(e) => handleClickScroll("projects")}><BsArrowDownShort></BsArrowDownShort></button>
-      </div>
+      </div> */}
 
 
       {/* Project Showcase */}
-      <div id="projects" className='min-h-screen relative flex flex-col justify-center items-center '>
+      {/* <div id="projects" className='min-h-screen relative flex flex-col justify-center items-center '>
         <h1 className='text-6xl'>Projects</h1>
         
         <div className='flex md:flex-row flex-col justify-center items-center gap-4'>
@@ -152,7 +152,7 @@ export default function Home() {
           
         </div>
         <button className='btn btn-circle btn-sm btn-outline absolute bottom-2 right-1 bg-transparent' onClick={(e) => handleClickScroll("header")}><BsArrowUpShort></BsArrowUpShort></button>
-      </div>
+      </div>  */}
     </main>
   );
 }
