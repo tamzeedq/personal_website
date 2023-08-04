@@ -5,12 +5,12 @@ import ImageCarousel from '../components/imageCarousel'
 
 const Projects = () => {
   return (
-    <div className='min-h-screen p-24 flex flex-col gap-8'>
+    <div className='min-h-screen p-24 flex flex-col items-center justify-center gap-8'>
       <div className='w-[100%] text-center md:text-8xl sm:text-6xl text-4xl'>
         Projects
       </div>
 
-      <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400">
+      <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400 xl:w-[65%]">
         <input type="checkbox" /> 
         <div className="collapse-title text-xl font-bold text-center">
           Personal Website        
@@ -30,11 +30,13 @@ const Projects = () => {
               <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">Tailwind CSS</div>
               <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">Netlify</div>
             </li>
-            <li className='btn btn-sm hover:scale-105 text-white w-[50%] hover:text-red-400'>
-              <Link href='https://github.com/tamzeedq/personal_website' target='_blank' className='flex gap-2 items-center'>
-                View Project on GitHub <AiFillGithub size={25}></AiFillGithub>
-              </Link>
-            </li>
+            <div className='flex items-center justify-center'>
+              <li className='btn btn-sm hover:scale-105 text-white w-[50%] hover:text-red-400'>
+                <Link href='https://github.com/tamzeedq/personal_website' target='_blank' className='flex gap-2 items-center'>
+                  View Project on GitHub <AiFillGithub size={25}></AiFillGithub>
+                </Link>
+              </li>
+            </div>
             {/* <li>
               <ImageCarousel
                 imageURLS={["https://c4.wallpaperflare.com/wallpaper/1000/316/848/spider-man-2018-game-wallpaper-preview.jpg", "https://c4.wallpaperflare.com/wallpaper/689/1001/110/spiderman-ps4-spiderman-superheroes-games-wallpaper-preview.jpg", "https://c4.wallpaperflare.com/wallpaper/826/109/269/spiderman-into-the-spider-verse-2018-movies-movies-spiderman-wallpaper-preview.jpg"]}
@@ -44,7 +46,7 @@ const Projects = () => {
         </div>
       </div>
 
-      <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400">
+      <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400 xl:w-[65%]">
         <input type="checkbox" /> 
         <div className="collapse-title text-xl font-bold text-center">
           React Weather App
@@ -64,11 +66,13 @@ const Projects = () => {
               <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">CSS</div>
               <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">ReactJS</div>
             </li>
-            <li className='btn btn-sm hover:scale-105 text-white w-[50%] hover:text-red-400'>
-              <Link href='https://github.com/tamzeedq/react-weather-app' target='_blank' className='flex gap-2 items-center'>
-                View Project on GitHub <AiFillGithub size={25}></AiFillGithub>
-              </Link>
-            </li>
+            <div className='flex items-center justify-center'>
+              <li className='btn btn-sm hover:scale-105 text-white w-[50%] hover:text-red-400'>
+                <Link href='https://github.com/tamzeedq/react-weather-app' target='_blank' className='flex gap-2 items-center'>
+                  View Project on GitHub <AiFillGithub size={25}></AiFillGithub>
+                </Link>
+              </li>
+            </div>
             <li>
               <ImageCarousel
                 imageURLS={["/images/weather_project/weather_app_1.png", "/images/weather_project/weather_app_2.png", "/images/weather_project/weather_app_3.png"]}
@@ -78,7 +82,7 @@ const Projects = () => {
         </div>
       </div>
 
-      <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400">
+      <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400 xl:w-[65%]">
         <input type="checkbox" /> 
         <div className="collapse-title text-xl font-bold text-center">
           Sorting Algorithm Visualizer
@@ -96,11 +100,13 @@ const Projects = () => {
               <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">CSS</div>
               <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">JavaScript</div>
             </li>
-            <li className='btn btn-sm hover:scale-105 text-white w-[50%] hover:text-red-400'>
-              <Link href='https://github.com/tamzeedq/SortingAlgorithmVisualizer' target='_blank' className='flex gap-2 items-center'>
-                View Project on GitHub <AiFillGithub size={25}></AiFillGithub>
-              </Link>
-            </li>
+            <div className='flex items-center justify-center'>
+              <li className='btn btn-sm hover:scale-105 text-white w-[50%] hover:text-red-400'>
+                <Link href='https://github.com/tamzeedq/SortingAlgorithmVisualizer' target='_blank' className='flex gap-2 items-center'>
+                  View Project on GitHub <AiFillGithub size={25}></AiFillGithub>
+                </Link>
+              </li>
+            </div>
             <li>
               <ImageCarousel
                 imageURLS={["/images/algorithm_project/algorithm_project1.png", "/images/algorithm_project/algorithm_project2.png", "/images/algorithm_project/algorithm_project3.png"]}
@@ -110,7 +116,7 @@ const Projects = () => {
         </div>
       </div>
 
-      <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400">
+      <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400 xl:w-[65%]">
         <input type="checkbox" /> 
         <div className="collapse-title text-xl font-bold text-center">
           Hoppon Bot
@@ -130,11 +136,13 @@ const Projects = () => {
             <li className='flex gap-2'>
               <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">Python</div>
             </li>
-            <li className='btn btn-sm hover:scale-105 text-white w-[50%] hover:text-red-400'>
-              <Link href='https://github.com/tamzeedq/DiscordBot' target='_blank' className='flex gap-2 items-center'>
-                View Project on GitHub <AiFillGithub size={25}></AiFillGithub>
-              </Link>
-            </li>
+            <div className='flex items-center justify-center'>
+              <li className='btn btn-sm hover:scale-105 text-white w-[50%] hover:text-red-400'>
+                <Link href='https://github.com/tamzeedq/DiscordBot' target='_blank' className='flex gap-2 items-center'>
+                  View Project on GitHub <AiFillGithub size={25}></AiFillGithub>
+                </Link>
+              </li>
+            </div>
             <li>
               <ImageCarousel
                 imageURLS={["/images/hoppon_project/hoppon_bot1.png", "/images/hoppon_project/hoppon_bot2.png", "/images/hoppon_project/hoppon_bot3.png"]}
@@ -144,7 +152,7 @@ const Projects = () => {
         </div>
       </div>
 
-      <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400">
+      <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400 xl:w-[65%]">
         <input type="checkbox" /> 
         <div className="collapse-title text-xl font-bold text-center">
           Fitness Tracker
@@ -168,11 +176,13 @@ const Projects = () => {
               <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">Java Swing</div>
               <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">JSON</div>
             </li>
-            <li className='btn btn-sm hover:scale-105 text-white w-[50%] hover:text-red-400'>
-              <Link href='https://github.com/tamzeedq/FitnessTrackerApp' target='_blank' className='flex gap-2 items-center'>
-                View Project on GitHub <AiFillGithub size={25}></AiFillGithub>
-              </Link>
-            </li>
+            <div className='flex items-center justify-center'>
+              <li className='btn btn-sm hover:scale-105 text-white w-[50%] hover:text-red-400'>
+                <Link href='https://github.com/tamzeedq/FitnessTrackerApp' target='_blank' className='flex gap-2 items-center'>
+                  View Project on GitHub <AiFillGithub size={25}></AiFillGithub>
+                </Link>
+              </li>
+            </div>
             {/* <li>
               <ImageCarousel
                 imageURLS={["https://c4.wallpaperflare.com/wallpaper/1000/316/848/spider-man-2018-game-wallpaper-preview.jpg", "https://c4.wallpaperflare.com/wallpaper/689/1001/110/spiderman-ps4-spiderman-superheroes-games-wallpaper-preview.jpg", "https://c4.wallpaperflare.com/wallpaper/826/109/269/spiderman-into-the-spider-verse-2018-movies-movies-spiderman-wallpaper-preview.jpg"]}
