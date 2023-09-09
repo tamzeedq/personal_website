@@ -37,11 +37,6 @@ const Projects = () => {
                 </Link>
               </li>
             </div>
-            {/* <li>
-              <ImageCarousel
-                imageURLS={["https://c4.wallpaperflare.com/wallpaper/1000/316/848/spider-man-2018-game-wallpaper-preview.jpg", "https://c4.wallpaperflare.com/wallpaper/689/1001/110/spiderman-ps4-spiderman-superheroes-games-wallpaper-preview.jpg", "https://c4.wallpaperflare.com/wallpaper/826/109/269/spiderman-into-the-spider-verse-2018-movies-movies-spiderman-wallpaper-preview.jpg"]}
-              ></ImageCarousel>
-            </li> */}
           </ul>
         </div>
       </div>
@@ -183,24 +178,15 @@ const Projects = () => {
                 </Link>
               </li>
             </div>
-            {/* <li>
+            <li>
               <ImageCarousel
-                imageURLS={["https://c4.wallpaperflare.com/wallpaper/1000/316/848/spider-man-2018-game-wallpaper-preview.jpg", "https://c4.wallpaperflare.com/wallpaper/689/1001/110/spiderman-ps4-spiderman-superheroes-games-wallpaper-preview.jpg", "https://c4.wallpaperflare.com/wallpaper/826/109/269/spiderman-into-the-spider-verse-2018-movies-movies-spiderman-wallpaper-preview.jpg"]}
+                imageURLS={["/images/fitness_project/fitnessApp_1.png", "/images/fitness_project/fitnessApp_3.png", "/images/fitness_project/fitnessApp_2.png"]}
               ></ImageCarousel>
-            </li> */}
+            </li>
           </ul>
         </div>
       </div>
 
-      {/* <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400">
-        <input type="checkbox" /> 
-        <div className="collapse-title text-xl font-medium">
-          Click me to show/hide content
-        </div>
-        <div className="collapse-content text-white"> 
-          <p>hello</p>
-        </div>
-      </div> */}
     </div>
   )
 }

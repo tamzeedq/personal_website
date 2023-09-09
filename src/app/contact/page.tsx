@@ -21,11 +21,8 @@ const Contact = () => {
           />
         </div>
         {/* Contact info stuff */}
-        <h1 className='font-bold text-5xl text-center'>Get in touch!</h1>
-        {/* <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab, ea soluta repudiandae esse
-          obcaecati reiciendis.
-        </p> */}
+        <h1 className='font-bold text-5xl text-center text-white'>Get in touch!</h1>
+       
         <div className='flex items-center justify-center gap-x-2'>
           <button className='btn btn-sm btn-circle hover:scale-105 hover:text-amber-300'>
             <Link href="https://github.com/tamzeedq">

@@ -7,7 +7,7 @@ const About = () => {
         <img className='w-full h-full object-cover' src="/images/tamzeed/alley_pic.jpg" alt="Tamzeed Photo" />
       </div>
       
-      <div className='w-[50%] max-h-[100%] p-16 overflow-y-scroll no-scrollbar'>
+      <div className='w-[50%] max-h-[100%] p-16 overflow-y-scroll no-scrollbar text-white'>
         <h1 className='text-7xl'>About Me</h1>
         <hr />
         <br />
@@ -16,8 +16,6 @@ const About = () => {
         <p>I enjoy watching movies, playing various sports, going to the gym, playing chess, gaming, and lately have been tinkering with my new Arduino starter kit. Check out my resume to see more of the professional experience I have!</p>
         <br />
         <p>Feel free to check out my socials and get in touch!</p>
-        {/* <br />
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint provident, quidem quod illo vero minima reiciendis ex officia fugiat ut odio blanditiis accusantium quae saepe aliquam alias perspiciatis iste laudantium enim repellendus hic quas modi corporis facere. Dolore ipsum corporis deserunt, autem iste architecto vel veniam inventore dolores ea quisquam!</p> */}
       </div>
     </div>
   );
