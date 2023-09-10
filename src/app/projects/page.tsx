@@ -5,15 +5,17 @@ import ImageCarousel from '../components/imageCarousel'
 
 const Projects = () => {
   return (
-    <div className='min-h-screen p-24 flex flex-col items-center justify-center gap-8'>
+    <div className='min-h-screen flex flex-col p-8 items-center justify-center gap-8'>
       <div className='w-[100%] text-center md:text-8xl sm:text-6xl text-4xl'>
         Projects
       </div>
 
       {/* Project drop downs */}
 
+      {/* TODO: refactor drop downs into a component */}
+
       {/* Portfolio Website */}
-      <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400 xl:w-[65%]">
+      <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400 lg:w-[75%] xl:w-[65%]">
         <input type="checkbox" /> 
         <div className="collapse-title text-xl font-bold text-center">
           Personal Website        
@@ -26,15 +28,15 @@ const Projects = () => {
             <li>
               Click Around !
             </li>
-            <li className='flex gap-2'>
-              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">ReactJS</div>
-              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">TypeScript</div>
-              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">NextJS</div>
-              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">Tailwind CSS</div>
-              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">Netlify</div>
+            <li className=''>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white mr-1">ReactJS</div>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white mr-1">TypeScript</div>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white mr-1">NextJS</div>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white mr-1">Tailwind CSS</div>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white mr-1">Netlify</div>
             </li>
             <div className='flex items-center justify-center'>
-              <li className='btn btn-sm hover:scale-105 text-white w-[50%] hover:text-red-400'>
+              <li className='btn btn-sm hover:scale-105 text-white xs:w-[80%] md:w-[50%] hover:text-red-400'>
                 <Link href='https://github.com/tamzeedq/personal_website' target='_blank' className='flex gap-2 items-center'>
                   View Project on GitHub <AiFillGithub size={25}></AiFillGithub>
                 </Link>
@@ -45,7 +47,7 @@ const Projects = () => {
       </div>
 
       {/* React Weather Project */}
-      <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400 xl:w-[65%]">
+      <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400 lg:w-[75%] xl:w-[65%]">
         <input type="checkbox" /> 
         <div className="collapse-title text-xl font-bold text-center">
           React Weather App
@@ -66,7 +68,7 @@ const Projects = () => {
               <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">ReactJS</div>
             </li>
             <div className='flex items-center justify-center'>
-              <li className='btn btn-sm hover:scale-105 text-white w-[50%] hover:text-red-400'>
+              <li className='btn btn-sm hover:scale-105 text-white xs:w-[80%] md:w-[50%] hover:text-red-400'>
                 <Link href='https://github.com/tamzeedq/react-weather-app' target='_blank' className='flex gap-2 items-center'>
                   View Project on GitHub <AiFillGithub size={25}></AiFillGithub>
                 </Link>
@@ -82,7 +84,7 @@ const Projects = () => {
       </div>
 
       {/* Sorting Algorithm Project */}
-      <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400 xl:w-[65%]">
+      <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400 lg:w-[75%] xl:w-[65%]">
         <input type="checkbox" /> 
         <div className="collapse-title text-xl font-bold text-center">
           Sorting Algorithm Visualizer
@@ -101,7 +103,7 @@ const Projects = () => {
               <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">JavaScript</div>
             </li>
             <div className='flex items-center justify-center'>
-              <li className='btn btn-sm hover:scale-105 text-white w-[50%] hover:text-red-400'>
+              <li className='btn btn-sm hover:scale-105 text-white xs:w-[80%] md:w-[50%] hover:text-red-400'>
                 <Link href='https://github.com/tamzeedq/SortingAlgorithmVisualizer' target='_blank' className='flex gap-2 items-center'>
                   View Project on GitHub <AiFillGithub size={25}></AiFillGithub>
                 </Link>
@@ -117,7 +119,7 @@ const Projects = () => {
       </div>
 
       {/* Discord Bot Project */}
-      <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400 xl:w-[65%]">
+      <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400 lg:w-[75%] xl:w-[65%]">
         <input type="checkbox" /> 
         <div className="collapse-title text-xl font-bold text-center">
           Hoppon Bot
@@ -138,7 +140,7 @@ const Projects = () => {
               <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">Python</div>
             </li>
             <div className='flex items-center justify-center'>
-              <li className='btn btn-sm hover:scale-105 text-white w-[50%] hover:text-red-400'>
+              <li className='btn btn-sm hover:scale-105 text-white xs:w-[80%] md:w-[50%] hover:text-red-400'>
                 <Link href='https://github.com/tamzeedq/DiscordBot' target='_blank' className='flex gap-2 items-center'>
                   View Project on GitHub <AiFillGithub size={25}></AiFillGithub>
                 </Link>
@@ -154,7 +156,7 @@ const Projects = () => {
       </div>
 
       {/* Fitness Tracker App */}
-      <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400 xl:w-[65%]">
+      <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400 lg:w-[75%] xl:w-[65%]">
         <input type="checkbox" /> 
         <div className="collapse-title text-xl font-bold text-center">
           Fitness Tracker
@@ -179,7 +181,7 @@ const Projects = () => {
               <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">JSON</div>
             </li>
             <div className='flex items-center justify-center'>
-              <li className='btn btn-sm hover:scale-105 text-white w-[50%] hover:text-red-400'>
+              <li className='btn btn-sm hover:scale-105 text-white xs:w-[80%] md:w-[50%] hover:text-red-400'>
                 <Link href='https://github.com/tamzeedq/FitnessTrackerApp' target='_blank' className='flex gap-2 items-center'>
                   View Project on GitHub <AiFillGithub size={25}></AiFillGithub>
                 </Link>
