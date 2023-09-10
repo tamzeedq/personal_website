@@ -3,12 +3,16 @@ import React, { useRef, useState } from 'react'
 import { Canvas, useFrame, ThreeElements } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 
+// Torus Mesh
 function Torus(props: ThreeElements['mesh']) {
   const meshRef = useRef<THREE.Mesh>(null!)
   const [hovered, setHover] = useState(false)
   const [active, setActive] = useState(false)
+
+  // Rotate per frame
   useFrame((state, delta) => (meshRef.current.rotation.x += delta * 0.5))
   useFrame((state, delta) => (meshRef.current.rotation.y += delta * 0.5))
+  
   return (
     <mesh
       {...props}
@@ -23,6 +27,7 @@ function Torus(props: ThreeElements['mesh']) {
   )
 }
 
+// Canvas
 const Model = () => {
   return (
     <div className="w-full h-screen"> 

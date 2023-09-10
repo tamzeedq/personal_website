@@ -22,9 +22,14 @@ export default function Home() {
     <main className="min-h-screen items-center justify-between">
       
       <div className='relative'>
-        <Model></Model>
+        {/* Spinning Taurus */}
+        <Model></Model> 
+
+        {/* Header */}
         <div className='absolute bottom-[50%] w-full flex flex-col justify-center items-center bg-transparent'>
           <h1 className='md:text-7xl sm:text-5xl text-3xl drop-shadow-xl text-white'>TAMZEED QUAZI</h1>
+
+          {/* Typing Animation */}
           <TypeAnimation
             sequence={[
               'Software Developer', 
@@ -38,6 +43,8 @@ export default function Home() {
             repeat={Infinity}
             style={{ fontSize: '1.25rem', display: 'inline-block' , color: 'rgb(248 113 113)'}}
           />
+
+          {/* Media buttons */}
           <div className='flex items-center justify-center gap-x-2 pt-2'>
             <button className='hover:scale-105 hover:text-amber-300'>
               <Link href="https://github.com/tamzeedq">

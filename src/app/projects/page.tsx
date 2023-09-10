@@ -10,6 +10,9 @@ const Projects = () => {
         Projects
       </div>
 
+      {/* Project drop downs */}
+
+      {/* Portfolio Website */}
       <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400 xl:w-[65%]">
         <input type="checkbox" /> 
         <div className="collapse-title text-xl font-bold text-center">
@@ -41,6 +44,7 @@ const Projects = () => {
         </div>
       </div>
 
+      {/* React Weather Project */}
       <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400 xl:w-[65%]">
         <input type="checkbox" /> 
         <div className="collapse-title text-xl font-bold text-center">
@@ -77,6 +81,7 @@ const Projects = () => {
         </div>
       </div>
 
+      {/* Sorting Algorithm Project */}
       <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400 xl:w-[65%]">
         <input type="checkbox" /> 
         <div className="collapse-title text-xl font-bold text-center">
@@ -111,6 +116,7 @@ const Projects = () => {
         </div>
       </div>
 
+      {/* Discord Bot Project */}
       <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400 xl:w-[65%]">
         <input type="checkbox" /> 
         <div className="collapse-title text-xl font-bold text-center">
@@ -147,6 +153,7 @@ const Projects = () => {
         </div>
       </div>
 
+      {/* Fitness Tracker App */}
       <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400 xl:w-[65%]">
         <input type="checkbox" /> 
         <div className="collapse-title text-xl font-bold text-center">

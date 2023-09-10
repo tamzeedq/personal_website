@@ -13,6 +13,8 @@ const Navbar = () => {
   return (
     <div className='navbar-container relative z-50 h-15'>
       <div className='flex justify-between items-center bg-zinc-800 mx-auto px-4 text-white'>
+
+        {/* Regular Nav View */}
         <Link href='/'>
             <div className='rounded-full border-2 border-transparent group overflow-hidden hover:border-red-400 transition duration-300'>
                 <img
@@ -49,6 +51,7 @@ const Navbar = () => {
             </li>
         </ul>
 
+        {/* Mobile View Nav */}
         <div onClick={handleNav} className='block md:hidden cursor-pointer hover:text-red-400'>
             {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
         </div>
