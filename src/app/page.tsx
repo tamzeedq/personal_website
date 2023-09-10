@@ -8,6 +8,7 @@ import { BsCpuFill, BsFillLightningChargeFill, BsArrowDownShort, BsArrowUpShort 
 import { FiMonitor } from 'react-icons/fi';
 import { BiCodeBlock, BiGitBranch } from 'react-icons/bi';
 import HoverCard from './components/hoverCard';
+import Model from './components/model';
 
 export default function Home() {
   // const router = useRouter();
@@ -22,17 +23,9 @@ export default function Home() {
   return (
     <main className="min-h-screen items-center justify-between">
       
-      {/* Header */}
-      <div
-        id='header' 
-        className='min-h-screen flex flex-col justify-center items-center py-24 px-8 relative'
-        style={{ 
-          backgroundImage: "url(https://cdn.pixabay.com/photo/2019/11/20/17/42/buildings-4640671_1280.jpg)",
-          backgroundSize: "cover",
-          backgroundPosition: "center", 
-        }}
-      >
-        <div className='flex flex-col justify-center items-center'>
+      <div className='relative'>
+        <Model></Model>
+        <div className='absolute bottom-[50%] w-full flex flex-col justify-center items-center bg-transparent'>
           <h1 className='text-7xl drop-shadow-xl text-white'>TAMZEED QUAZI</h1>
           <h5 className='text-xl drop-shadow text-zinc-100'>Student Developer</h5>
         </div>
