@@ -38,17 +38,17 @@ const Navbar = () => {
                 </a>
             </li>
             <li className='p-4 group'>
-                <a href='https://drive.google.com/file/d/12H-IXikMOWN9UNcgz_lisb-YlVxYy0Fz/view?usp=drive_link' target='_blank' className='relative'>
+                <a href='https://drive.google.com/file/d/1RZqT5CU5NpE34lS5UPm0bAtqvpj5filo/view?usp=sharing' target='_blank' className='relative'>
                     Resume
                     <span className='absolute bottom-0 left-0 w-full h-0.5 bg-red-400 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left'></span>
                 </a>
             </li>
-            <li className='p-4 group'>
+            {/* <li className='p-4 group'>
                 <a href='/contact' className='relative'>
                     Contact
                     <span className='absolute bottom-0 left-0 w-full h-0.5 bg-red-400 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left'></span>
                 </a>
-            </li>
+            </li> */}
         </ul>
 
         {/* Mobile View Nav */}
@@ -82,15 +82,15 @@ const Navbar = () => {
                 </Link>
             </li>
             <li className='p-4 border-b border-gray-600 hover:text-red-400'>
-                <Link href='/resume' className='block' onClick={handleNav}>
+                <Link href='https://drive.google.com/file/d/1RZqT5CU5NpE34lS5UPm0bAtqvpj5filo/view?usp=sharing' target='_blank' className='block' onClick={handleNav}>
                     Resume
                 </Link>
             </li>
-            <li className='p-4 border-b border-gray-600 hover:text-red-400'>
+            {/* <li className='p-4 border-b border-gray-600 hover:text-red-400'>
                 <Link href='/contact' className='block' onClick={handleNav}>
                     Contact
                 </Link>
-            </li>
+            </li> */}
         </ul>
       </div>
     </div>
