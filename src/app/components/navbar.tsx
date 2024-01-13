@@ -38,7 +38,7 @@ const Navbar = () => {
                 </a>
             </li>
             <li className='p-4 group'>
-                <a href='https://drive.google.com/file/d/1dli5bbKkx38nMUZJ2hKEhF9e7mBeI5Ur/view?usp=sharing' target='_blank' className='relative'>
+                <a href='https://drive.google.com/file/d/19H7QhJ9_lS21S2HM3AX773rBjx0I-PJt/view?usp=sharing' target='_blank' className='relative'>
                     Resume
                     <span className='absolute bottom-0 left-0 w-full h-0.5 bg-red-400 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left'></span>
                 </a>
@@ -82,7 +82,7 @@ const Navbar = () => {
                 </Link>
             </li>
             <li className='p-4 border-b border-gray-600 hover:text-red-400'>
-                <Link href='https://drive.google.com/file/d/1dli5bbKkx38nMUZJ2hKEhF9e7mBeI5Ur/view?usp=sharing' target='_blank' className='block' onClick={handleNav}>
+                <Link href='https://drive.google.com/file/d/19H7QhJ9_lS21S2HM3AX773rBjx0I-PJt/view?usp=sharing' target='_blank' className='block' onClick={handleNav}>
                     Resume
                 </Link>
             </li>

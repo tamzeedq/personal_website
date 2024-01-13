@@ -14,6 +14,46 @@ const Projects = () => {
 
       {/* TODO: refactor drop downs into a component */}
 
+      {/* AI Exercise Tracker */}
+      <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400 lg:w-[75%] xl:w-[65%]">
+        <input type="checkbox" /> 
+        <div className="collapse-title text-xl font-bold text-center">
+          AI Exercise Form Tracker        
+        </div>
+        <div className="collapse-content text-white"> 
+          <ul className='flex flex-col gap-4'>
+            <li>
+              Utilizes React and TensorFlowJS to run a pose-detection model in the browser on the user’s webcam feed to track form, 
+              count repetitions, and trace joint path based on user selection
+            </li>
+            <li>
+              User’s can record their exercises, download the recording once finished, or take screenshots of their webcam feed
+            </li>
+            <li>
+              Added a togglable view of the detection model and webcam, and currently supports tracking push-ups, pull-ups and squats
+            </li>
+            <li className=''>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white mr-1">ReactJS</div>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white mr-1">TypeScript</div>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white mr-1">Tailwind CSS</div>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white mr-1">TensorFlowJS</div>
+            </li>
+            <div className='flex items-center justify-center'>
+              <li className='btn btn-sm hover:scale-105 text-white xs:w-[80%] md:w-[50%] hover:text-red-400'>
+                <Link href='https://github.com/tamzeedq/TrackMyForm' target='_blank' className='flex gap-2 items-center'>
+                  View Project on GitHub <AiFillGithub size={25}></AiFillGithub>
+                </Link>
+              </li>
+            </div>
+            <li>
+              <ImageCarousel
+                imageURLS={["/images/form_tracker_project/form_tracker_1.png", "/images/form_tracker_project/form_tracker_2.png", "/images/form_tracker_project/form_tracker_3.png"]}
+              ></ImageCarousel>
+            </li>
+          </ul>
+        </div>
+      </div>
+
       {/* Portfolio Website */}
       <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400 lg:w-[75%] xl:w-[65%]">
         <input type="checkbox" /> 
@@ -23,10 +63,16 @@ const Projects = () => {
         <div className="collapse-content text-white"> 
           <ul className='flex flex-col gap-4'>
             <li>
-              Used NextJS 13 and React as the framework, Tailwind CSS for styling, TypeScript, and hosted on Netlify
+              Used NextJS 13 as the framework, Tailwind CSS for styling, TypeScript, and hosted on Netlify
             </li>
             <li>
-              Click Around !
+              Features my projects, some skills, my resume, a little about me, and my socials to get connected
+            </li>
+            <li>
+              Includes a responsive design to account for different screen sizes and mobile view
+            </li>
+            <li>
+              Click around  or view the code on GitHub!
             </li>
             <li className=''>
               <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white mr-1">ReactJS</div>
@@ -55,9 +101,10 @@ const Projects = () => {
         <div className="collapse-content text-white"> 
           <ul className='flex flex-col gap-4'>
             <li>
-              Created a website that pulls from the Open Weather API to show the weather and a quick summary
-              for the day of a user-inputted location
+              Created a website that pulls from the Open Weather API to create weather cards with a quick summary
+              of the current weather of the day from a user-inputted location
             </li>
+            <li>Made the project to grasp fundamentals of React and learn front-end development with frameworks</li>
             <li>
               Utilized React’s component format and automatic re-render to spontaneously create cards for each
               location’s weather for clear display and comparison with other locations
@@ -96,6 +143,7 @@ const Projects = () => {
               DOM with JavaScript
             </li>
             <li>Implemented adjustable size for the array and speed of solution</li>
+            <li>Created the project to prepare for my algorithms class by visualizing how some basic sorting algorithms work</li>
             <li>The website visualizes bubble sort, insertion sort, selection sort, and quick sort</li>
             <li className='flex gap-2'>
               <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">HTML</div>
@@ -122,19 +170,19 @@ const Projects = () => {
       <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400 lg:w-[75%] xl:w-[65%]">
         <input type="checkbox" /> 
         <div className="collapse-title text-xl font-bold text-center">
-          Hoppon Bot
+          Discord Bot
         </div>
         <div className="collapse-content text-white"> 
           <ul className='flex flex-col gap-4'>
             <li>
-              Used the Discord API to create a server bot with convenient functionality
+              Used the Discord API to create a server bot to solve issues on my personal server with friends
             </li>
             <li>
               Command to flip a coin, plays a GIF and posts the result
             </li>
             <li>
               Creates customizable polls in server chats by creating an embedded message with interactive
-              reactions to vote based on the input of the user for the options
+              reactions to vote for the options
             </li>
             <li className='flex gap-2'>
               <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">Python</div>
@@ -165,14 +213,16 @@ const Projects = () => {
           <ul className='flex flex-col gap-4'>
             <li>
               Tracks your diet and workouts for a week including calories burned and eaten, protein,
-              carbohydrates, fats, and personal notes for each day
+              carbohydrates, fats, and personal notes for each day of the week
             </li>
             <li>
-              The week can be saved to a JSON file and then reloaded anytime and an event log is printed to the
-              console of any changes made at the end of a session
+              Data is tracked, saved, and reloaded between sessions using JSON files to ensure persistency
             </li>
             <li>
-              JUnit testing used to assure user story functionality
+              Created the GUI with Java Swing and utilized JUnit testing used to assure user story functionality
+            </li>
+            <li>
+              Created UML diagrams to demonstrate relationships between different classes and ensured functionality with JUnit testing
             </li>
             <li className='flex gap-2'>
               <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">Java</div>
