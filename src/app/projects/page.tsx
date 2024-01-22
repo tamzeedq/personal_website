@@ -5,8 +5,8 @@ import ImageCarousel from '../components/imageCarousel'
 
 const Projects = () => {
   return (
-    <div className='min-h-screen flex flex-col p-8 items-center justify-center gap-8'>
-      <div className='w-[100%] text-center md:text-8xl sm:text-6xl text-4xl'>
+    <div className='min-h-screen flex flex-col text-white p-8 items-center justify-center gap-8'>
+      <div className='w-[100%] text-center text-white md:text-8xl sm:text-6xl text-4xl'>
         Projects
       </div>
 
@@ -39,7 +39,7 @@ const Projects = () => {
               <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white mr-1">TensorFlowJS</div>
             </li>
             <div className='flex items-center justify-center'>
-              <li className='btn btn-sm hover:scale-105 text-white xs:w-[80%] md:w-[50%] hover:text-red-400'>
+              <li className='btn btn-sm bg-gray-900 hover:bg-gray-900 hover:scale-105 text-white xs:w-[80%] md:w-[50%] hover:text-red-400'>
                 <Link href='https://github.com/tamzeedq/TrackMyForm' target='_blank' className='flex gap-2 items-center'>
                   View Project on GitHub <AiFillGithub size={25}></AiFillGithub>
                 </Link>
@@ -55,7 +55,7 @@ const Projects = () => {
       </div>
 
       {/* Portfolio Website */}
-      <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400 lg:w-[75%] xl:w-[65%]">
+      <div className="collapse collapse-arrow bg-zinc-800 text-white hover:text-red-400 lg:w-[75%] xl:w-[65%]">
         <input type="checkbox" /> 
         <div className="collapse-title text-xl font-bold text-center">
           Personal Website        
@@ -82,7 +82,7 @@ const Projects = () => {
               <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white mr-1">Netlify</div>
             </li>
             <div className='flex items-center justify-center'>
-              <li className='btn btn-sm hover:scale-105 text-white xs:w-[80%] md:w-[50%] hover:text-red-400'>
+              <li className='btn btn-sm bg-gray-900 hover:bg-gray-900 hover:scale-105 text-white xs:w-[80%] md:w-[50%] hover:text-red-400'>
                 <Link href='https://github.com/tamzeedq/personal_website' target='_blank' className='flex gap-2 items-center'>
                   View Project on GitHub <AiFillGithub size={25}></AiFillGithub>
                 </Link>
@@ -115,7 +115,7 @@ const Projects = () => {
               <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">ReactJS</div>
             </li>
             <div className='flex items-center justify-center'>
-              <li className='btn btn-sm hover:scale-105 text-white xs:w-[80%] md:w-[50%] hover:text-red-400'>
+              <li className='btn btn-sm bg-gray-900 hover:bg-gray-900 hover:scale-105 text-white xs:w-[80%] md:w-[50%] hover:text-red-400'>
                 <Link href='https://github.com/tamzeedq/react-weather-app' target='_blank' className='flex gap-2 items-center'>
                   View Project on GitHub <AiFillGithub size={25}></AiFillGithub>
                 </Link>
@@ -151,7 +151,7 @@ const Projects = () => {
               <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">JavaScript</div>
             </li>
             <div className='flex items-center justify-center'>
-              <li className='btn btn-sm hover:scale-105 text-white xs:w-[80%] md:w-[50%] hover:text-red-400'>
+              <li className='btn btn-sm bg-gray-900 hover:bg-gray-900 hover:scale-105 text-white xs:w-[80%] md:w-[50%] hover:text-red-400'>
                 <Link href='https://github.com/tamzeedq/SortingAlgorithmVisualizer' target='_blank' className='flex gap-2 items-center'>
                   View Project on GitHub <AiFillGithub size={25}></AiFillGithub>
                 </Link>
@@ -188,7 +188,7 @@ const Projects = () => {
               <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">Python</div>
             </li>
             <div className='flex items-center justify-center'>
-              <li className='btn btn-sm hover:scale-105 text-white xs:w-[80%] md:w-[50%] hover:text-red-400'>
+              <li className='btn btn-sm bg-gray-900 hover:bg-gray-900 hover:scale-105 text-white xs:w-[80%] md:w-[50%] hover:text-red-400'>
                 <Link href='https://github.com/tamzeedq/DiscordBot' target='_blank' className='flex gap-2 items-center'>
                   View Project on GitHub <AiFillGithub size={25}></AiFillGithub>
                 </Link>
@@ -231,7 +231,7 @@ const Projects = () => {
               <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white">JSON</div>
             </li>
             <div className='flex items-center justify-center'>
-              <li className='btn btn-sm hover:scale-105 text-white xs:w-[80%] md:w-[50%] hover:text-red-400'>
+              <li className='btn btn-sm bg-gray-900 hover:bg-gray-900 hover:scale-105 text-white xs:w-[80%] md:w-[50%] hover:text-red-400'>
                 <Link href='https://github.com/tamzeedq/FitnessTrackerApp' target='_blank' className='flex gap-2 items-center'>
                   View Project on GitHub <AiFillGithub size={25}></AiFillGithub>
                 </Link>

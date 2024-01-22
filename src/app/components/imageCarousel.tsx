@@ -18,7 +18,7 @@ const ImageCarousel = ({imageURLS} : CarouselProps) => {
         </div> 
         <div className="flex justify-center w-full py-2 gap-2">
             {imageURLS.map((imageUrl, index) => (
-                <a key={index} onClick={() => setCurrentSlide(index)} className="btn btn-xs">{index+1}</a>
+                <a key={index} onClick={() => setCurrentSlide(index)} className="btn btn-xs bg-gray-900 hover:bg-gray-900 text-white">{index+1}</a>
             ))}
         </div>
     </div>

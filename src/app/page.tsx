@@ -45,7 +45,7 @@ export default function Home() {
           />
 
           {/* Media buttons */}
-          <div className='flex items-center justify-center gap-x-2 pt-2'>
+          <div className='flex items-center text-white justify-center gap-x-2 pt-2'>
             <button className='hover:scale-105 hover:text-amber-300'>
               <Link href="https://github.com/tamzeedq">
                 <FaGithub></FaGithub>
