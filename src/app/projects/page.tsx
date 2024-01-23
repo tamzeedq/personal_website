@@ -14,6 +14,52 @@ const Projects = () => {
 
       {/* TODO: refactor drop downs into a component */}
 
+      {/* Breathe (nwHacks 2024 submission) */}
+      <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400 lg:w-[75%] xl:w-[65%]">
+        <input type="checkbox" /> 
+        <div className="collapse-title text-xl font-bold text-center">
+          Breathe App | nwHacks 2024        
+        </div>
+        <div className="collapse-content text-white"> 
+          <ul className='flex flex-col gap-4'>
+            <li>
+              Utilizes sensors connected to an Arduino Mega 2560 to detect air quality and GPS location
+            </li>
+            <li>
+              Python is used to send data from the Arduino to the front-end through a web socket, and used for the Flask server
+            </li>
+            <li>
+              React front-end that displays all the data from the Arduino, and uses GPT-4 to interpret and give advice based on a user-selected context based on the data
+            </li>
+            <li>
+              See more of the project here:<a className="pl-2 text-red-200 hover:text-red-400 hover:underline" href='https://devpost.com/software/breathe-air-quality-sensor-app' target='blank'>Devpost</a> 
+              <a className="pl-2 text-red-200 hover:text-red-400 hover:underline" href='https://www.youtube.com/watch?feature=shared&v=YEevDblyLsI' target='blank'>YouTube</a>
+            </li>
+            <li className=''>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white mr-1">ReactJS</div>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white mr-1">Tailwind CSS</div>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white mr-1">Python</div>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white mr-1">Flask</div>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white mr-1">Arduino</div>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white mr-1">C++</div>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white mr-1">GPT-4</div>
+            </li>
+            <div className='flex items-center justify-center'>
+              <li className='btn btn-sm bg-gray-900 hover:bg-gray-900 hover:scale-105 text-white xs:w-[80%] md:w-[50%] hover:text-red-400'>
+                <Link href='https://github.com/ryanarnouk/nwhacks-2024' target='_blank' className='flex gap-2 items-center'>
+                  View Project on GitHub <AiFillGithub size={25}></AiFillGithub>
+                </Link>
+              </li>
+            </div>
+            <li>
+              <ImageCarousel
+                imageURLS={["/images/nwHacks2024_project/nwhacks_1.png", "/images/nwHacks2024_project/nwhacks_2.png", "/images/nwHacks2024_project/nwhacks_3.jpg"]}
+              ></ImageCarousel>
+            </li>
+          </ul>
+        </div>
+      </div>
+
       {/* AI Exercise Tracker */}
       <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400 lg:w-[75%] xl:w-[65%]">
         <input type="checkbox" /> 
