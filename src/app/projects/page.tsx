@@ -60,7 +60,7 @@ const Projects = () => {
               Created this project to control my laptop without touching it to watch YouTube videos while I eat
             </li>
             <li>
-              Utilized Google's MediaPipe hand detection model and OpenCV to detect hand location and gestures
+              Utilized Google MediaPipe hand detection model and OpenCV to detect hand location and gestures
             </li>
             <li>
               The hand landmarks are then interpolated from webcam to monitor resolution to control my mouse and gestures to trigger media events
