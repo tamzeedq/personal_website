@@ -11,7 +11,7 @@ const Navbar = () => {
         setNav(!nav);
     };
   return (
-    <div className='navbar-container relative z-50 h-15'>
+    <div className='navbar-container relative z-50 h-15 font-mono'>
       <div className='flex justify-between items-center bg-zinc-800 mx-auto px-4 text-white'>
 
         {/* Regular Nav View */}
@@ -38,17 +38,11 @@ const Navbar = () => {
                 </a>
             </li>
             <li className='p-4 group'>
-                <a href='https://drive.google.com/file/d/19H7QhJ9_lS21S2HM3AX773rBjx0I-PJt/view?usp=sharing' target='_blank' className='relative'>
+                <a href='https://drive.google.com/file/d/1RW7_N9YVbJQ2f-0xE4n_pXBCl108hlxT/view?usp=sharing' target='_blank' className='relative'>
                     Resume
                     <span className='absolute bottom-0 left-0 w-full h-0.5 bg-red-400 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left'></span>
                 </a>
             </li>
-            {/* <li className='p-4 group'>
-                <a href='/contact' className='relative'>
-                    Contact
-                    <span className='absolute bottom-0 left-0 w-full h-0.5 bg-red-400 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left'></span>
-                </a>
-            </li> */}
         </ul>
 
         {/* Mobile View Nav */}
@@ -82,15 +76,10 @@ const Navbar = () => {
                 </Link>
             </li>
             <li className='p-4 border-b border-gray-600 hover:text-red-400'>
-                <Link href='https://drive.google.com/file/d/19H7QhJ9_lS21S2HM3AX773rBjx0I-PJt/view?usp=sharing' target='_blank' className='block' onClick={handleNav}>
+                <Link href='https://drive.google.com/file/d/1RW7_N9YVbJQ2f-0xE4n_pXBCl108hlxT/view?usp=sharing' target='_blank' className='block' onClick={handleNav}>
                     Resume
                 </Link>
             </li>
-            {/* <li className='p-4 border-b border-gray-600 hover:text-red-400'>
-                <Link href='/contact' className='block' onClick={handleNav}>
-                    Contact
-                </Link>
-            </li> */}
         </ul>
       </div>
     </div>

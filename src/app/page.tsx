@@ -19,7 +19,7 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen items-center justify-between">
+    <main className="min-h-screen items-center justify-between font-mono">
       
       <div className='relative'>
         {/* Spinning Taurus */}
@@ -34,7 +34,7 @@ export default function Home() {
             sequence={[
               'Software Developer', 
               1000,
-              'Computer Science student at UBC', 
+              'Computer Science Student', 
               1000, 
               'Passionate Learner',
               1000,  

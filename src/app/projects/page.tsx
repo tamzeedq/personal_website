@@ -5,7 +5,7 @@ import ImageCarousel from '../components/imageCarousel'
 
 const Projects = () => {
   return (
-    <div className='min-h-screen flex flex-col text-white p-8 items-center justify-center gap-8'>
+    <div className='min-h-screen flex flex-col text-white p-8 items-center justify-center gap-8 font-mono'>
       <div className='w-[100%] text-center text-white md:text-8xl sm:text-6xl text-4xl'>
         Projects
       </div>
@@ -13,6 +13,79 @@ const Projects = () => {
       {/* Project drop downs */}
 
       {/* TODO: refactor drop downs into a component */}
+      <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400 lg:w-[75%] xl:w-[65%]">
+        <input type="checkbox" /> 
+        <div className="collapse-title text-xl font-bold text-center">
+          Morning Messenger        
+        </div>
+        <div className="collapse-content text-white"> 
+          <ul className='flex flex-col gap-4'>
+            <li>
+              Wrote a script with Python to send me a SMS text of my tasks for the day and a summary of the weather
+            </li>
+            <li>
+              Set up an AWS EC2 instance with a cron job to automatically run the script to send me a text every morning
+            </li>
+            <li className=''>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white mr-1">Python</div>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white mr-1">AWS EC2</div>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white mr-1">Linux</div>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white mr-1">Docker</div>
+            </li>
+            <div className='flex items-center justify-center'>
+              <li className='btn btn-sm bg-gray-900 hover:bg-gray-900 hover:scale-105 text-white xs:w-[80%] md:w-[50%] hover:text-red-400'>
+                <Link href='https://github.com/tamzeedq/MorningMessenger' target='_blank' className='flex gap-2 items-center'>
+                  View Project on GitHub <AiFillGithub size={25}></AiFillGithub>
+                </Link>
+              </li>
+            </div>
+            <li>
+              <ImageCarousel
+                imageURLS={["/images/messenger_project/morningmessenger_demo.jpeg"]}
+              ></ImageCarousel>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Breathe (nwHacks 2024 submission) */}
+      <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400 lg:w-[75%] xl:w-[65%]">
+        <input type="checkbox" /> 
+        <div className="collapse-title text-xl font-bold text-center">
+          GestureCV        
+        </div>
+        <div className="collapse-content text-white"> 
+          <ul className='flex flex-col gap-4'>
+            <li>
+              Created this project to control my laptop without touching it to watch YouTube videos while I eat
+            </li>
+            <li>
+              Utilized Google's MediaPipe hand detection model and OpenCV to detect hand location and gestures
+            </li>
+            <li>
+              The hand landmarks are then interpolated from webcam to monitor resolution to control my mouse and gestures to trigger media events
+            </li>
+            <li className=''>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white mr-1">Python</div>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white mr-1">OpenCV</div>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white mr-1">MediaPipe</div>
+              <div className="badge badge-neutral text-gray-300 hover:scale-105 hover:text-white mr-1">Docker</div>
+            </li>
+            <div className='flex items-center justify-center'>
+              <li className='btn btn-sm bg-gray-900 hover:bg-gray-900 hover:scale-105 text-white xs:w-[80%] md:w-[50%] hover:text-red-400'>
+                <Link href='https://github.com/tamzeedq/GestureCV' target='_blank' className='flex gap-2 items-center'>
+                  View Project on GitHub <AiFillGithub size={25}></AiFillGithub>
+                </Link>
+              </li>
+            </div>
+            {/* <li>
+              <ImageCarousel
+                imageURLS={["/images/nwHacks2024_project/nwhacks_1.png", "/images/nwHacks2024_project/nwhacks_2.png", "/images/nwHacks2024_project/nwhacks_3.jpg"]}
+              ></ImageCarousel>
+            </li> */}
+          </ul>
+        </div>
+      </div>
 
       {/* Breathe (nwHacks 2024 submission) */}
       <div className="collapse collapse-arrow bg-zinc-800 hover:text-red-400 lg:w-[75%] xl:w-[65%]">

@@ -2,7 +2,7 @@ import React from 'react';
 
 const About = () => {
   return (
-    <div className='min-h-screen flex'>
+    <div className='min-h-screen flex font-mono'>
       <div className='w-[50%] max-h-[100%]'>
         <img className='w-full h-full object-cover' src="/images/tamzeed/walking.JPG" alt="Tamzeed Photo" />
       </div>
@@ -13,17 +13,16 @@ const About = () => {
         <br />
         <p>
           Hello!👋 My name is Tamzeed Quazi. I am in my third year at the University of British Columbia pursuing a combined major in Computer Science and Statistics.
-          Currently, I am a simulation software developer for <a className="text-amber-200 " href="https://ubcsolar.com/">UBC Solar</a>, and have also completed a co-op as a full-stack developer and software engineer at Tetra Tech.
+          Currently, I am a simulation software developer for <a className="text-amber-200 " href="https://ubcsolar.com/">UBC Solar</a>. I've previously completed an 8-month co-op as a full-stack developer and software engineer at Tetra Tech.
         </p>
         <br />
         <p>
-         🤖 My interests include machine learning, computer vision, computer graphics, web development, and software engineering. Low-level programming and C are some skills I am currently picking up.
+          🤖 My interests include machine learning, computer vision, computer graphics, full-stack web development, and software engineering. I'm always experimenting with various technologies to expand my knowledge.
         </p>
         <br />
-        <p>I enjoy watching movies, playing sports, going to the gym, playing chess, gaming, and keeping up with all things AI. Check out my resume to see more of the professional experience I have!</p>
+        <p>I enjoy playing sports, going to the gym, reading comics, playing chess, gaming, and keeping up with AI news. Check out my resume to see more of the professional experience I have!</p>
         <br />
         <p>🚀 Feel free to check out my socials and get in touch!</p>
-        <p className='text-red-300'>I am currently looking for internship opportunities for Summer 2024!</p>
       </div>
     </div>
   );
