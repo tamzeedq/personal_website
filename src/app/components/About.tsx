@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { CSSPlugin } from 'gsap/CSSPlugin';
+import Link from 'next/link';
+import { FaArrowRight } from 'react-icons/fa';
 
 gsap.registerPlugin(CSSPlugin);
 
@@ -30,6 +32,7 @@ const About = () => {
       gsap.to(imageElement, {
         scale: 1.1,
         duration: 0.5,
+        rotate: 5,
         ease: 'power2.inOut',
       });
     };
@@ -38,6 +41,7 @@ const About = () => {
       gsap.to(imageElement, {
         scale: 1,
         duration: 0.5,
+        rotate: -5,
         ease: 'power2.inOut',
       });
     };
