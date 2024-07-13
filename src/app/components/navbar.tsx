@@ -32,7 +32,7 @@ const Navbar = () => {
 
                 {/* Regular Nav View */}
                 <Link href='/'>
-                    <div className='font-semibold border-2 border-transparent group overflow-hidden hover:border-red-400 transition duration-300'>
+                    <div className='font-semibold hover:text-red-400 hover:scale-105 transition duration-300'>
                         Tamzeed Quazi
                     </div>
                 </Link>
