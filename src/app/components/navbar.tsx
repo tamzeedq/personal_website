@@ -28,7 +28,7 @@ const Navbar = () => {
 
     return (
         <div className='relative z-50 font-mono border-2 border-zinc-900'>
-            <div className='flex justify-between items-center m-4 w-[97%] rounded-lg bg-zinc-800 mx-auto px-4 text-white'>
+            <div className='flex justify-between items-center m-4 w-[95%] rounded-lg bg-zinc-800 mx-auto px-4 text-white'>
 
                 {/* Regular Nav View */}
                 <Link href='/'>

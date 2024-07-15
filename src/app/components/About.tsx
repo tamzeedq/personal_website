@@ -56,7 +56,7 @@ const About = () => {
   }, []);
 
   return (
-    <div className='flex flex-row' ref={aboutRef}>
+    <div className='flex flex-row w-[95%]' ref={aboutRef}>
       <div className='relative w-[40%] flex items-center justify-center'>
         <div className='absolute rounded-lg w-[60%] h-[70%] bg-red-700'></div>
         <img
@@ -73,15 +73,15 @@ const About = () => {
         <h1 className='text-2xl sm:text-4xl md:text-7xl'>Hello!👋</h1>
         <br />
         <p>
-          My name is Tamzeed Quazi. I am in my third year at the University of British Columbia pursuing a combined major in Computer Science and Statistics.
-          Currently, I am a simulation software developer for <a className='text-amber-200 ' href='https://ubcsolar.com/'>UBC Solar</a>. I have previously completed an 8-month co-op as a full-stack developer and software engineer at Tetra Tech.
+          My name is Tamzeed Quazi. I am in my fourth year at the University of British Columbia pursuing a combined major in Computer Science and Statistics.
+          Currently, I am a simulation software developer for <a className='text-amber-200 ' href='https://ubcsolar.com/'>UBC Solar</a>, and have previous internship experience as a full-stack developer and software engineer.
         </p>
         <br />
         <p>
-          🤖 My interests include machine learning, computer vision, computer graphics, full-stack web development, and software engineering. I am always experimenting with various technologies to expand my knowledge.
+          🤖 My interests include machine learning, computer vision, full-stack web development, and software engineering. I love experimenting with different technologies to grow my skills.
         </p>
         <br />
-        <p>I enjoy playing sports, going to the gym, reading comics, playing chess, gaming, and keeping up with AI news. Check out my resume to see more of the professional experience I have!</p>
+        <p>I enjoy playing sports, weight lifting, running, reading comics, playing chess, and gaming. Check out my resume to see more on my professional experience!</p>
         <br />
         <p>🚀 Feel free to check out my socials and get in touch!</p>
       </div>

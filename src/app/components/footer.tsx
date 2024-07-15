@@ -6,7 +6,7 @@ import { GiSpiderMask } from 'react-icons/gi'
 const Footer = () => {
   return (
     <div className='flex items-center justify-center'>
-      <footer className="footer w-[97%] rounded-lg m-4 flex flex-row justify-between items-center p-4 bg-zinc-800 text-white mx-auto">
+      <footer className="footer w-[95%] rounded-lg m-4 flex flex-row justify-between items-center p-4 bg-zinc-800 text-white mx-auto">
         <div className="flex items-center">
           <Link href="/" className='hover:text-red-500'>
             <GiSpiderMask size={25} className='mr-2'></GiSpiderMask>

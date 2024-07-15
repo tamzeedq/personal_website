@@ -1,7 +1,8 @@
 'use client'
 
 import Link from 'next/link';
-import HoverCard from './components/hoverCard';
+// import HoverCard from './components/hoverCard';
+import ShowcaseCard from './components/ShowcaseCard';
 import { Shapes } from './components/Shapes';
 import { FaLinkedin, FaGithub, FaInstagram, FaArrowRight } from 'react-icons/fa';
 import { HiOutlineMail } from 'react-icons/hi';
@@ -11,6 +12,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import React, { useLayoutEffect, useRef } from 'react';
 import About from './components/About';
+import { AiFillGithub } from 'react-icons/ai';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,7 +23,6 @@ const techlist = [
   { tech_name: "Java", tech_color: "#007396" },
   { tech_name: "AI/ML", tech_color: "#FF4500" },
   { tech_name: "DevOps", tech_color: "#F1502F" },
-  { tech_name: "Full-stack", tech_color: "#FFA500" }
 ];
 
 const projects = [
@@ -39,10 +40,17 @@ export default function Home() {
   useLayoutEffect(() => {
     techListRef.current.forEach((el, index) => {
       if (el) {
+        let xstart;
+        if (index % 2 === 0) {
+          xstart = -100;  
+        } else {
+          xstart = 100;
+        }
+  
         gsap.fromTo(el,
-          { x: -200, opacity: 0.25 }, // Start from left and invisible
+          { x: xstart, opacity: 0.25 }, 
           {
-            x: 0, // Translate to the center
+            x: 0, 
             opacity: 1,
             scrollTrigger: {
               trigger: el,
@@ -115,7 +123,7 @@ export default function Home() {
 
     if (skillsHeaderRef.current) {
       gsap.fromTo(skillsHeaderRef.current, 
-        { opacity: 0, x: 10 }, 
+        { opacity: 0.5, x: 10 }, 
         {
           opacity: 1, 
           x: 0, 
@@ -147,7 +155,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen items-center justify-between font-mono">
-      <div className='flex flex-row '>
+      <div className='flex flex-row w-[95%]'>
         {/* Header */}
         <div className='w-[50%] pl-10 flex flex-col gap-4 justify-center items-left bg-transparent'>
           <h1 className='font-bold md:text-8xl sm:text-5xl text-8xl drop-shadow-xl text-white'>TAMZEED <br />QUAZI</h1>
@@ -201,50 +209,52 @@ export default function Home() {
       <About></About>
 
       <div ref={skillsHeaderRef} className='text-center py-8'>
-        <h1 className='text-2xl sm:text-4xl md:text-7xl'>Skills & Interests</h1>
-        <hr className='w-1/4 mx-auto mt-2 border-red-500' style={{ borderWidth: '3px' }} />
+        <h1 className='text-md text-red-400'>Some of my</h1>
+        <h1 className='text-2xl sm:text-4xl md:text-7xl'>Skills</h1>
+        {/* <hr className='w-1/4 mx-auto mt-2 border-red-500' style={{ borderWidth: '3px' }} /> */}
       </div>
-
-      {techlist.map(({ tech_color, tech_name }, index) => (
-        <div
-          key={index}
-          className="tech-row mb-8 flex items-center justify-center gap-4 text-slate-700"
-          aria-label={tech_name}
-          ref={el => techListRef.current[index] = el}
-        >
-          {Array.from({ length: 15 }).map((_, idx) => (
-            <React.Fragment key={idx}>
-              <span
-                className={
-                  "tech-item text-4xl font-extrabold uppercase tracking-tighter"
-                }
-                style={{
-                  color: idx === 7 ? tech_color : "inherit",
-                }}
-              >
-                {tech_name}
-              </span>
-              <span className="text-3xl">
-                <MdCircle />
-              </span>
-            </React.Fragment>
-          ))}
-        </div>
-      ))}
+      <div className='overflow-hidden'>
+        {techlist.map(({ tech_color, tech_name }, index) => (
+          <div
+            key={index}
+            className="tech-row mb-8 flex items-center justify-center gap-4 text-slate-700"
+            aria-label={tech_name}
+            ref={el => techListRef.current[index] = el}
+          >
+            {Array.from({ length: 15 }).map((_, idx) => (
+              <React.Fragment key={idx}>
+                <span
+                  className={
+                    "tech-item text-6xl uppercase tracking-tighter"
+                  }
+                  style={{
+                    color: idx === 7 ? tech_color : "inherit",
+                  }}
+                >
+                  {tech_name}
+                </span>
+                <span className="text-3xl">
+                  <MdCircle />
+                </span>
+              </React.Fragment>
+            ))}
+          </div>
+        ))}
+      </div>
 
       <div className='text-center py-6' ref={showcaseRef}>
         <h1 className='text-md text-red-400'>Project</h1>
         <h1 className='text-xl sm:text-4xl md:text-7xl'>Showcase</h1>
       </div>
 
-      <div className='flex justify-center items-center gap-4 h-[400px]'>
+      <div className='flex flex-wrap justify-center items-center gap-4 border-dashed border-2 border-sky-500'>
         {projects.map(({ img, title, description }, index) => (
           <div
             key={index}
             ref={el => projectRefs.current[index] = el}
             className='rounded-md'
           >
-            <HoverCard
+            <ShowcaseCard
               imageSrc={img}
               title={title}
               description={description}
@@ -256,7 +266,7 @@ export default function Home() {
       <div className='flex justify-center p-6'>
         <button className='text-xl text-white bg-red-700 py-2 px-6 rounded-md hover:bg-red-600 transform hover:scale-105 transition-transform duration-200'>
           <Link href="/projects" className='flex items-center gap-2'>View Projects <FaArrowRight size={15}/> </Link>
-        </button>
+        </button> 
       </div>
     </main>
   );
