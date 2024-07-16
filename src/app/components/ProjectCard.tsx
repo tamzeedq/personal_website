@@ -32,30 +32,27 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, summary, description, 
     setIsExpanded(!isExpanded);
   };
 
-  const handleMouseEnter = () => {
-    gsap.to(cardRef.current, { scale: 1.05, boxShadow: '0 0 20px rgba(255, 0, 0, 0.5)', duration: 0.3 });
-  };
-
-  const handleMouseLeave = () => {
-    gsap.to(cardRef.current, { scale: 1, boxShadow: 'none', duration: 0.3 });
-  };
-
   return (
     <div
       ref={cardRef}
-      className="rounded-lg overflow-hidden shadow-lg w-80 cursor-pointer bg-zinc-800"
+      className="rounded-lg overflow-hidden shadow-lg w-80 cursor-pointer bg-latte border-2 border-rblack text-rblack"
       onClick={handleCardClick}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
     >
       {/* Browser Window Header */}
-      <div className="flex items-center bg-gray-950 px-4 py-2">
-        <div className="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
-        <div className="w-3 h-3 bg-gray-800 rounded-full mr-2"></div>
-        <div className="w-3 h-3 bg-gray-800 rounded-full"></div>
+      <div className="flex items-center bg-latte border-2 border-rblack px-4 py-2">
+        <div className="w-3 h-3 bg-red-500 border-2 border-rblack rounded-full mr-2"></div>
+        <div className="w-3 h-3 bg-yellow-500 border-2 border-rblack rounded-full mr-2"></div>
+        <div className="w-3 h-3 bg-green-500 border-2 border-rblack rounded-full"></div>
+        <h1 className='w-full text-right'> 2021</h1>
       </div>
       {/* Image */}
-      <img src={images[0]} alt={title} className="w-full h-48 object-cover" />
+      <div className='flex items-center justify-center p-2'>
+        <img
+          src={images[0]}
+          alt={title}
+          className="w-full h-48 object-cover border-2 border-rblack"
+        />
+      </div>
       {/* Title and Summary */}
       <div className="p-4">
         <h3 className="text-lg font-bold">{title}</h3>
@@ -70,7 +67,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, summary, description, 
       </div>
       {/* Expanded Content */}
       {isExpanded && (
-        <div className="p-4 bg-zinc-800">
+        <div className="p-4 bg-latte">
           <h4 className="text-md font-semibold">Description:</h4>
           <ul className="list-disc ml-5 mt-2">
             {description.map((desc, index) => (
@@ -80,7 +77,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, summary, description, 
           <h4 className="text-md font-semibold mt-4">Badges:</h4>
           <div className="flex flex-wrap gap-2 mt-2">
             {badges.map((badge, index) => (
-              <span key={index} className="badge badge-accent">
+              <span key={index} className="badge bg-rblack text-latte">
                 {badge}
               </span>
             ))}

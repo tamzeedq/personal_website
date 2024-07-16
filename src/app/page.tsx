@@ -1,8 +1,6 @@
 'use client'
 
 import Link from 'next/link';
-// import HoverCard from './components/hoverCard';
-import ShowcaseCard from './components/ShowcaseCard';
 import { Shapes } from './components/Shapes';
 import { FaLinkedin, FaGithub, FaInstagram, FaArrowRight } from 'react-icons/fa';
 import { HiOutlineMail } from 'react-icons/hi';
@@ -12,7 +10,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import React, { useLayoutEffect, useRef } from 'react';
 import About from './components/About';
-import { AiFillGithub } from 'react-icons/ai';
+import ShowcaseMarquee from './components/ShowcaseMarquee';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,15 +23,9 @@ const techlist = [
   { tech_name: "DevOps", tech_color: "#F1502F" },
 ];
 
-const projects = [
-  { img: "/images/form_tracker_project/form_tracker_1.png", title: 'Track My Form', description: 'Description of project 1' },
-  { img: "/images/messenger_project/morningmessenger_demo.jpeg", title: 'Morning Messenger', description: 'Description of project 2' },
-  { img: "/images/nwHacks2024_project/nwhacks_3.jpg", title: 'Breathe', description: 'Description of project 3' },
-];
 
 export default function Home() {
   const techListRef = useRef<(HTMLDivElement | null)[]>([]);
-  const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
   const showcaseRef = useRef<HTMLDivElement | null>(null);
   const skillsHeaderRef = useRef<HTMLDivElement | null>(null);
 
@@ -63,47 +55,6 @@ export default function Home() {
     });
   }, []);
 
-  useLayoutEffect(() => {
-    projectRefs.current.forEach((el, index) => {
-      if (el) {
-        el.addEventListener("mouseenter", () => {
-          gsap.to(el, {
-            scale: 1.2,
-            duration: 0.25,
-            ease: 'power2.inOut',
-            boxShadow: "0px 0px 15px 5px rgba(255, 0, 0, 0.3)",
-          });
-          projectRefs.current.forEach((otherEl, otherIndex) => {
-            if (otherEl && otherIndex !== index) {
-              gsap.to(otherEl, {
-                x: otherIndex < index ? '-50px' : '50px',
-                duration: 0.25,
-                ease: 'power2.inOut',
-              });
-            }
-          });
-        });
-
-        el.addEventListener("mouseleave", () => {
-          gsap.to(el, {
-            scale: 1,
-            duration: 0.25,
-            ease: 'power2.inOut',
-            boxShadow: "none",
-          });
-          projectRefs.current.forEach((otherEl) => {
-            if (otherEl) {
-              gsap.to(otherEl, {
-                x: 0,
-                duration: 0.25,
-                ease: 'power2.inOut',
-              });
-            }
-          });
-        });
-      }
-    });
-  }, []);
 
   useLayoutEffect(() => {
     if (showcaseRef.current) {
@@ -134,23 +85,6 @@ export default function Home() {
         }
       );
     }
-
-    projectRefs.current.forEach((el) => {
-      if (el) {
-        gsap.fromTo(el,
-          { scale: 0.8, opacity: 0.5 }, // Start with smaller scale and less opacity
-          {
-            scale: 1,
-            opacity: 1,
-            scrollTrigger: {
-              trigger: el,
-              start: "top 90%",
-              end: "bottom 10%",
-              scrub: true,
-            },
-          });
-      }
-    });
   }, []);
 
   return (
@@ -158,7 +92,7 @@ export default function Home() {
       <div className='flex flex-row w-[95%]'>
         {/* Header */}
         <div className='w-[50%] pl-10 flex flex-col gap-4 justify-center items-left bg-transparent'>
-          <h1 className='font-bold md:text-8xl sm:text-5xl text-8xl drop-shadow-xl text-white'>TAMZEED <br />QUAZI</h1>
+          <h1 className='font-bold md:text-8xl sm:text-5xl text-8xl drop-shadow-xl text-rblack'>TAMZEED <br />QUAZI</h1>
 
           {/* Typing Animation */}
           <TypeAnimation
@@ -172,27 +106,27 @@ export default function Home() {
             ]}
             wrapper="span"
             repeat={Infinity}
-            style={{ fontSize: '1.65rem', display: 'inline-block', color: 'rgb(248 113 113)' }}
+            style={{ fontSize: '1.65rem', display: 'inline-block', color: 'rgb(13 24 33)' }}
           />
 
           {/* Media buttons */}
-          <div className='flex items-center text-white justify-left gap-x-2 pt-2'>
-            <button className='hover:scale-105 hover:text-red-500'>
+          <div className='flex items-center text-rblack justify-left gap-x-2 pt-2'>
+            <button className='hover:scale-105 hover:text-indigo'>
               <Link href="https://github.com/tamzeedq">
                 <FaGithub size={30}></FaGithub>
               </Link>
             </button>
-            <button className='hover:scale-105 hover:text-red-500'>
+            <button className='hover:scale-105 hover:text-indigo'>
               <Link href="https://www.instagram.com/tamzeed.q/">
                 <FaInstagram size={30}></FaInstagram>
               </Link>
             </button>
-            <button className='hover:scale-105 hover:text-red-500'>
+            <button className='hover:scale-105 hover:text-indigo'>
               <Link href="https://www.linkedin.com/in/tamzeedquazi/">
                 <FaLinkedin size={30}></FaLinkedin>
               </Link>
             </button>
-            <button className='hover:scale-105 hover:text-red-500'>
+            <button className='hover:scale-105 hover:text-indigo'>
               <Link href="mailto:tamzeed.q@gmail.com">
                 <HiOutlineMail size={30}></HiOutlineMail>
               </Link>
@@ -209,15 +143,15 @@ export default function Home() {
       <About></About>
 
       <div ref={skillsHeaderRef} className='text-center py-8'>
-        <h1 className='text-md text-red-400'>Some of my</h1>
-        <h1 className='text-2xl sm:text-4xl md:text-7xl'>Skills</h1>
+        <h1 className='text-md text-rblack'>Some of my</h1>
+        <h1 className='text-2xl sm:text-4xl md:text-7xl text-rblack'>Skills</h1>
         {/* <hr className='w-1/4 mx-auto mt-2 border-red-500' style={{ borderWidth: '3px' }} /> */}
       </div>
       <div className='overflow-hidden'>
         {techlist.map(({ tech_color, tech_name }, index) => (
           <div
             key={index}
-            className="tech-row mb-8 flex items-center justify-center gap-4 text-slate-700"
+            className="tech-row mb-8 flex items-center justify-center gap-4 text-rblack"
             aria-label={tech_name}
             ref={el => techListRef.current[index] = el}
           >
@@ -243,28 +177,14 @@ export default function Home() {
       </div>
 
       <div className='text-center py-6' ref={showcaseRef}>
-        <h1 className='text-md text-red-400'>Project</h1>
-        <h1 className='text-xl sm:text-4xl md:text-7xl'>Showcase</h1>
+        <h1 className='text-md text-rblack'>Project</h1>
+        <h1 className='text-xl sm:text-4xl md:text-7xl text-rblack'>Showcase</h1>
       </div>
 
-      <div className='flex flex-wrap justify-center items-center gap-4 border-dashed border-2 border-sky-500'>
-        {projects.map(({ img, title, description }, index) => (
-          <div
-            key={index}
-            ref={el => projectRefs.current[index] = el}
-            className='rounded-md'
-          >
-            <ShowcaseCard
-              imageSrc={img}
-              title={title}
-              description={description}
-            />
-          </div>
-        ))}
-      </div>
+      <ShowcaseMarquee />
 
       <div className='flex justify-center p-6'>
-        <button className='text-xl text-white bg-red-700 py-2 px-6 rounded-md hover:bg-red-600 transform hover:scale-105 transition-transform duration-200'>
+        <button className='text-xl text-latte bg-rblack py-2 px-6 rounded-md hover:bg-red-600 transform hover:scale-105 transition-transform duration-200'>
           <Link href="/projects" className='flex items-center gap-2'>View Projects <FaArrowRight size={15}/> </Link>
         </button> 
       </div>

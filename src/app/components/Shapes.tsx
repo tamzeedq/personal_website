@@ -26,13 +26,13 @@ export function Shapes() {
             far={9}
           />
           <Environment preset="studio" />
-          {/* <OrbitControls
-            enableZoom={true}
+          <OrbitControls
+            enableZoom={false}
             maxPolarAngle={Math.PI / 2}
             minPolarAngle={Math.PI / 2}
-            minDistance={20} 
-            maxDistance={35} 
-          /> */}
+            // minDistance={20} 
+            // maxDistance={35} 
+          />
         </Suspense>
       </Canvas>
     </div>
@@ -46,21 +46,21 @@ function Geometries() {
       r: 0.3,
       geometry: new THREE.IcosahedronGeometry(3), // Gem
     },
-    {
-      position: [1, -0.75, 2],
-      r: 0.4,
-      geometry: new THREE.CapsuleGeometry(0.5, 1.6, 2, 16), // Pill
-    },
+    // {
+    //   position: [1, -0.75, 2],
+    //   r: 0.4,
+    //   geometry: new THREE.CapsuleGeometry(0.5, 1.6, 2, 16), // Pill
+    // },
     {
       position: [-1.4, 1.5, -2],
       r: 0.6,
       geometry: new THREE.DodecahedronGeometry(1.5), // Soccer ball
     },
-    {
-      position: [-0.8, -0.75, 2],
-      r: 0.5,
-      geometry: new THREE.TorusGeometry(0.6, 0.25, 16, 32), // Donut
-    },
+    // {
+    //   position: [-0.8, -0.75, 2],
+    //   r: 0.5,
+    //   geometry: new THREE.TorusGeometry(0.6, 0.25, 16, 32), // Donut
+    // },
     {
       position: [1.6, 1.45, -2],
       r: 0.7,
@@ -71,7 +71,7 @@ function Geometries() {
 
   const materials = [
     new THREE.MeshStandardMaterial({ color: 0x494331, roughness: 0 }),
-    new THREE.MeshStandardMaterial({ color: 0xde541e, roughness: 0.4 }),
+    // new THREE.MeshStandardMaterial({ color: 0xde541e, roughness: 0.4 }),
     new THREE.MeshStandardMaterial({ color: 0x878472, roughness: 0.1 }),
     new THREE.MeshStandardMaterial({ color: 0xd6d6b1, roughness: 0.1 }),
     new THREE.MeshStandardMaterial({ color: 0x3f3f37, roughness: 0.1 }),

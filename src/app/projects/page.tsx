@@ -120,11 +120,11 @@ const projects = [
 
 const Projects = () => {
   return (
-    <div className='min-h-screen flex flex-col text-white p-8 items-center justify-center gap-8 font-mono'>
-      <div className='w-[100%] text-center text-white md:text-8xl sm:text-6xl text-4xl'>
+    <div className='min-h-screen flex flex-col p-8 items-center justify-center gap-8 font-mono'>
+      <div className='w-[100%] text-center text-rblack md:text-8xl sm:text-6xl text-4xl'>
         Projects
       </div>
-      <div className='flex flex-wrap items-center justify-center gap-8 w-[95%] border-dashed border-2 border-sky-500'>
+      <div className='flex flex-wrap items-center justify-center gap-8 w-[95%]'>
         {projects.map((project, index) => (
           <ProjectCard 
             key={index} 

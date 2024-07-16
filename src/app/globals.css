@@ -40,5 +40,6 @@ body {
     )
     rgb(var(--background-start-rgb)); */
 
-  background: rgb(24 24 27);
+  /* background: rgb(24 24 27); */
+  background: rgb(255 248 232);
 }
