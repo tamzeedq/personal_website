@@ -6,6 +6,7 @@ import { AiFillGithub } from 'react-icons/ai';
 import { gsap } from 'gsap';
 import { FaArrowRight } from 'react-icons/fa';
 import { MdArrowOutward } from 'react-icons/md';
+import Image from 'next/image';
 
 interface ProjectCardProps {
   title: string;
@@ -48,7 +49,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, summary, description, 
       </div>
       {/* Image */}
       <div className='flex items-center justify-center p-2'>
-        <img
+        <Image
           src={images[0]}
           alt={title}
           className="w-full h-48 object-cover border-2 border-rblack"

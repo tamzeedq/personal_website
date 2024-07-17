@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React, { useState } from 'react';
 
 // Define the prop types for the HoverCard component
@@ -24,7 +25,7 @@ const HoverCard: React.FC<HoverCardProps> = ({ imageSrc, title, description }) =
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <img
+      <Image
         src={imageSrc}
         alt={title}
         className="w-full h-full object-cover transition-opacity duration-300"

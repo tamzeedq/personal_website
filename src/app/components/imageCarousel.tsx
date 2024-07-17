@@ -13,7 +13,7 @@ const ImageCarousel = ({imageURLS} : CarouselProps) => {
     <div>
         <div className="carousel w-full">
             <div className="carousel-item w-full flex justify-center">
-                <img
+                <Image
                     src={imageURLS[currentSlide]}
                     className="h-auto"
                     style={{ maxHeight: `600px`, maxWidth: `100%` }}

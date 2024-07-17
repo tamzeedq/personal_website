@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { AiFillGithub } from 'react-icons/ai';
@@ -10,7 +11,7 @@ interface ShowcaseCardProps {
 
 const ShowcaseCard: React.FC<ShowcaseCardProps> = ({ imageSrc, title, description }) => {
   return (
-    <div className="overflow-hidden shadow-lg w-80 cursor-pointer border-2 border-rblack">
+    <div className="overflow-hidden shadow-lg w-80 border-2 border-rblack">
       {/* Browser Window Header */}
       <div className="flex items-center bg-latte border-b-2 border-rblack px-4 py-2">
         <div className="w-3 h-3 bg-red-500 border-2 border-rblack  rounded-full mr-2"></div>
@@ -19,7 +20,7 @@ const ShowcaseCard: React.FC<ShowcaseCardProps> = ({ imageSrc, title, descriptio
       </div>
       {/* Image */}
       <div className='flex items-center justify-center p-2'>
-        <img
+        <Image
           src={imageSrc}
           alt={title}
           className="w-full h-48 object-cover border-2 border-rblack"

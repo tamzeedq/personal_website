@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import { CSSPlugin } from 'gsap/CSSPlugin';
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa';
+import Image from 'next/image';
 
 gsap.registerPlugin(CSSPlugin);
 
@@ -27,7 +28,7 @@ const About = () => {
     });
 
     // Hover effect for the image
-    const imageElement = imageRef.current;
+    const imageElement = imageRef.current as unknown as HTMLElement;
     const handleHover = () => {
       gsap.to(imageElement, {
         scale: 1.1,
@@ -46,8 +47,10 @@ const About = () => {
       });
     };
 
-    imageElement.addEventListener('mouseenter', handleHover);
-    imageElement.addEventListener('mouseleave', handleHoverOut);
+    if (imageElement) {
+      imageElement.addEventListener('mouseenter', handleHover);
+      imageElement.addEventListener('mouseleave', handleHoverOut);
+    }
 
     return () => {
       imageElement.removeEventListener('mouseenter', handleHover);
@@ -59,7 +62,7 @@ const About = () => {
     <div className='flex flex-row w-[95%]' ref={aboutRef}>
       <div className='relative w-[40%] flex items-center justify-center'>
         <div className='absolute w-[70%] h-[80%] bg-indigo'></div>
-        <img
+        <Image
           ref={imageRef}
           className='w-[70%] h-[80%] object-cover'
           src='/images/tamzeed/walking.JPG'

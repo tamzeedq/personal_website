@@ -1,7 +1,7 @@
 "use client";
 
 import * as THREE from "three";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, Vector3 } from "@react-three/fiber";
 import { ContactShadows, Float, Environment, OrbitControls } from "@react-three/drei";
 import { Suspense, useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
@@ -70,27 +70,27 @@ function Geometries() {
   ];
 
   return geometries.map(({ position, r, geometry }) => (
-    <Geometry
-      key={JSON.stringify(position)} // Unique key
-      position={position.map((p) => p * 2)}
-      geometry={geometry}
-      materials={materials}
-      r={r}
-    />
-  ));
+      <Geometry
+        key={JSON.stringify(position)} // Unique key
+        position={new THREE.Vector3(position[0] * 2, position[1] * 2, position[2] * 2)}
+        geometry={geometry}
+        materials={materials}
+        r={r}
+      />
+    ));
 }
 
-function Geometry({ r, position, geometry, materials }) {
-  const meshRef = useRef();
+function Geometry({ r, position, geometry, materials }: { r: number, position: Vector3 | undefined, geometry: THREE.BufferGeometry<THREE.NormalBufferAttributes> | undefined, materials: unknown[] }) {
+  const meshRef = useRef<THREE.Group>(null);
   const [visible, setVisible] = useState(false);
 
-  const startingMaterial = getRandomMaterial();
+  const startingMaterial = getRandomMaterial() as THREE.Material;
 
   function getRandomMaterial() {
     return gsap.utils.random(materials);
   }
 
-  function handleClick(e) {
+  function handleClick(e: { object: any; }) {
     const mesh = e.object;
 
     gsap.to(mesh.rotation, {
@@ -116,14 +116,16 @@ function Geometry({ r, position, geometry, materials }) {
   useEffect(() => {
     let ctx = gsap.context(() => {
       setVisible(true);
-      gsap.from(meshRef.current.scale, {
-        x: 0,
-        y: 0,
-        z: 0,
-        duration: gsap.utils.random(0.8, 1.2),
-        ease: "elastic.out(1,0.3)",
-        delay: gsap.utils.random(0, 0.5),
-      });
+      if (meshRef.current) {
+        gsap.from(meshRef.current.scale, {
+          x: 0,
+          y: 0,
+          z: 0,
+          duration: gsap.utils.random(0.8, 1.2),
+          ease: "elastic.out(1,0.3)",
+          delay: gsap.utils.random(0, 0.5),
+        });
+      }
     });
     return () => ctx.revert();
   }, []);

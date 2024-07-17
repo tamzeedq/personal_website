@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa';
@@ -15,7 +16,7 @@ const Contact = () => {
         
         {/* Profile Picture */}
         <div className='flex justify-center'>
-          <img
+          <Image
             className='rounded-full w-20 h-20 absolute -translate-y-[85%]'
             src="/images/tamzeed/profile_pic.jpg"
             alt=''

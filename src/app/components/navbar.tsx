@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image';
 import Link from 'next/link'
 import React, { useState, useEffect } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
@@ -38,7 +39,7 @@ const Navbar = () => {
                         </a>
                     </li>
                     <li className='p-4 group'>
-                        <button className="btn-sm rounded-lg group bg-rblack text-latte" onClick={()=>document.getElementById('modal').showModal()}>Contact Me</button>
+                        <button className="btn-sm rounded-lg group bg-rblack text-latte" onClick={() => (document.getElementById('modal') as HTMLDialogElement)?.showModal()}>Contact Me</button>
                     </li>
                     <dialog id="modal" className="modal">
                         <div className="modal-box bg-latte text-rblack">
@@ -72,7 +73,7 @@ const Navbar = () => {
                         <div className='flex flex-row justify-between items-center'>
                             <Link href='/' onClick={handleNav}>
                                 <div className='rounded-full border-2 border-transparent group overflow-hidden hover:border-red-400 transition duration-300'>
-                                    <img
+                                    <Image
                                         className='w-10 h-10 object-cover'
                                         src="/images/tamzeed/profile_pic.jpg"
                                         alt=""
