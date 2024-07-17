@@ -26,13 +26,6 @@ export function Shapes() {
             far={9}
           />
           <Environment preset="studio" />
-          <OrbitControls
-            enableZoom={false}
-            maxPolarAngle={Math.PI / 2}
-            minPolarAngle={Math.PI / 2}
-            // minDistance={20} 
-            // maxDistance={35} 
-          />
         </Suspense>
       </Canvas>
     </div>
@@ -70,8 +63,7 @@ function Geometries() {
 
 
   const materials = [
-    new THREE.MeshStandardMaterial({ color: 0x494331, roughness: 0 }),
-    // new THREE.MeshStandardMaterial({ color: 0xde541e, roughness: 0.4 }),
+    new THREE.MeshStandardMaterial({ color: 0xd52941, roughness: 0.4 }),
     new THREE.MeshStandardMaterial({ color: 0x878472, roughness: 0.1 }),
     new THREE.MeshStandardMaterial({ color: 0xd6d6b1, roughness: 0.1 }),
     new THREE.MeshStandardMaterial({ color: 0x3f3f37, roughness: 0.1 }),
@@ -82,14 +74,13 @@ function Geometries() {
       key={JSON.stringify(position)} // Unique key
       position={position.map((p) => p * 2)}
       geometry={geometry}
-      soundEffects={[]}
       materials={materials}
       r={r}
     />
   ));
 }
 
-function Geometry({ r, position, geometry, soundEffects, materials }) {
+function Geometry({ r, position, geometry, materials }) {
   const meshRef = useRef();
   const [visible, setVisible] = useState(false);
 

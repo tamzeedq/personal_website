@@ -14,7 +14,8 @@ const projects = [
     ],
     badges: ["Python", "AWS EC2", "Linux", "Docker"],
     github: "https://github.com/tamzeedq/MorningMessenger",
-    images: ["/images/messenger_project/morningmessenger_demo.jpeg"]
+    images: ["/images/messenger_project/morningmessenger_demo.jpeg"],
+    year: "2024"
   },
   {
     title: "GestureCV",
@@ -26,7 +27,8 @@ const projects = [
     ],
     badges: ["Python", "OpenCV", "MediaPipe", "Docker"],
     github: "https://github.com/tamzeedq/GestureCV",
-    images: ["/images/messenger_project/morningmessenger_demo.jpeg"]
+    images: ["/images/messenger_project/morningmessenger_demo.jpeg"],
+    year: "2024"
   },
   {
     title: "Breathe App | nwHacks 2024",
@@ -39,7 +41,8 @@ const projects = [
     ],
     badges: ["ReactJS", "Tailwind CSS", "Python", "Flask", "Arduino", "C++", "GPT-4"],
     github: "https://github.com/ryanarnouk/nwhacks-2024",
-    images: ["/images/nwHacks2024_project/nwhacks_1.png", "/images/nwHacks2024_project/nwhacks_2.png", "/images/nwHacks2024_project/nwhacks_3.jpg"]
+    images: ["/images/nwHacks2024_project/nwhacks_1.png", "/images/nwHacks2024_project/nwhacks_2.png", "/images/nwHacks2024_project/nwhacks_3.jpg"],
+    year: "2024"
   },
   {
     title: "AI Exercise Form Tracker",
@@ -51,7 +54,8 @@ const projects = [
     ],
     badges: ["ReactJS", "TypeScript", "Tailwind CSS", "TensorFlowJS"],
     github: "https://github.com/tamzeedq/TrackMyForm",
-    images: ["/images/form_tracker_project/form_tracker_1.png", "/images/form_tracker_project/form_tracker_2.png", "/images/form_tracker_project/form_tracker_3.png"]
+    images: ["/images/form_tracker_project/form_tracker_1.png", "/images/form_tracker_project/form_tracker_2.png", "/images/form_tracker_project/form_tracker_3.png"],
+    year: "2023"
   },
   {
     title: "Personal Website",
@@ -64,7 +68,8 @@ const projects = [
     ],
     badges: ["ReactJS", "TypeScript", "NextJS", "Tailwind CSS", "Netlify"],
     github: "https://github.com/tamzeedq/personal_website",
-    images: ["/images/messenger_project/morningmessenger_demo.jpeg"]
+    images: ["/images/messenger_project/morningmessenger_demo.jpeg"],
+    year: "2023"
   },
   {
     title: "React Weather App",
@@ -72,11 +77,12 @@ const projects = [
     description: [
       "Created a website that pulls from the Open Weather API to create weather cards with a quick summary of the current weather of the day from a user-inputted location",
       "Made the project to grasp fundamentals of React and learn front-end development with frameworks",
-      "Utilized React’s component format and automatic re-render to spontaneously create cards for each location’s weather for clear display and comparison with other locations"
+      "Utilized React component format and automatic re-render to spontaneously create cards for each location’s weather for clear display and comparison with other locations"
     ],
     badges: ["HTML", "CSS", "ReactJS"],
     github: "https://github.com/tamzeedq/react-weather-app",
-    images: ["/images/weather_project/weather_app_1.png", "/images/weather_project/weather_app_2.png", "/images/weather_project/weather_app_3.png"]
+    images: ["/images/weather_project/weather_app_1.png", "/images/weather_project/weather_app_2.png", "/images/weather_project/weather_app_3.png"],
+    year: "2022"
   },
   {
     title: "Sorting Algorithm Visualizer",
@@ -89,7 +95,8 @@ const projects = [
     ],
     badges: ["HTML", "CSS", "JavaScript"],
     github: "https://github.com/tamzeedq/SortingAlgorithmVisualizer",
-    images: ["/images/algorithm_project/algorithm_project1.png", "/images/algorithm_project/algorithm_project2.png", "/images/algorithm_project/algorithm_project3.png"]
+    images: ["/images/algorithm_project/algorithm_project1.png", "/images/algorithm_project/algorithm_project2.png", "/images/algorithm_project/algorithm_project3.png"],
+    year: "2022"
   },
   {
     title: "Discord Bot",
@@ -101,7 +108,8 @@ const projects = [
     ],
     badges: ["Python"],
     github: "https://github.com/tamzeedq/DiscordBot",
-    images: ["/images/hoppon_project/hoppon_bot1.png", "/images/hoppon_project/hoppon_bot2.png", "/images/hoppon_project/hoppon_bot3.png"]
+    images: ["/images/hoppon_project/hoppon_bot1.png", "/images/hoppon_project/hoppon_bot2.png", "/images/hoppon_project/hoppon_bot3.png"],
+    year: "2022"
   },
   {
     title: "Fitness Tracker",
@@ -114,7 +122,8 @@ const projects = [
     ],
     badges: ["Java", "JUnit", "Java Swing", "JSON"],
     github: "https://github.com/tamzeedq/FitnessTrackerApp",
-    images: ["/images/fitness_project/fitnessApp_1.png", "/images/fitness_project/fitnessApp_3.png", "/images/fitness_project/fitnessApp_2.png"]
+    images: ["/images/fitness_project/fitnessApp_1.png", "/images/fitness_project/fitnessApp_3.png", "/images/fitness_project/fitnessApp_2.png"],
+    year: "2022"
   }
 ];
 
@@ -134,6 +143,7 @@ const Projects = () => {
             badges={project.badges}
             github={project.github}
             images={project.images}
+            year = {project.year}
           />
         ))}
       </div>

@@ -2,29 +2,16 @@
 import Link from 'next/link'
 import React, { useState, useEffect } from 'react';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { HiOutlineMail } from 'react-icons/hi';
 
 const Navbar = () => {
     const [nav, setNav] = useState(false);
-    const [showBottomBar, setShowBottomBar] = useState(false);
 
     const handleNav = () => {
         setNav(!nav);
     };
 
-    const handleScroll = () => {
-        if (window.scrollY > 100) {
-            setShowBottomBar(true);
-        } else {
-            setShowBottomBar(false);
-        }
-    };
-
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
 
     return (
         <div className='relative z-50 font-mono border-2 border-latte'>
@@ -37,13 +24,7 @@ const Navbar = () => {
                         <span className='absolute bottom-0 left-0 w-full h-0.5 bg-rblack transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left'></span>
                     </div>
                 </Link>
-                <ul className='hidden md:flex'>
-                    <li className='p-4 group'>
-                        <a href='/about' className='relative'>
-                            About
-                            <span className='absolute bottom-0 left-0 w-full h-0.5 bg-rblack transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left'></span>
-                        </a>
-                    </li>
+                <ul className='hidden md:flex items-center'>
                     <li className='p-4 group'>
                         <a href='/projects' className='relative'>
                             Projects
@@ -56,6 +37,30 @@ const Navbar = () => {
                             <span className='absolute bottom-0 left-0 w-full h-0.5 bg-rblack transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left'></span>
                         </a>
                     </li>
+                    <li className='p-4 group'>
+                        <button className="btn-sm rounded-lg group bg-rblack text-latte" onClick={()=>document.getElementById('modal').showModal()}>Contact Me</button>
+                    </li>
+                    <dialog id="modal" className="modal">
+                        <div className="modal-box bg-latte text-rblack">
+                            <h3 className="font-bold text-lg">Hi!</h3>
+                            <p className="py-4">Thanks for checking out my website. Feel free to get connected with me through LinkedIn or email. Looking forward to hearing from you!</p>
+                            <div className="flex items-center justify-center gap-4 text-rblack">
+                                <Link href="https://www.linkedin.com/in/tamzeedquazi/">
+                                    <div className="hover:scale-105 hover:text-indigo">
+                                        <FaLinkedin size={30} />
+                                    </div>
+                                </Link>
+                                <Link href="mailto:tamzeed.q@gmail.com">
+                                    <div className="hover:scale-105 hover:text-indigo">
+                                        <HiOutlineMail size={30} />
+                                    </div>
+                                </Link>
+                            </div>
+                        </div>
+                        <form method="dialog" className="modal-backdrop">
+                            <button>close</button>
+                        </form>
+                    </dialog>
                 </ul>
 
                 {/* Mobile View Nav */}

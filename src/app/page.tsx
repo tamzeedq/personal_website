@@ -1,29 +1,28 @@
-'use client'
+"use client"
 
+import React from 'react';
 import Link from 'next/link';
-import { Shapes } from './components/Shapes';
-import { FaLinkedin, FaGithub, FaInstagram, FaArrowRight } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaArrowRight, FaInstagram } from 'react-icons/fa';
 import { HiOutlineMail } from 'react-icons/hi';
 import { TypeAnimation } from 'react-type-animation';
 import { MdCircle } from "react-icons/md";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import React, { useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import About from './components/About';
 import ShowcaseMarquee from './components/ShowcaseMarquee';
+import { Shapes } from './components/Shapes';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const techlist = [
-  { tech_name: "React", tech_color: "#61DAFB" },
-  { tech_name: "TypeScript", tech_color: "#3178C6" },
-  { tech_name: "Python", tech_color: "#3776AB" },
-  { tech_name: "Java", tech_color: "#007396" },
-  { tech_name: "AI/ML", tech_color: "#FF4500" },
-  { tech_name: "DevOps", tech_color: "#F1502F" },
+  { tech_name: "React", tech_color: "#61DBFB" },        
+  { tech_name: "TypeScript", tech_color: "#3178C6" },   
+  { tech_name: "Python", tech_color: "#FFD43B" },       
+  { tech_name: "Java", tech_color: "#ED8B00" },         
+  { tech_name: "AI/ML", tech_color: "#00C49A" },        
+  { tech_name: "DevOps", tech_color: "#F1502F" },       
 ];
-
-
 export default function Home() {
   const techListRef = useRef<(HTMLDivElement | null)[]>([]);
   const showcaseRef = useRef<HTMLDivElement | null>(null);
@@ -54,7 +53,6 @@ export default function Home() {
       }
     });
   }, []);
-
 
   useLayoutEffect(() => {
     if (showcaseRef.current) {
@@ -111,26 +109,18 @@ export default function Home() {
 
           {/* Media buttons */}
           <div className='flex items-center text-rblack justify-left gap-x-2 pt-2'>
-            <button className='hover:scale-105 hover:text-indigo'>
-              <Link href="https://github.com/tamzeedq">
-                <FaGithub size={30}></FaGithub>
-              </Link>
-            </button>
-            <button className='hover:scale-105 hover:text-indigo'>
-              <Link href="https://www.instagram.com/tamzeed.q/">
-                <FaInstagram size={30}></FaInstagram>
-              </Link>
-            </button>
-            <button className='hover:scale-105 hover:text-indigo'>
-              <Link href="https://www.linkedin.com/in/tamzeedquazi/">
-                <FaLinkedin size={30}></FaLinkedin>
-              </Link>
-            </button>
-            <button className='hover:scale-105 hover:text-indigo'>
-              <Link href="mailto:tamzeed.q@gmail.com">
-                <HiOutlineMail size={30}></HiOutlineMail>
-              </Link>
-            </button>
+            <Link href="https://github.com/tamzeedq" className='hover:text-indigo hover:scale-125 transition-transform duration-300'>
+              <FaGithub size={30}></FaGithub>
+            </Link>
+            <Link href="https://www.instagram.com/tamzeed.q/" className='hover:text-indigo hover:scale-125 transition-transform duration-300'>
+              <FaInstagram size={30}></FaInstagram>
+            </Link>
+            <Link href="https://www.linkedin.com/in/tamzeedquazi/" className='hover:text-indigo hover:scale-125 transition-transform duration-300'>
+              <FaLinkedin size={30}></FaLinkedin>
+            </Link>
+            <Link href="mailto:tamzeed.q@gmail.com" className='hover:text-indigo hover:scale-125 transition-transform duration-300'>
+              <HiOutlineMail size={30}></HiOutlineMail>
+            </Link>
           </div>
         </div>
 
@@ -145,7 +135,6 @@ export default function Home() {
       <div ref={skillsHeaderRef} className='text-center py-8'>
         <h1 className='text-md text-rblack'>Some of my</h1>
         <h1 className='text-2xl sm:text-4xl md:text-7xl text-rblack'>Skills</h1>
-        {/* <hr className='w-1/4 mx-auto mt-2 border-red-500' style={{ borderWidth: '3px' }} /> */}
       </div>
       <div className='overflow-hidden'>
         {techlist.map(({ tech_color, tech_name }, index) => (
@@ -183,8 +172,9 @@ export default function Home() {
 
       <ShowcaseMarquee />
 
+
       <div className='flex justify-center p-6'>
-        <button className='text-xl text-latte bg-rblack py-2 px-6 rounded-md hover:bg-red-600 transform hover:scale-105 transition-transform duration-200'>
+        <button className='text-xl text-latte bg-rblack py-2 px-6 rounded-md hover:bg-dred transform hover:scale-105 transition-transform duration-200'>
           <Link href="/projects" className='flex items-center gap-2'>View Projects <FaArrowRight size={15}/> </Link>
         </button> 
       </div>

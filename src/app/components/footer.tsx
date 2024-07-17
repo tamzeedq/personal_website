@@ -2,6 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 import { AiFillGithub, AiFillLinkedin, AiFillInstagram } from 'react-icons/ai'
 import { GiSpiderMask } from 'react-icons/gi'
+import { HiOutlineMail } from 'react-icons/hi'
 
 const Footer = () => {
   return (
@@ -24,6 +25,9 @@ const Footer = () => {
           </Link>
           <Link href="https://www.instagram.com/tamzeed.q/" className='hover:scale-125 transition-transform duration-300'>
             <AiFillInstagram size={25} className='hover:text-indigo' />
+          </Link>
+          <Link href="mailto:tamzeed.q@gmail.com" className='hover:scale-125 transition-transform duration-300'>
+            <HiOutlineMail size={25} className='hover:text-indigo' />
           </Link>
         </div>
       </footer>

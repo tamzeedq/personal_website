@@ -19,7 +19,6 @@ const ShowcaseMarquee = () => {
             {projects.map(({ img, title, description }, index) => (
                 <div
                 key={index}
-                // ref={el => projectRefs.current[index] = el}
                 className='mx-8'
                 >
                 <ShowcaseCard
