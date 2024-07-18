@@ -20,7 +20,7 @@ const ShowcaseCard: React.FC<ShowcaseCardProps> = ({ imageSrc, title, descriptio
       </div>
       {/* Image */}
       <div className='flex items-center justify-center p-2'>
-        <Image
+        <img
           src={imageSrc}
           alt={title}
           className="w-full h-48 object-cover border-2 border-rblack"

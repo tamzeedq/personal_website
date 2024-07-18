@@ -16,7 +16,7 @@ const Contact = () => {
         
         {/* Profile Picture */}
         <div className='flex justify-center'>
-          <Image
+          <img
             className='rounded-full w-20 h-20 absolute -translate-y-[85%]'
             src="/images/tamzeed/profile_pic.jpg"
             alt=''

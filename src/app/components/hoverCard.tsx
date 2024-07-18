@@ -25,7 +25,7 @@ const HoverCard: React.FC<HoverCardProps> = ({ imageSrc, title, description }) =
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <Image
+      <img
         src={imageSrc}
         alt={title}
         className="w-full h-full object-cover transition-opacity duration-300"

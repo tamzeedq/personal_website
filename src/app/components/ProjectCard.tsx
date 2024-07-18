@@ -49,7 +49,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, summary, description, 
       </div>
       {/* Image */}
       <div className='flex items-center justify-center p-2'>
-        <Image
+        <img
           src={images[0]}
           alt={title}
           className="w-full h-48 object-cover border-2 border-rblack"

@@ -21,12 +21,13 @@ const techlist = [
   { tech_name: "Python", tech_color: "#FFD43B" },       
   { tech_name: "Java", tech_color: "#ED8B00" },         
   { tech_name: "AI/ML", tech_color: "#00C49A" },        
-  { tech_name: "DevOps", tech_color: "#F1502F" },       
 ];
+
 export default function Home() {
   const techListRef = useRef<(HTMLDivElement | null)[]>([]);
   const showcaseRef = useRef<HTMLDivElement | null>(null);
   const skillsHeaderRef = useRef<HTMLDivElement | null>(null);
+  const headerTextRef = useRef<HTMLDivElement | null>(null);
 
   useLayoutEffect(() => {
     techListRef.current.forEach((el, index) => {
@@ -83,29 +84,44 @@ export default function Home() {
         }
       );
     }
+
+    if (headerTextRef.current) {
+      gsap.fromTo(headerTextRef.current,
+        { opacity: 0, y: -50 }, // Start from above and invisible
+        {
+          opacity: 1,
+          y: 0,
+          duration: 2,
+          ease: "power3.out",
+        }
+      );
+    }
   }, []);
 
   return (
-    <main className="min-h-screen items-center justify-between font-mono">
-      <div className='flex flex-row w-[95%]'>
+    <main className="min-h-screen items-center justify-between font-mono overflow-x-hidden">
+      <div className='flex md:flex-row flex-col-reverse mx-10 h-[80vh] justify-end items-center '>
         {/* Header */}
-        <div className='w-[50%] pl-10 flex flex-col gap-4 justify-center items-left bg-transparent'>
-          <h1 className='font-bold md:text-8xl sm:text-5xl text-8xl drop-shadow-xl text-rblack'>TAMZEED <br />QUAZI</h1>
+        <div className='w-full md:w-[50%] md:pl-10 flex flex-col gap-2 justify-center items-center ' ref={headerTextRef}>
+          <h1 className='font-bold text-6xl md:text-8xl drop-shadow-xl text-rblack'>TAMZEED</h1>
+          <h1 className='font-bold text-6xl md:text-8xl drop-shadow-xl text-rblack'>QUAZI</h1>
 
           {/* Typing Animation */}
-          <TypeAnimation
-            sequence={[
-              'Software Developer',
-              1000,
-              'Computer Science Student',
-              1000,
-              'Passionate Learner',
-              1000,
-            ]}
-            wrapper="span"
-            repeat={Infinity}
-            style={{ fontSize: '1.65rem', display: 'inline-block', color: 'rgb(13 24 33)' }}
-          />
+          <div >
+            <TypeAnimation
+              sequence={[
+                'Software Developer',
+                1000,
+                'CS Student',
+                1000,
+                'Passionate Learner',
+                1000,
+              ]}
+              wrapper="span"
+              repeat={Infinity}
+              style={{fontSize: '1.5rem', display: 'inline-block', color: 'rgb(213,41,65)' }}
+            />
+          </div>
 
           {/* Media buttons */}
           <div className='flex items-center text-rblack justify-left gap-x-2 pt-2'>
@@ -125,7 +141,7 @@ export default function Home() {
         </div>
 
         {/* Three JS shapes */}
-        <div className='w-[50%]'>
+        <div className='w-full h-[70%] md:h-auto md:w-[50%] p-0 '>
           <Shapes />
         </div>
       </div>
@@ -134,9 +150,9 @@ export default function Home() {
 
       <div ref={skillsHeaderRef} className='text-center py-8'>
         <h1 className='text-md text-rblack'>Some of my</h1>
-        <h1 className='text-2xl sm:text-4xl md:text-7xl text-rblack'>Skills</h1>
+        <h1 className='text-7xl text-rblack'>Skills</h1>
       </div>
-      <div className='overflow-hidden'>
+      <div className='overflow-x-hidden'>
         {techlist.map(({ tech_color, tech_name }, index) => (
           <div
             key={index}
@@ -165,9 +181,9 @@ export default function Home() {
         ))}
       </div>
 
-      <div className='text-center py-6' ref={showcaseRef}>
+      <div className='text-center pt-2 pb-10' ref={showcaseRef}>
         <h1 className='text-md text-rblack'>Project</h1>
-        <h1 className='text-xl sm:text-4xl md:text-7xl text-rblack'>Showcase</h1>
+        <h1 className='text-7xl text-rblack'>Showcase</h1>
       </div>
 
       <ShowcaseMarquee />

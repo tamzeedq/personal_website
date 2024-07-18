@@ -13,7 +13,7 @@ const Footer = () => {
             <GiSpiderMask size={25} className='mr-2'></GiSpiderMask>
           </Link>
           <p className='font-semibold '>
-            Tamzeed Quazi - 2023
+            Tamzeed Quazi - 2024
           </p>
         </div> 
         <div className="flex md:place-self-center md:justify-self-end gap-4">
