@@ -32,7 +32,7 @@ const Navbar = () => {
                         </a>
                     </li>
                     <li className='p-4 group'>
-                        <a href='https://drive.google.com/file/d/1RW7_N9YVbJQ2f-0xE4n_pXBCl108hlxT/view?usp=sharing' target='_blank' className='relative'>
+                        <a href='/resume' className='relative'>
                             Resume
                             <span className='absolute bottom-0 left-0 w-full h-0.5 bg-rblack transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left'></span>
                         </a>
@@ -73,7 +73,7 @@ const Navbar = () => {
                         </Link>
                     </li>
                     <li className='p-4 border-b border-rblack hover:bg-indigo hover:text-latte'>
-                        <Link href='https://drive.google.com/file/d/1RW7_N9YVbJQ2f-0xE4n_pXBCl108hlxT/view?usp=sharing' target='_blank' className='block' onClick={handleNav}>
+                        <Link href='/resume' className='block' onClick={handleNav}>
                             Resume
                         </Link>
                     </li>
@@ -81,7 +81,7 @@ const Navbar = () => {
             </div>
             <dialog id="modal" className="modal">
                 <div className="modal-box bg-latte text-rblack">
-                    <h3 className="font-bold text-lg">Hi!</h3>
+                    <h3 className="font-bold text-lg">Hi!👋</h3>
                     <p className="py-4">Thanks for checking out my website. Feel free to get connected with me through LinkedIn or email. Looking forward to hearing from you!</p>
                     <div className="flex items-center justify-center gap-4 text-rblack">
                         <Link href="https://www.linkedin.com/in/tamzeedquazi/">

@@ -19,8 +19,8 @@ const techlist = [
   { tech_name: "React", tech_color: "#61DBFB" },        
   { tech_name: "TypeScript", tech_color: "#3178C6" },   
   { tech_name: "Python", tech_color: "#FFD43B" },       
-  { tech_name: "Java", tech_color: "#ED8B00" },         
   { tech_name: "AI/ML", tech_color: "#00C49A" },        
+  { tech_name: "Java", tech_color: "#ED8B00" },         
 ];
 
 export default function Home() {
@@ -156,7 +156,7 @@ export default function Home() {
         {techlist.map(({ tech_color, tech_name }, index) => (
           <div
             key={index}
-            className="tech-row mb-8 flex items-center justify-center gap-4 text-rblack"
+            className="tech-row mb-8 flex items-center justify-center gap-4 text-indigo"
             aria-label={tech_name}
             ref={el => techListRef.current[index] = el}
           >
@@ -181,7 +181,7 @@ export default function Home() {
         ))}
       </div>
 
-      <div className='text-center pt-2 pb-10' ref={showcaseRef}>
+      <div className='text-center pt-10 pb-10' ref={showcaseRef}>
         <h1 className='text-md text-rblack'>Project</h1>
         <h1 className='text-7xl text-rblack'>Showcase</h1>
       </div>
@@ -189,7 +189,7 @@ export default function Home() {
       <ShowcaseMarquee />
 
 
-      <div className='flex justify-center p-6'>
+      <div className='flex justify-center pt-6 pb-8'>
         <button className='text-xl text-latte bg-rblack py-2 px-6 rounded-md hover:bg-dred transform hover:scale-105 transition-transform duration-200'>
           <Link href="/projects" className='flex items-center gap-2'>View Projects <FaArrowRight size={15}/> </Link>
         </button> 

@@ -3,10 +3,24 @@ import ShowcaseCard from './ShowcaseCard';
 import Marquee from "react-fast-marquee";
 
 const projects = [
-    { img: "/images/form_tracker_project/form_tracker_1.png", title: 'Track My Form', description: 'Description of project 1' },
-    { img: "/images/messenger_project/morningmessenger_demo.jpeg", title: 'Morning Messenger', description: 'Description of project 2' },
-    { img: "/images/nwHacks2024_project/nwhacks_3.jpg", title: 'Breathe', description: 'Description of project 3' },
-    { img: "/images/nwHacks2024_project/nwhacks_3.jpg", title: 'GestureCV', description: 'Description of project 3' },
+    { 
+        img: "/images/form_tracker_project/form_tracker_1.png", 
+        title: 'Track My Form', 
+        github: 'https://github.com/tamzeedq/TrackMyForm', 
+        description: 'Track exercise form and repetitions with a pose-detection model using TensorFlowJS' 
+    },
+    { 
+        img: "/images/nwHacks2024_project/nwhacks_3.jpg", 
+        title: 'Breathe App', 
+        github: 'https://github.com/ryanarnouk/nwhacks-2024', 
+        description: 'Detect air quality and GPS location using sensors and display data with React and GPT-4.' 
+    },
+    { 
+        img: "/images/gesturecv/gesturecv_1.png", 
+        title: 'GestureCV', 
+        github: 'https://github.com/tamzeedq/GestureCV', 
+        description: 'Control your laptop with hand gestures using Google MediaPipe and OpenCV.' 
+    },
 ];
 
 const ShowcaseMarquee = () => {
@@ -16,7 +30,7 @@ const ShowcaseMarquee = () => {
             pauseOnHover={true}
             autoFill={true}
         >
-            {projects.map(({ img, title, description }, index) => (
+            {projects.map(({ img, title, description, github }, index) => (
                 <div
                 key={index}
                 className='mx-8'
@@ -25,6 +39,7 @@ const ShowcaseMarquee = () => {
                     imageSrc={img}
                     title={title}
                     description={description}
+                    github={github}
                 />
                 </div>
             ))}

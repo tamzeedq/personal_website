@@ -20,12 +20,12 @@ const About = () => {
     gsap.from(aboutRef.current, {
       scrollTrigger: {
         trigger: aboutRef.current,
-        start: 'top 80%', // Adjust this to control when the animation starts
+        start: 'top 70%', // Adjust this to control when the animation starts
       },
       opacity: 0,
-      y: 50,
+      scale: 0.8,
       duration: 0.5,
-      ease: 'power2.out',
+      ease: 'back.out(1.7)',
     });
 
     // Hover effect for the image
@@ -60,8 +60,8 @@ const About = () => {
   }, []);
 
   return (
-    <div className='flex md:flex-row flex-col mx-10 h-[90vh] ' ref={aboutRef}>
-      <div className='relative mx-auto w-[50%] md:w-[40%] flex items-center justify-center '>
+    <div className='flex md:flex-row flex-col mx-10 h-[90vh]' ref={aboutRef}>
+      <div className='relative mx-auto w-[50%] md:w-[40%] flex items-center justify-center'>
         <div className='absolute w-[70%] h-[80%] bg-indigo'></div>
         <img
           ref={imageRef}
@@ -71,9 +71,9 @@ const About = () => {
         />
       </div>
 
-      <div className='w-[100%] my-auto md:w-[60%] overflow-y-scroll no-scrollbar text-rblack flex flex-col md:justify-center border-2 border-rblack'>
+      <div className='w-[100%] shadow-lg my-auto md:w-[60%] overflow-y-scroll no-scrollbar text-rblack flex flex-col md:justify-center border-2 border-rblack'>
         <div className="flex items-center bg-latte border-b-2 border-rblack px-4 py-2 mb-2">
-          <div className="w-3 h-3 bg-red-500 border-2 border-rblack  rounded-full mr-2"></div>
+          <div className="w-3 h-3 bg-red-500 border-2 border-rblack rounded-full mr-2"></div>
           <div className="w-3 h-3 bg-latte border-2 border-rblack rounded-full mr-2"></div>
           <div className="w-3 h-3 bg-latte border-2 border-rblack rounded-full"></div>
         </div>

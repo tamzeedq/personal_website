@@ -6,28 +6,41 @@ import ProjectCard from '../components/ProjectCard'
 
 const projects = [
   {
-    title: "Morning Messenger",
-    summary: "Automated SMS notifications for daily tasks and weather updates using Python and AWS EC2.",
+    title: "UBC Solar Simulation",
+    summary: "UBC Solar's simulation environment to strategize and optimize competition race speeds.",
     description: [
-      "Wrote a script with Python to send me a SMS text of my tasks for the day and a summary of the weather",
-      "Set up an AWS EC2 instance with a cron job to automatically run the script to send me a text every morning"
+      "Designed a genetic algorithm with to simulate car physics models in race conditions to optimize speed",
+      "Developed a script to tune hyperameters of the genetic algorithm using random search and grid search",
+      "Created a CLI to manage GIS and Weather APIs for the race and cache the result for future simulations"
     ],
-    badges: ["Python", "AWS EC2", "Linux", "Docker"],
-    github: "https://github.com/tamzeedq/MorningMessenger",
-    images: ["/images/messenger_project/morningmessenger_demo.jpeg"],
-    year: "2024"
+    badges: ["Python", "PyGAD", "NumPy", "Scikit-learn"],
+    github: "https://github.com/UBC-Solar/Simulation",
+    images: ["/images/simulation/simulation_1.png"],
+    year: "2023 - Present"
   },
+  // {
+  //   title: "Morning Messenger",
+  //   summary: "Automated SMS notifications for daily tasks and weather updates using Python and AWS EC2.",
+  //   description: [
+  //     "Wrote a script with Python to send me a SMS text of my tasks for the day and a summary of the weather",
+  //     "Set up an AWS EC2 instance with a cron job to automatically run the script to send me a text every morning"
+  //   ],
+  //   badges: ["Python", "AWS EC2", "Linux", "Docker"],
+  //   github: "https://github.com/tamzeedq/MorningMessenger",
+  //   images: ["/images/messenger_project/morningmessenger_demo.jpeg"],
+  //   year: "2024"
+  // },
   {
     title: "GestureCV",
     summary: "Control your laptop with hand gestures using Google MediaPipe and OpenCV.",
     description: [
-      "Created this project to control my laptop without touching it to watch YouTube videos while I eat",
+      "Created this project to control my laptop without a mouse or keyboard for accessibility and fun",
       "Utilized Google MediaPipe hand detection model and OpenCV to detect hand location and gestures",
-      "The hand landmarks are then interpolated from webcam to monitor resolution to control my mouse and gestures to trigger media events"
+      "The hand landmarks are interpolated from webcam to monitor resolution to control the mouse and use gestures to trigger media events"
     ],
     badges: ["Python", "OpenCV", "MediaPipe", "Docker"],
     github: "https://github.com/tamzeedq/GestureCV",
-    images: ["/images/messenger_project/morningmessenger_demo.jpeg"],
+    images: ["/images/gesturecv/gesturecv_1.png"],
     year: "2024"
   },
   {
@@ -45,35 +58,46 @@ const projects = [
     year: "2024"
   },
   {
-    title: "AI Exercise Form Tracker",
-    summary: "Track exercise form and repetitions with a pose-detection model using TensorFlowJS in the browser.",
+    title: "UBC Solar Simulation Client",
+    summary: "GUI for UBC Solar's simulation environment.",
     description: [
-      "Utilizes React and TensorFlowJS to run a pose-detection model in the browser on the user’s webcam feed to track form, count repetitions, and trace joint path based on user selection",
+      "Connected front-end to the simulation server to send and receive simulation data and display the results",
+      "Overhauled UI to allow users to input simulation parameters and view the results in a user-friendly manner",
+    ],
+    badges: ["React", "Electron", "Python"],
+    github: "https://github.com/UBC-Solar/Simulation-Client",
+    images: ["/images/simulation_client/simulation_client_1.png", "/images/simulation_client/simulation_client_2.png"],
+    year: "2023"
+  },
+  {
+    title: "AI Exercise Form Tracker",
+    summary: "Track exercise form and repetitions with a pose-detection model using TensorFlowJS",
+    description: [
+      "Utilizes React and TensorFlowJS to run a pose-detection model in the browser on the user webcam feed to track form, count repetitions, and trace joint path based on user selection",
       "Users can record their exercises, download the recording once finished, or take screenshots of their webcam feed",
       "Added a togglable view of the detection model and webcam, and currently supports tracking push-ups, pull-ups and squats"
     ],
     badges: ["ReactJS", "TypeScript", "Tailwind CSS", "TensorFlowJS"],
     github: "https://github.com/tamzeedq/TrackMyForm",
-    images: ["/images/form_tracker_project/form_tracker_1.png", "/images/form_tracker_project/form_tracker_2.png", "/images/form_tracker_project/form_tracker_3.png"],
+    images: ["/images/form_tracker_project/form_tracker_3.png", "/images/form_tracker_project/form_tracker_2.png", "/images/form_tracker_project/form_tracker_3.png"],
     year: "2023"
   },
   {
-    title: "Personal Website",
-    summary: "Showcase your projects and skills with a modern, responsive Next.js website.",
+    title: "Personal Website v1",
+    summary: "My original portfolio with a modern, responsive Next.js website.",
     description: [
       "Used NextJS 13 as the framework, Tailwind CSS for styling, TypeScript, and hosted on Netlify",
       "Features my projects, some skills, my resume, a little about me, and my socials to get connected",
       "Includes a responsive design to account for different screen sizes and mobile view",
-      "Click around or view the code on GitHub!"
     ],
     badges: ["ReactJS", "TypeScript", "NextJS", "Tailwind CSS", "Netlify"],
     github: "https://github.com/tamzeedq/personal_website",
-    images: ["/images/messenger_project/morningmessenger_demo.jpeg"],
+    images: ["/images/portfolio_v1/portfolio_v1_1.png", "/images/portfolio_v1/portfolio_v1_2.png"],
     year: "2023"
   },
   {
     title: "React Weather App",
-    summary: "Get weather updates for any location with this React-based weather app.",
+    summary: "Get weather updates for any location with a React-based weather app.",
     description: [
       "Created a website that pulls from the Open Weather API to create weather cards with a quick summary of the current weather of the day from a user-inputted location",
       "Made the project to grasp fundamentals of React and learn front-end development with frameworks",
@@ -98,22 +122,22 @@ const projects = [
     images: ["/images/algorithm_project/algorithm_project1.png", "/images/algorithm_project/algorithm_project2.png", "/images/algorithm_project/algorithm_project3.png"],
     year: "2022"
   },
-  {
-    title: "Discord Bot",
-    summary: "Enhance your Discord server with a custom bot for commands and interactive polls.",
-    description: [
-      "Used the Discord API to create a server bot to solve issues on my personal server with friends",
-      "Command to flip a coin, plays a GIF and posts the result",
-      "Creates customizable polls in server chats by creating an embedded message with interactive reactions to vote for the options"
-    ],
-    badges: ["Python"],
-    github: "https://github.com/tamzeedq/DiscordBot",
-    images: ["/images/hoppon_project/hoppon_bot1.png", "/images/hoppon_project/hoppon_bot2.png", "/images/hoppon_project/hoppon_bot3.png"],
-    year: "2022"
-  },
+  // {
+  //   title: "Discord Bot",
+  //   summary: "Enhance your Discord server with a custom bot for commands and interactive polls.",
+  //   description: [
+  //     "Used the Discord API to create a server bot to solve issues on my personal server with friends",
+  //     "Command to flip a coin, plays a GIF and posts the result",
+  //     "Creates customizable polls in server chats by creating an embedded message with interactive reactions to vote for the options"
+  //   ],
+  //   badges: ["Python"],
+  //   github: "https://github.com/tamzeedq/DiscordBot",
+  //   images: ["/images/hoppon_project/hoppon_bot1.png", "/images/hoppon_project/hoppon_bot2.png", "/images/hoppon_project/hoppon_bot3.png"],
+  //   year: "2022"
+  // },
   {
     title: "Fitness Tracker",
-    summary: "Track your diet and workouts with this Java-based fitness tracker app.",
+    summary: "Track your diet and workouts with a Java-based fitness tracker app.",
     description: [
       "Tracks your diet and workouts for a week including calories burned and eaten, protein, carbohydrates, fats, and personal notes for each day of the week",
       "Data is tracked, saved, and reloaded between sessions using JSON files to ensure persistency",
@@ -122,7 +146,8 @@ const projects = [
     ],
     badges: ["Java", "JUnit", "Java Swing", "JSON"],
     github: "https://github.com/tamzeedq/FitnessTrackerApp",
-    images: ["/images/fitness_project/fitnessApp_1.png", "/images/fitness_project/fitnessApp_3.png", "/images/fitness_project/fitnessApp_2.png"],
+    // images: ["/images/fitness_project/fitnessApp_1.png", "/images/fitness_project/fitnessApp_3.png", "/images/fitness_project/fitnessApp_2.png"],
+    images: ["/images/fitness_project/fitnessApp_3.png"],
     year: "2022"
   }
 ];

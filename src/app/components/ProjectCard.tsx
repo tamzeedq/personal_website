@@ -26,7 +26,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, summary, description, 
     if (isExpanded) {
       gsap.to(cardRef.current, { height: 'auto', width: '500px', duration: 0.5, ease: 'power3.out' });
     } else {
-      gsap.to(cardRef.current, { height: 'auto', width: '350px',duration: 0.5, ease: 'power3.out' });
+      gsap.to(cardRef.current, { height: 'auto', width: '350px', duration: 0.5, ease: 'power3.out' });
     }
   }, [isExpanded]);
 
@@ -52,7 +52,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, summary, description, 
         <img
           src={images[0]}
           alt={title}
-          className="w-full h-48 object-cover border-2 border-rblack"
+          className={`w-full border-2 border-rblack ${isExpanded ? 'h-60 object-fill' : 'h-48 object-cover'}`}
         />
       </div>
       {/* Title and Summary */}
