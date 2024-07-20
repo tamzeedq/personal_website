@@ -44,7 +44,7 @@ const Resume = () => {
       <a 
         href="/docs/Tamzeed_Quazi_Resume.pdf" 
         download="Tamzeed_Quazi_Resume.pdf"
-        className="btn rounded-lg w-[40%] mt-4 group bg-dred text-latte text-xs sm:text-md flex items-center justify-center"
+        className="btn rounded-lg w-[80%] sm:w-[40%] mt-4 group bg-dred text-latte text-xs sm:text-md flex items-center justify-center"
       >
         Download Resume <FaFileDownload/>
       </a>

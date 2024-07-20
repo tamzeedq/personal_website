@@ -52,7 +52,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, summary, description, 
         <img
           src={images[0]}
           alt={title}
-          className={`w-full border-2 border-rblack ${isExpanded ? 'h-60 object-fill' : 'h-48 object-cover'}`}
+          className={`w-full border-2 border-rblack ${isExpanded ? 'h-48 sm:h-60 sm:object-fill object-cover' : 'h-48 object-cover'}`}
         />
       </div>
       {/* Title and Summary */}
