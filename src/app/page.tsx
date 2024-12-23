@@ -1,18 +1,24 @@
 "use client"
 
 import React, { useState, useEffect } from 'react';
-import { FaGithub, FaLinkedin, FaInstagram, FaArrowRight, FaMousePointer } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaArrowRight, FaFilePdf } from 'react-icons/fa';
 import { HiOutlineMail } from 'react-icons/hi';
 import { motion } from 'framer-motion';
-
-{/* Section Separator Component */}
-const SectionSeparator = () => (
-  <div className="w-full h-px bg-neutral-200 my-4" />
-);
 
 const MinimalistPortfolio = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [activeSection, setActiveSection] = useState('hero');
+  const [isAlternateImage, setIsAlternateImage] = useState(false);
+  const [isExploding, setIsExploding] = useState(false);
+
+  const handleImageClick = () => {
+    setIsExploding(true);
+    // Wait for explosion animation to finish before switching image
+    setTimeout(() => {
+      setIsAlternateImage(!isAlternateImage);
+      setIsExploding(false);
+    }, 500);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -96,7 +102,14 @@ const MinimalistPortfolio = () => {
             {[
               { icon: <FaGithub size={20} />, href: "https://github.com/tamzeedq" },
               { icon: <FaLinkedin size={20} />, href: "https://www.linkedin.com/in/tamzeedquazi/" },
-              { icon: <HiOutlineMail size={20} />, href: "mailto:tamzeed.q@gmail.com" }
+              { icon: <HiOutlineMail size={20} />, href: "mailto:tamzeed.q@gmail.com" },
+              { 
+                icon: <FaFilePdf size={20} />, 
+                href: "/docs/Tamzeed_Quazi_Resume.pdf", 
+                download: true,
+                target: "_blank",
+                rel: "noopener noreferrer"
+              }
             ].map((social, index) => (
               <motion.a
                 key={index}
@@ -113,26 +126,22 @@ const MinimalistPortfolio = () => {
       </motion.nav>
 
       {/* Hero Section */}
-      <section id="hero" className=" pt-32 pb-20 px-6 border-b border-neutral-100">
-        <div 
-          className="absolute inset-0 opacity-30"
-        />
+      <section id="hero" className="pt-32 pb-20 px-6 border-b border-neutral-100">
+        <div className="absolute inset-0 opacity-30" />
         <div className="container mx-auto max-w-5xl relative">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Text Content */}
             <div className="order-2 md:order-1">
-              <motion.h1 
+              <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
                 className="text-5xl md:text-7xl font-light mb-8"
               >
-                {/* Hi,👋<br></br>
-                <span> I'm Tamzeed</span> */}
                 Tamzeed Quazi
               </motion.h1>
-              
-              <motion.p 
+
+              <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
@@ -143,7 +152,7 @@ const MinimalistPortfolio = () => {
                 Currently pursuing Computer Science and Statistics at UBC.
               </motion.p>
 
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
@@ -154,12 +163,12 @@ const MinimalistPortfolio = () => {
                   { text: "Currently @ UBC Solar", color: "bg-amber-400" },
                   { text: "Previously @ Tetra Tech", color: "bg-sky-400" }
                 ].map((item, index) => (
-                  <motion.p 
+                  <motion.p
                     key={index}
                     className="flex items-center gap-2"
                     whileHover={{ x: 10 }}
                   >
-                    <motion.span 
+                    <motion.span
                       className={`w-2 h-2 rounded-full ${item.color}`}
                       whileHover={{ scale: 1.5 }}
                     />
@@ -170,7 +179,7 @@ const MinimalistPortfolio = () => {
             </div>
 
             {/* Profile Image */}
-            <motion.div 
+            <motion.div
               className="order-1 md:order-2 flex justify-center"
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -178,18 +187,58 @@ const MinimalistPortfolio = () => {
             >
               <div className="relative">
                 {/* Background decoration */}
-                <div className="absolute -inset-4 rounded-full bg-indigo-100 blur-2xl opacity-50" />
-                <div className="absolute -inset-4 rounded-full bg-red-100 blur-2xl opacity-70 rotate-45" />
-                
+                <div className="absolute -inset-4 rounded-full bg-indigo-200 blur-lg opacity-80 z-10" />
+                <div className="absolute -inset-4 rounded-full bg-red-200 blur-lg opacity-90 rotate-45 z-10" />
+
+                {/* Explosion particles */}
+                {isExploding && (
+                  <>
+                    {[...Array(12)].map((_, i) => (
+                      <motion.div
+                        key={i}
+                        className="absolute w-4 h-4 bg-yellow-400 rounded-full"
+                        initial={{
+                          x: 0,
+                          y: 0,
+                          scale: 0,
+                          opacity: 1
+                        }}
+                        animate={{
+                          x: Math.cos(i * 30 * Math.PI / 180) * 100,
+                          y: Math.sin(i * 30 * Math.PI / 180) * 100,
+                          scale: 1.5,
+                          opacity: 0
+                        }}
+                        transition={{
+                          duration: 0.5,
+                          ease: "easeOut"
+                        }}
+                        style={{
+                          top: "50%",
+                          left: "50%",
+                          transform: "translate(-50%, -50%)"
+                        }}
+                      />
+                    ))}
+                  </>
+                )}
+
                 {/* Image container */}
-                <motion.div 
-                  className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl"
+                <motion.div
+                  className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl cursor-pointer z-10"
                   whileHover={{ scale: 1.05 }}
+                  onClick={handleImageClick}
+                  animate={isExploding ? { scale: [1, 1.1, 1] } : {}}
+                  transition={{ duration: 0.5 }}
                 >
-                  <img
-                    src="/images/tamzeed/profile_pic.jpg"
+                  <motion.img
+                    src={isAlternateImage ? "/images/tamzeed/pixelated_pfp.png" : "/images/tamzeed/profile_pic.jpg"}
                     alt="Tamzeed Quazi"
                     className="w-full h-full object-cover"
+                    initial={false}
+                    animate={{ opacity: [0, 1] }}
+                    transition={{ duration: 0.3, delay: 0.2 }}
+                    key={isAlternateImage ? "alternate" : "original"}
                   />
                 </motion.div>
               </div>
@@ -198,9 +247,9 @@ const MinimalistPortfolio = () => {
         </div>
       </section>
 
+
       {/* About Section */}
       <section id="about" className="py-20 px-6 border-b border-neutral-100">
-        {/* <SectionSeparator /> */}
         <div className="container mx-auto max-w-5xl">
           <motion.h2 
             className="text-sm font-medium mb-8 text-indigo-600"
@@ -225,7 +274,7 @@ const MinimalistPortfolio = () => {
                 that solve real-world problems.
               </p>
               <p>
-                At UBC, I&apos;aposm pursuing a combined major in Computer Science and Statistics, 
+                At UBC, I&apos;m pursuing a combined major in Computer Science and Statistics, 
                 where I&apos;ve developed a deep appreciation for both the theoretical and practical 
                 aspects of software development with an additional focus on studying machine learning applications.
               </p>
@@ -381,7 +430,6 @@ const MinimalistPortfolio = () => {
 
       {/* Projects Section */}
       <section id="projects" className="py-20 px-6 border-b border-neutral-100">
-        {/* <SectionSeparator /> */}
         <div className="container mx-auto max-w-5xl">
           <motion.h2 
             className="text-sm font-medium mb-12 text-indigo-600"
@@ -465,7 +513,8 @@ const MinimalistPortfolio = () => {
               {[
                 { label: "Email", value: "tamzeed.q@gmail.com", icon: <HiOutlineMail size={20} />, ref: "mailto:tamzeed.q@gmail.com"},
                 { label: "LinkedIn", value: "tamzeedquazi", icon: <FaLinkedin size={20} color='#0077B5'/>, ref: "https://www.linkedin.com/in/tamzeedquazi/"},
-                { label: "Availability", value: "Open to opportunities", icon: "✨", ref: ""}
+                { label: "Resume", value: "Check out my resume", icon: <FaFilePdf size={20} />, ref: "/docs/Tamzeed_Quazi_Resume.pdf"},
+                { label: "Availability", value: "Open to opportunities", icon: "✨", ref: "" }
               ].map((item, index) => (
                 <motion.div 
                   key={index}
@@ -485,9 +534,8 @@ const MinimalistPortfolio = () => {
         </div>
       </section>
 
-      {/* Footer */}
+      {/* Footer */}  
       <footer className="py-12 px-6 bg-gradient-to-b from-indigo-50/50">
-        {/* <SectionSeparator /> */}
         <div className="container mx-auto max-w-5xl">
           <div className="grid md:grid-cols-2 gap-8">
             <motion.p 
