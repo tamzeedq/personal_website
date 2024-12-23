@@ -219,14 +219,14 @@ const MinimalistPortfolio = () => {
               className="text-neutral-600 space-y-4"
             >
               <p>
-                I'm a passionate software developer with a strong foundation in full-stack development 
+                I&apos;m a passionate software developer with a strong foundation in full-stack development 
                 and a growing expertise in artificial intelligence. My journey in tech began with 
                 creating simple web applications and has evolved into developing complex systems 
                 that solve real-world problems.
               </p>
               <p>
-                At UBC, I'm pursuing a combined major in Computer Science and Statistics, 
-                where I've developed a deep appreciation for both the theoretical and practical 
+                At UBC, I&apos;aposm pursuing a combined major in Computer Science and Statistics, 
+                where I&apos;ve developed a deep appreciation for both the theoretical and practical 
                 aspects of software development with an additional focus on studying machine learning applications.
               </p>
             </motion.div>
@@ -238,12 +238,12 @@ const MinimalistPortfolio = () => {
               className="text-neutral-600 space-y-4"
             >
               <p>
-                When I'm not coding, you'll find me exploring new technologies, reading comics, gaming, or playing sports. 
+                When I&apos;m not coding, you&apos;ll find me exploring new technologies, reading comics, gaming, or playing sports. 
                 I believe in creating technology that not only works well but also provides an excellent 
                 user experience.
               </p>
               <p>
-                I'm always open to new opportunities and collaborations that allow me to push 
+                I&apos;m always open to new opportunities and collaborations that allow me to push 
                 my boundaries and learn from others in the tech community.
               </p>
             </motion.div>
@@ -439,7 +439,7 @@ const MinimalistPortfolio = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            Let's Connect
+            Let&apos;s Connect
           </motion.h2>
           <div className="grid md:grid-cols-2 gap-12">
             <motion.div
@@ -451,7 +451,7 @@ const MinimalistPortfolio = () => {
             >
               <h3 className="text-2xl font-light">Want to get in touch?</h3>
               <p className="text-neutral-600">
-                I'm always excited to discuss new opportunities, creative ideas, or potential collaborations.
+                I&apos;m always excited to discuss new opportunities, creative ideas, or potential collaborations.
                 Feel free to reach out!
               </p>
             </motion.div>
