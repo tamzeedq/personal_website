@@ -1,199 +1,158 @@
 "use client"
 
 import React from 'react';
-import Link from 'next/link';
-import { FaGithub, FaLinkedin, FaArrowRight, FaInstagram } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaInstagram, FaArrowRight } from 'react-icons/fa';
 import { HiOutlineMail } from 'react-icons/hi';
-import { TypeAnimation } from 'react-type-animation';
-import { MdCircle } from "react-icons/md";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useLayoutEffect, useRef } from 'react';
-import About from './components/About';
-import ShowcaseMarquee from './components/ShowcaseMarquee';
-import { Shapes } from './components/Shapes';
 
-gsap.registerPlugin(ScrollTrigger);
-
-const techlist = [
-  { tech_name: "React", tech_color: "#61DBFB" },        
-  { tech_name: "TypeScript", tech_color: "#3178C6" },   
-  { tech_name: "Python", tech_color: "#FFD43B" },       
-  { tech_name: "AI/ML", tech_color: "#00C49A" },        
-  { tech_name: "Java", tech_color: "#ED8B00" },         
-];
-
-export default function Home() {
-  const techListRef = useRef<(HTMLDivElement | null)[]>([]);
-  const showcaseRef = useRef<HTMLDivElement | null>(null);
-  const skillsHeaderRef = useRef<HTMLDivElement | null>(null);
-  const headerTextRef = useRef<HTMLDivElement | null>(null);
-
-  useLayoutEffect(() => {
-    techListRef.current.forEach((el, index) => {
-      if (el) {
-        let xstart;
-        if (index % 2 === 0) {
-          xstart = -100;  
-        } else {
-          xstart = 100;
-        }
-  
-        gsap.fromTo(el,
-          { x: xstart, opacity: 0.25 }, 
-          {
-            x: 0, 
-            opacity: 1,
-            scrollTrigger: {
-              trigger: el,
-              start: "top 80%",
-              end: "bottom 20%",
-              scrub: true,
-            },
-          });
-      }
-    });
-  }, []);
-
-  useLayoutEffect(() => {
-    if (showcaseRef.current) {
-      gsap.fromTo(showcaseRef.current,
-        { y: 50, opacity: 0 }, // Start from below and invisible
-        {
-          y: 0, // Translate to the original position
-          opacity: 1,
-          scrollTrigger: {
-            trigger: showcaseRef.current,
-            start: "top 80%",
-            end: "bottom 20%",
-            scrub: true,
-          },
-        });
+const MinimalistPortfolio = () => {
+  const projects = [
+    {
+      title: "Breathe App",
+      role: "Full-Stack Developer",
+      tech: "React • TypeScript • Flask • C++",
+      description: "Air quality monitoring dashboard with real-time sensor data and AI analysis"
+    },
+    {
+      title: "Track My Form",
+      role: "ML Engineer",
+      tech: "React • TensorFlow • TypeScript",
+      description: "AI-powered exercise form tracking and analysis using pose estimation"
+    },
+    {
+      title: "Solar Race Optimizer",
+      role: "Strategy Developer",
+      tech: "Python • React • Electron",
+      description: "Race strategy optimization system for solar vehicle competitions"
     }
-
-    if (skillsHeaderRef.current) {
-      gsap.fromTo(skillsHeaderRef.current, 
-        { opacity: 0.5, x: 10 }, 
-        {
-          opacity: 1, 
-          x: 0, 
-          scrollTrigger: {
-            trigger: skillsHeaderRef.current,
-            scrub: true,
-          },
-        }
-      );
-    }
-
-    if (headerTextRef.current) {
-      gsap.fromTo(headerTextRef.current,
-        { opacity: 0, y: -50 }, // Start from above and invisible
-        {
-          opacity: 1,
-          y: 0,
-          duration: 2,
-          ease: "power3.out",
-        }
-      );
-    }
-  }, []);
+  ];
 
   return (
-    <main className="min-h-screen items-center justify-between font-mono overflow-x-hidden">
-      <div className='flex md:flex-row flex-col-reverse mx-10 h-[80vh] justify-end items-center '>
-        {/* Header */}
-        <div className='w-full md:w-[50%] md:pl-10 flex flex-col gap-2 justify-center items-center ' ref={headerTextRef}>
-          <h1 className='font-bold text-6xl md:text-8xl drop-shadow-xl text-rblack'>TAMZEED</h1>
-          <h1 className='font-bold text-6xl md:text-8xl drop-shadow-xl text-rblack'>QUAZI</h1>
-
-          {/* Typing Animation */}
-          <div >
-            <TypeAnimation
-              sequence={[
-                'Software Developer',
-                1000,
-                'CS Student',
-                1000,
-                'Passionate Learner',
-                1000,
-              ]}
-              wrapper="span"
-              repeat={Infinity}
-              style={{fontSize: '1.5rem', display: 'inline-block', color: 'rgb(213,41,65)' }}
-            />
-          </div>
-
-          {/* Media buttons */}
-          <div className='flex items-center text-rblack justify-left gap-x-2 pt-2'>
-            <Link href="https://github.com/tamzeedq" className='hover:text-indigo hover:scale-125 transition-transform duration-300'>
-              <FaGithub size={30}></FaGithub>
-            </Link>
-            <Link href="https://www.instagram.com/tamzeed.q/" className='hover:text-indigo hover:scale-125 transition-transform duration-300'>
-              <FaInstagram size={30}></FaInstagram>
-            </Link>
-            <Link href="https://www.linkedin.com/in/tamzeedquazi/" className='hover:text-indigo hover:scale-125 transition-transform duration-300'>
-              <FaLinkedin size={30}></FaLinkedin>
-            </Link>
-            <Link href="mailto:tamzeed.q@gmail.com" className='hover:text-indigo hover:scale-125 transition-transform duration-300'>
-              <HiOutlineMail size={30}></HiOutlineMail>
-            </Link>
+    <div className="min-h-screen bg-neutral-50 text-neutral-900">
+      {/* Navigation */}
+      <nav className="fixed w-full bg-neutral-50/80 backdrop-blur-sm z-50">
+        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+          <span className="font-medium">TQ</span>
+          <div className="flex gap-6">
+            <a href="https://github.com/tamzeedq" className="hover:text-neutral-500 transition-colors">
+              <FaGithub size={20} />
+            </a>
+            <a href="https://www.linkedin.com/in/tamzeedquazi/" className="hover:text-neutral-500 transition-colors">
+              <FaLinkedin size={20} />
+            </a>
+            <a href="https://www.instagram.com/tamzeed.q/" className="hover:text-neutral-500 transition-colors">
+              <FaInstagram size={20} />
+            </a>
+            <a href="mailto:tamzeed.q@gmail.com" className="hover:text-neutral-500 transition-colors">
+              <HiOutlineMail size={20} />
+            </a>
           </div>
         </div>
+      </nav>
 
-        {/* Three JS shapes */}
-        <div className='w-full h-[70%] md:h-auto md:w-[50%] p-0 '>
-          <Shapes />
+      {/* Hero Section */}
+      <header className="pt-32 pb-20 px-6">
+        <div className="container mx-auto max-w-5xl">
+          <h1 className="text-7xl font-light mb-8">
+            Tamzeed Quazi
+          </h1>
+          <div className="grid md:grid-cols-2 gap-12">
+            <p className="text-lg text-neutral-600">
+              Software Developer crafting digital experiences with a focus on user-centric design 
+              and scalable solutions. Currently pursuing Computer Science and Statistics at UBC.
+            </p>
+            <div className="text-sm space-y-2 text-neutral-600">
+              <p>Vancouver, Canada</p>
+              <p>Currently @ UBC Solar</p>
+              <p>Previously @ Tetra Tech</p>
+            </div>
+          </div>
         </div>
-      </div>
+      </header>
 
-      <About></About>
+      {/* Skills Grid */}
+      <section className="py-20 px-6 bg-white">
+        <div className="container mx-auto max-w-5xl grid md:grid-cols-3 gap-12">
+          <div>
+            <h2 className="text-sm font-medium mb-4">Languages</h2>
+            <p className="text-neutral-600">TypeScript • Python • Java • C++ • SQL</p>
+          </div>
+          <div>
+            <h2 className="text-sm font-medium mb-4">Technologies</h2>
+            <p className="text-neutral-600">React • Next.js • Node.js • Flask • PostgreSQL</p>
+          </div>
+          <div>
+            <h2 className="text-sm font-medium mb-4">Tools</h2>
+            <p className="text-neutral-600">AWS • Azure • Docker • Git • TensorFlow</p>
+          </div>
+        </div>
+      </section>
 
-      <div ref={skillsHeaderRef} className='text-center py-8'>
-        <h1 className='text-md text-rblack'>Some of my</h1>
-        <h1 className='text-7xl text-rblack'>Skills</h1>
-      </div>
-      <div className='overflow-x-hidden'>
-        {techlist.map(({ tech_color, tech_name }, index) => (
-          <div
-            key={index}
-            className="tech-row mb-8 flex items-center justify-center gap-4 text-indigo"
-            aria-label={tech_name}
-            ref={el => techListRef.current[index] = el}
-          >
-            {Array.from({ length: 15 }).map((_, idx) => (
-              <React.Fragment key={idx}>
-                <span
-                  className={
-                    "tech-item text-6xl uppercase tracking-tighter"
-                  }
-                  style={{
-                    color: idx === 7 ? tech_color : "inherit",
-                  }}
-                >
-                  {tech_name}
-                </span>
-                <span className="text-3xl">
-                  <MdCircle />
-                </span>
-              </React.Fragment>
+      {/* Experience Section */}
+      <section className="py-20 px-6">
+        <div className="container mx-auto max-w-5xl">
+          <h2 className="text-sm font-medium mb-12">Experience</h2>
+          <div className="space-y-12">
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-xl mb-2">Software Developer Co-op</h3>
+                <p className="text-sm text-neutral-600 mb-4">Tetra Tech • Jan 2023 – Aug 2023</p>
+              </div>
+              <div className="text-neutral-600">
+                Led development of full-stack alert systems and automation tools. 
+                Improved database performance by 30% and reduced manual workflows 
+                through automated solutions. Deployed applications serving 1000+ users.
+              </div>
+            </div>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-xl mb-2">Strategy Software Developer</h3>
+                <p className="text-sm text-neutral-600 mb-4">UBC Solar • Sep 2023 – Present</p>
+              </div>
+              <div className="text-neutral-600">
+                Developed race strategy optimization algorithms and real-time 
+                data analysis tools. Contributed to team's highest-ever 6th place 
+                finish at FSGP 2024 through innovative software solutions.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section className="py-20 px-6 bg-white">
+        <div className="container mx-auto max-w-5xl">
+          <h2 className="text-sm font-medium mb-12">Selected Projects</h2>
+          <div className="space-y-12">
+            {projects.map((project, index) => (
+              <div key={index} className="group grid md:grid-cols-2 gap-8 py-8 border-t border-neutral-200">
+                <div>
+                  <h3 className="text-xl mb-2">{project.title}</h3>
+                  <p className="text-sm text-neutral-600 mb-2">{project.role}</p>
+                  <p className="text-sm text-neutral-600">{project.tech}</p>
+                </div>
+                <div className="flex items-center justify-between">
+                  <p className="text-neutral-600">{project.description}</p>
+                  <FaArrowRight className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+              </div>
             ))}
           </div>
-        ))}
-      </div>
+        </div>
+      </section>
 
-      <div className='text-center pt-10 pb-10' ref={showcaseRef}>
-        <h1 className='text-md text-rblack'>Project</h1>
-        <h1 className='text-7xl text-rblack'>Showcase</h1>
-      </div>
-
-      <ShowcaseMarquee />
-
-
-      <div className='flex justify-center pt-6 pb-8'>
-        <button className='text-xl text-latte bg-rblack py-2 px-6 rounded-md hover:bg-dred transform hover:scale-105 transition-transform duration-200'>
-          <Link href="/projects" className='flex items-center gap-2'>View Projects <FaArrowRight size={15}/> </Link>
-        </button> 
-      </div>
-    </main>
+      {/* Footer */}
+      <footer className="py-12 px-6">
+        <div className="container mx-auto max-w-5xl">
+          <div className="grid md:grid-cols-2 gap-8">
+            <p className="text-sm text-neutral-600">© 2024 Tamzeed Quazi</p>
+            <div className="text-sm text-neutral-600">
+              Designed and built in Vancouver
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
   );
-}
+};
+
+export default MinimalistPortfolio;
