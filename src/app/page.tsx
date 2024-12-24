@@ -133,6 +133,7 @@ const MinimalistPortfolio = () => {
     { 
       icon: <FaFilePdf size={20} />, 
       href: "/docs/Tamzeed_Quazi_Resume.pdf",
+      download: true,
       target: "_blank",
       rel: "noopener noreferrer",
       tooltip: "Resume"
@@ -178,6 +179,7 @@ const MinimalistPortfolio = () => {
                   href={social.href}
                   target={social.target}
                   rel={social.rel}
+                  download={social.download}
                   className="hover:text-indigo-600 transition-colors flex justify-center tooltip tooltip-bottom" 
                   data-tip={social.tooltip}
                   whileHover={{ y: -2 }}
@@ -316,7 +318,7 @@ const MinimalistPortfolio = () => {
 
 
       {/* About Section */}
-      {/* <section id="about" className="py-20 px-6 border-b border-neutral-100">
+      <section id="about" className="py-20 px-6 border-b border-neutral-100">
         <div className="container mx-auto max-w-5xl">
           <motion.h2 
             className="text-sm font-medium mb-8 text-indigo-600"
@@ -365,7 +367,7 @@ const MinimalistPortfolio = () => {
             </motion.div>
           </div>
         </div>
-      </section> */}
+      </section>
 
       {/* Skills Grid */}
       <section id="skills" className="py-20 px-6 border-b border-neutral-100">
@@ -614,9 +616,10 @@ const MinimalistPortfolio = () => {
               © 2024 Tamzeed Quazi
             </motion.p>
             <motion.div 
-              className="text-sm text-right text-neutral-600"
+              className="text-sm text-neutral-600"
               whileHover={{ x: -10 }}
             >
+              {/* Built with <span className="text-indigo-600">♥</span> in Vancouver */}
               Vancouver, BC
             </motion.div>
           </div>
