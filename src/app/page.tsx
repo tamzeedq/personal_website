@@ -13,11 +13,12 @@ const MinimalistPortfolio = () => {
 
   const handleImageClick = () => {
     setIsExploding(true);
-    // Wait for explosion animation to finish before switching image
     setTimeout(() => {
       setIsAlternateImage(!isAlternateImage);
-      setIsExploding(false);
-    }, 500);
+      setTimeout(() => {
+        setIsExploding(false);
+      }, 1000);
+    }, 300);
   };
 
   const handleProjectClick = (github : string) => {
@@ -28,7 +29,7 @@ const MinimalistPortfolio = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'about', 'skills', 'experience', 'projects', 'contact'];
+      const sections = ['hero', 'skills', 'experience', 'projects', 'contact'];
       const currentSection = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -133,7 +134,6 @@ const MinimalistPortfolio = () => {
     { 
       icon: <FaFilePdf size={20} />, 
       href: "/docs/Tamzeed_Quazi_Resume.pdf",
-      download: true,
       target: "_blank",
       rel: "noopener noreferrer",
       tooltip: "Resume"
@@ -141,10 +141,10 @@ const MinimalistPortfolio = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-neutral-900" onMouseMove={handleMouseMove}>
+    <div className="min-h-screen bg-white text-neutral-900 overflow-x-hidden" onMouseMove={handleMouseMove}>
       {/* Floating Navigation Dots */}
       <div className="fixed right-8 top-1/2 -translate-y-1/2 space-y-4 z-50 hidden md:block">
-        {['hero', 'about', 'skills', 'experience', 'projects'].map((section) => (
+        {['hero', 'skills', 'experience', 'projects'].map((section) => (
           <motion.div
             key={section}
             className={`w-3 h-3 rounded-full cursor-pointer transition-colors duration-300 
@@ -179,7 +179,6 @@ const MinimalistPortfolio = () => {
                   href={social.href}
                   target={social.target}
                   rel={social.rel}
-                  download={social.download}
                   className="hover:text-indigo-600 transition-colors flex justify-center tooltip tooltip-bottom" 
                   data-tip={social.tooltip}
                   whileHover={{ y: -2 }}
@@ -248,7 +247,7 @@ const MinimalistPortfolio = () => {
               </motion.div>
             </div>
 
-            {/* Profile Image */}
+            {/* Profile Image Section */}
             <motion.div
               className="order-1 md:order-2 flex justify-center"
               initial={{ opacity: 0, scale: 0.5 }}
@@ -256,58 +255,106 @@ const MinimalistPortfolio = () => {
               transition={{ duration: 0.8 }}
             >
               <div className="relative">
-                {/* Background glow */}
-                <div className="absolute -inset-4 rounded-full bg-indigo-200 blur-lg opacity-90 rotate-45 z-10" />
+                {/* Enhanced background glow */}
+                <motion.div 
+                  className="absolute -inset-8 rounded-full bg-indigo-200 blur-lg opacity-90 rotate-45 z-0"
+                  animate={isExploding ? { 
+                    scale: [1, 1.5, 1],
+                    opacity: [0.9, 0.7, 0.9],
+                    rotate: [45, 90, 45]
+                  } : {}}
+                  transition={{ duration: 0.8 }}
+                />
 
-                {/* Explosion particles */}
+                {/* Multiple layers of explosion particles */}
                 {isExploding && (
-                  <>
+                  <div className="absolute inset-0">
+                    {/* Shooting stars effect */}
                     {[...Array(12)].map((_, i) => (
                       <motion.div
-                        key={i}
-                        className="absolute w-4 h-4 bg-yellow-400 rounded-full z-15"
-                        initial={{
-                          x: 0,
-                          y: 0,
-                          scale: 0,
-                          opacity: 1
+                        key={`star-${i}`}
+                        className="absolute w-1 h-6 rounded-full"
+                        style={{
+                          top: '50%',
+                          left: '50%',
+                          background: `linear-gradient(to bottom, #818CF8, transparent)`,
+                          transformOrigin: 'center',
                         }}
+                        initial={{ x: 0, y: 0, scale: 0, opacity: 1, rotate: (i / 12) * 360 }}
                         animate={{
-                          x: Math.cos(i * 30 * Math.PI / 180) * 100,
-                          y: Math.sin(i * 30 * Math.PI / 180) * 100,
-                          scale: 1.5,
-                          opacity: 0
+                          x: Math.cos((i / 12) * Math.PI * 2) * 200,
+                          y: Math.sin((i / 12) * Math.PI * 2) * 200,
+                          scale: 2,
+                          opacity: 0,
+                          rotate: ((i / 12) * 360) + 45,
                         }}
                         transition={{
-                          duration: 0.5,
-                          ease: "easeOut"
-                        }}
-                        style={{
-                          top: "50%",
-                          left: "50%",
-                          transform: "translate(-50%, -50%)"
+                          duration: 0.8,
+                          ease: "easeOut",
+                          delay: 0.2,
                         }}
                       />
                     ))}
-                  </>
+                  </div>
+                )}
+
+                {/* Sparkle overlay */}
+                {isExploding && (
+                  <motion.div 
+                    className="absolute inset-0 z-30"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: [0, 1, 0] }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    {[...Array(10)].map((_, i) => (
+                      <motion.div
+                        key={`sparkle-${i}`}
+                        className="absolute w-1 h-1 bg-white rounded-full"
+                        style={{
+                          top: `${Math.random() * 100}%`,
+                          left: `${Math.random() * 100}%`,
+                        }}
+                        animate={{
+                          scale: [0, 1, 0],
+                          opacity: [0, 1, 0],
+                        }}
+                        transition={{
+                          duration: 0.4,
+                          delay: Math.random() * 0.2,
+                        }}
+                      />
+                    ))}
+                  </motion.div>
                 )}
 
                 {/* Image container */}
                 <motion.div
-                  className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl cursor-pointer z-10"
+                  className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl cursor-pointer z-20"
                   whileHover={{ scale: 1.05 }}
                   onClick={handleImageClick}
-                  animate={isExploding ? { scale: [1, 1.1, 1] } : {}}
-                  transition={{ duration: 0.5 }}
+                  animate={isExploding ? { 
+                    scale: [1, 0.9, 1.1, 1],
+                    rotate: [0, -5, 5, 0],
+                  } : {}}
+                  transition={{ 
+                    duration: 0.6,
+                    type: "spring",
+                    stiffness: 200
+                  }}
                 >
                   <motion.img
                     src={isAlternateImage ? "/images/tamzeed/pixelated_pfp.png" : "/images/tamzeed/profile_pic.jpg"}
                     alt="Tamzeed Quazi"
                     className="w-full h-full object-cover"
                     initial={false}
-                    animate={{ opacity: [0, 1] }}
-                    transition={{ duration: 0.3, delay: 0.2 }}
-                    key={isAlternateImage ? "alternate" : "original"}
+                    animate={{ 
+                      scale: isExploding ? [1, 1.1, 1] : 1,
+                      opacity: [0, 1]
+                    }}
+                    transition={{ 
+                      duration: 0.3,
+                      delay: isExploding ? 0 : 0.2 
+                    }}
                   />
                 </motion.div>
               </div>
@@ -316,121 +363,81 @@ const MinimalistPortfolio = () => {
         </div>
       </section>
 
-
-      {/* About Section */}
-      <section id="about" className="py-20 px-6 border-b border-neutral-100">
-        <div className="container mx-auto max-w-5xl">
-          <motion.h2 
-            className="text-sm font-medium mb-8 text-indigo-600"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            About Me 👋
-          </motion.h2>
-          <div className="grid md:grid-cols-2 gap-12">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="text-neutral-600 space-y-4"
-            >
-              <p>
-                I&apos;m a passionate software developer with a strong foundation in full-stack development 
-                and a growing expertise in artificial intelligence. My journey in tech began with 
-                creating simple web applications and has evolved into developing complex systems 
-                that solve real-world problems.
-              </p>
-              <p>
-                At UBC, I&apos;m pursuing a combined major in Computer Science and Statistics, 
-                where I&apos;ve developed a deep appreciation for both the theoretical and practical 
-                aspects of software development with an additional focus on studying machine learning applications.
-              </p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="text-neutral-600 space-y-4"
-            >
-              <p>
-                When I&apos;m not coding, you&apos;ll find me exploring new technologies, reading comics, gaming, or playing sports. 
-                I believe in creating technology that not only works well but also provides an excellent 
-                user experience.
-              </p>
-              <p>
-                I&apos;m always open to new opportunities and collaborations that allow me to push 
-                my boundaries and learn from others in the tech community.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
       {/* Skills Grid */}
       <section id="skills" className="py-20 px-6 border-b border-neutral-100">
-        <div className="container mx-auto max-w-5xl grid md:grid-cols-3 gap-12">
-          {[
-            { 
-              title: "Languages", 
-              skills: [
-                { name: "TypeScript", color: "hover:text-[#3178C6]" },
-                { name: "Python", color: "hover:text-[#3776AB]" },
-                { name: "Java", color: "hover:text-[#E76F00]" },
-                { name: "C++", color: "hover:text-[#00599C]" },
-                { name: "SQL", color: "hover:text-[#4479A1]" },
-                { name: "R", color: "hover:text-[#276DC3]" }
-              ]
-            },
-            { 
-              title: "Technologies", 
-              skills: [
-                { name: "React", color: "hover:text-[#61DAFB]" },
-                { name: "Next.js", color: "hover:text-[#000000]" },
-                { name: "Node.js", color: "hover:text-[#339933]" },
-                { name: "Flask", color: "hover:text-[#000000]" },
-                { name: "PostgreSQL", color: "hover:text-[#336791]" },
-                { name: "TensorFlow", color: "hover:text-[#FF6F00]" },
-                { name: "Scikit-Learn", color: "hover:text-[#F7931E]" }
-              ]
-            },
-            { 
-              title: "Tools", 
-              skills: [
-                { name: "AWS", color: "hover:text-[#FF9900]" },
-                { name: "Azure", color: "hover:text-[#0078D4]" },
-                { name: "Docker", color: "hover:text-[#2496ED]" },
-                { name: "Git", color: "hover:text-[#F05032]" }
-              ]
-            }
-          ].map((category, index) => (
-            <motion.div
-              key={index}
-              className="group"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-sm font-medium mb-4 text-indigo-600">{category.title}</h2>
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill, skillIndex) => (
-                  <>
-                  <motion.span
-                    key={skillIndex}
-                    className={`text-neutral-600 transition-colors cursor-default ${skill.color}`}
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    {skill.name}
-                  </motion.span>
-                    {skillIndex < category.skills.length - 1 && <span className="text-neutral-400 ml-1 mr-1">•</span>}
-                  </>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+        <div className="container mx-auto max-w-5xl">
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { 
+                title: "Languages", 
+                skills: [
+                  { name: "TypeScript", bg: "bg-blue-50" },
+                  { name: "Python", bg: "bg-yellow-50" },
+                  { name: "Java", bg: "bg-orange-50" },
+                  { name: "C++", bg: "bg-blue-50" },
+                  { name: "SQL", bg: "bg-orange-50" },
+                  { name: "R", bg: "bg-indigo-50" }
+                ]
+              },
+              { 
+                title: "Technologies", 
+                skills: [
+                  { name: "React", bg: "bg-cyan-50" },
+                  { name: "Next.js", bg: "bg-gray-50" },
+                  { name: "Node.js", bg: "bg-green-50" },
+                  { name: "Flask", bg: "bg-gray-50" },
+                  { name: "PostgreSQL", bg: "bg-blue-50" },
+                  { name: "TensorFlow", bg: "bg-orange-50" },
+                  { name: "Scikit-Learn", bg: "bg-yellow-50" }
+                ]
+              },
+              { 
+                title: "Tools", 
+                skills: [
+                  { name: "AWS", bg: "bg-orange-50" },
+                  { name: "Azure", bg: "bg-blue-50" },
+                  { name: "Docker", bg: "bg-blue-50" },
+                  { name: "Git", bg: "bg-red-50" }
+                ]
+              }
+            ].map((category, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="group"
+              >
+                <h3 className="text-sm font-medium mb-4 text-indigo-600">
+                  {category.title}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {category.skills.map((skill, skillIndex) => (
+                    <motion.div
+                      key={skillIndex}
+                      className={`px-3 py-2 rounded-lg ${skill.bg} backdrop-blur-sm`}
+                      whileHover={{ 
+                        scale: 1.05,
+                        y: -4,
+                        transition: { type: "spring", stiffness: 300 }
+                      }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <motion.span 
+                        className="text-sm font-medium text-neutral-700"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: skillIndex * 0.1 }}
+                      >
+                        {skill.name}
+                      </motion.span>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -608,19 +615,18 @@ const MinimalistPortfolio = () => {
       {/* Footer */}  
       <footer className="py-12 px-6 bg-gradient-to-b from-indigo-50/50">
         <div className="container mx-auto max-w-5xl">
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <motion.p 
-              className="text-sm text-neutral-600"
+              className="text-sm text-neutral-600 order-2 md:order-1"
               whileHover={{ x: 10 }}
             >
               © 2024 Tamzeed Quazi
             </motion.p>
             <motion.div 
-              className="text-sm text-neutral-600"
+              className="text-sm text-neutral-600 order-1 md:order-2"
               whileHover={{ x: -10 }}
             >
-              {/* Built with <span className="text-indigo-600">♥</span> in Vancouver */}
-              Vancouver, BC
+              Vancouver, Canada
             </motion.div>
           </div>
         </div>
