@@ -1,6 +1,6 @@
 ## Portfolio Website
 
-This is my personal portfolio website created with [Next.js](https://nextjs.org/), [TailwindCSS](https://tailwindcss.com/), [GSAP](https://gsap.com/) and is hosted using [Netlify](https://www.netlify.com/). You can view the website now at https://tamzeedq.netlify.app/. On the website you can find a summary of my projects, my resume, and links to my socials and email.
+This is my personal portfolio website created with [Next.js](https://nextjs.org/), [TailwindCSS](https://tailwindcss.com/), [Framer](https://www.framer.com/) and is hosted using [Netlify](https://www.netlify.com/). You can view the website now at https://tamzeedq.netlify.app/. On the website you can find a summary of my projects, my resume, and links to my socials and email.
 
 ## Getting Started
 
