@@ -17,7 +17,7 @@ const MinimalistPortfolio = () => {
       setIsAlternateImage(!isAlternateImage);
       setTimeout(() => {
         setIsExploding(false);
-      }, 1000); // Increased duration to match longer particle animations
+      }, 1000);
     }, 300);
   };
 
@@ -141,7 +141,7 @@ const MinimalistPortfolio = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-neutral-900" onMouseMove={handleMouseMove}>
+    <div className="min-h-screen bg-white text-neutral-900 overflow-x-hidden" onMouseMove={handleMouseMove}>
       {/* Floating Navigation Dots */}
       <div className="fixed right-8 top-1/2 -translate-y-1/2 space-y-4 z-50 hidden md:block">
         {['hero', 'skills', 'experience', 'projects'].map((section) => (
@@ -615,18 +615,18 @@ const MinimalistPortfolio = () => {
       {/* Footer */}  
       <footer className="py-12 px-6 bg-gradient-to-b from-indigo-50/50">
         <div className="container mx-auto max-w-5xl">
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <motion.p 
-              className="text-sm text-neutral-600"
+              className="text-sm text-neutral-600 order-2 md:order-1"
               whileHover={{ x: 10 }}
             >
               © 2024 Tamzeed Quazi
             </motion.p>
             <motion.div 
-              className="text-sm text-right text-neutral-600"
+              className="text-sm text-neutral-600 order-1 md:order-2"
               whileHover={{ x: -10 }}
             >
-              Vancouver, BC
+              Vancouver, Canada
             </motion.div>
           </div>
         </div>
