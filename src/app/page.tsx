@@ -20,6 +20,12 @@ const MinimalistPortfolio = () => {
     }, 500);
   };
 
+  const handleProjectClick = (github : string) => {
+    if (github) {
+      window.open(github, '_blank', 'noopener,noreferrer');
+    }
+  }
+
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['hero', 'about', 'skills', 'experience', 'projects', 'contact'];
@@ -48,22 +54,61 @@ const MinimalistPortfolio = () => {
       category: "Full-Stack AI/ML",
       tech: "React • TypeScript • Flask • C++",
       description: "Air quality monitoring dashboard with real-time sensor data and AI analysis",
+      github: "https://github.com/ryanarnouk/nwhacks-2024",
       color: "bg-emerald-50",
       accent: "bg-emerald-400"
+    },
+    {
+      title: "Pace Pal 🏃",
+      category: "IoT & Data Analysis",
+      tech: "C++ • Python • Firebase",
+      description: "IoT pace tracking system with real-time data storage and visualization tools",
+      github: "https://github.com/tamzeedq/PacePal",
+      color: "bg-blue-50",
+      accent: "bg-blue-400"
+    },
+    {
+      title: "Hoppon Bot 🤖",
+      category: "Backend & Cloud",
+      tech: "Python • Docker • AWS EC2",
+      description: "Scalable Discord bot supporting 30+ concurrent users for music streaming via Spotify and YouTube APIs",
+      github: "https://github.com/tamzeedq/DiscordBot",
+      color: "bg-purple-50",
+      accent: "bg-purple-400"
     },
     {
       title: "Track My Form 🏋️",
       category: "AI/ML",
       tech: "React • TensorFlow • TypeScript",
-      description: "AI-powered exercise form tracking and analysis using pose estimation",
+      description: "AI-driven exercise form tracking and analysis using pose estimation",
+      github: "https://github.com/tamzeedq/TrackMyForm",
       color: "bg-violet-50",
       accent: "bg-violet-400"
     },
     {
-      title: "Solar Race Optimizer ☀️",
-      category: "Data Analysis",
+      title: "GestureCV 👋",
+      category: "AI/ML",
+      tech: "Python • OpenCV • MediaPipe",
+      description: "Real-time gesture recognition system using computer vision for hand tracking and ML-powered system interaction",
+      github: "https://github.com/tamzeedq/GestureCV",
+      color: "bg-teal-50",
+      accent: "bg-teal-400"
+    },
+    {
+      title: "Solar Race Simulation GUI ☀️",
+      category: "Full-Stack",
       tech: "Python • React • Electron",
-      description: "Race strategy optimization system for solar vehicle competitions",
+      description: "Race simulation GUI for solar vehicle competitions",
+      github: "https://github.com/UBC-Solar/Simulation-Client",
+      color: "bg-orange-50",
+      accent: "bg-orange-400"
+    },
+    {
+      title: "Solar Race Optimizer ☀️",
+      category: "AI/ML & Data Analysis",
+      tech: "Python • PyGad • NumPy",
+      description: "Race strategy optimization system using a genetic algorithm for solar vehicle competitions",
+      github: "https://github.com/UBC-Solar/Simulation",
       color: "bg-amber-50",
       accent: "bg-amber-400"
     }
@@ -461,18 +506,20 @@ const MinimalistPortfolio = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            Selected Projects
+            Projects
           </motion.h2>
           <div className="space-y-6">
             {projects.map((project, index) => (
               <motion.div 
                 key={index}
-                className={`group grid md:grid-cols-2 gap-8 p-8 rounded-lg cursor-pointer relative overflow-hidden ${project.color}`}
+                className={`group grid md:grid-cols-2 gap-8 p-8 rounded-lg cursor-pointer relative overflow-hidden ${project.color} ${project.github ? 'hover:shadow-lg' : ''}`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.25}}
+                transition={{ duration: 0.25 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.02 }}
+                onClick={() => handleProjectClick(project.github)}
+                title={project.github ? 'View project on GitHub' : ''}
               >
                 <motion.div
                   className={`absolute bottom-0 left-0 h-1 ${project.accent}`}
@@ -491,9 +538,9 @@ const MinimalistPortfolio = () => {
                   <p className="text-neutral-600">{project.description}</p>
                   <motion.div
                     whileHover={{ scale: 1.2, rotate: 45 }}
-                    className="opacity-0 group-hover:opacity-100 transition-opacity text-indigo-600"
+                    className={`opacity-0 group-hover:opacity-100 transition-opacity ${project.github ? 'text-indigo-600' : 'text-neutral-400'}`}
                   >
-                    <FaArrowRight />
+                    {project.github ? <FaArrowRight /> : null}
                   </motion.div>
                 </div>
               </motion.div>
