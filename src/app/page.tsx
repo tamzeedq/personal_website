@@ -69,6 +69,32 @@ const MinimalistPortfolio = () => {
     }
   ];
 
+  const socials = [
+    { 
+      icon: <FaGithub size={20} />, 
+      href: "https://github.com/tamzeedq",
+      tooltip: "GitHub"
+    },
+    { 
+      icon: <FaLinkedin size={20} />, 
+      href: "https://www.linkedin.com/in/tamzeedquazi/",
+      tooltip: "LinkedIn"
+    },
+    { 
+      icon: <HiOutlineMail size={20} />, 
+      href: "mailto:tamzeed.q@gmail.com",
+      tooltip: "Email"
+    },
+    { 
+      icon: <FaFilePdf size={20} />, 
+      href: "/docs/Tamzeed_Quazi_Resume.pdf",
+      download: true,
+      target: "_blank",
+      rel: "noopener noreferrer",
+      tooltip: "Resume"
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-white text-neutral-900" onMouseMove={handleMouseMove}>
       {/* Floating Navigation Dots */}
@@ -99,27 +125,26 @@ const MinimalistPortfolio = () => {
             TQ
           </motion.span>
           <div className="flex gap-6">
-            {[
-              { icon: <FaGithub size={20} />, href: "https://github.com/tamzeedq" },
-              { icon: <FaLinkedin size={20} />, href: "https://www.linkedin.com/in/tamzeedquazi/" },
-              { icon: <HiOutlineMail size={20} />, href: "mailto:tamzeed.q@gmail.com" },
-              { 
-                icon: <FaFilePdf size={20} />, 
-                href: "/docs/Tamzeed_Quazi_Resume.pdf", 
-                download: true,
-                target: "_blank",
-                rel: "noopener noreferrer"
-              }
-            ].map((social, index) => (
-              <motion.a
+            {socials.map((social, index) => (
+              <motion.div
                 key={index}
-                href={social.href}
-                className="hover:text-indigo-600 transition-colors relative"
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.95 }}
+                className="relative group w-5"
               >
-                {social.icon}
-              </motion.a>
+                <motion.a
+                  href={social.href}
+                  target={social.target}
+                  rel={social.rel}
+                  download={social.download}
+                  className="hover:text-indigo-600 transition-colors flex justify-center tooltip tooltip-bottom" 
+                  data-tip={social.tooltip}
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {social.icon}
+                </motion.a>
+                
+              
+              </motion.div>
             ))}
           </div>
         </div>
@@ -186,9 +211,8 @@ const MinimalistPortfolio = () => {
               transition={{ duration: 0.8 }}
             >
               <div className="relative">
-                {/* Background decoration */}
-                <div className="absolute -inset-4 rounded-full bg-indigo-200 blur-lg opacity-80 z-10" />
-                <div className="absolute -inset-4 rounded-full bg-red-200 blur-lg opacity-90 rotate-45 z-10" />
+                {/* Background glow */}
+                <div className="absolute -inset-4 rounded-full bg-indigo-200 blur-lg opacity-90 rotate-45 z-10" />
 
                 {/* Explosion particles */}
                 {isExploding && (
@@ -196,7 +220,7 @@ const MinimalistPortfolio = () => {
                     {[...Array(12)].map((_, i) => (
                       <motion.div
                         key={i}
-                        className="absolute w-4 h-4 bg-yellow-400 rounded-full"
+                        className="absolute w-4 h-4 bg-yellow-400 rounded-full z-15"
                         initial={{
                           x: 0,
                           y: 0,
