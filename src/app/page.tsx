@@ -60,6 +60,15 @@ const MinimalistPortfolio = () => {
       accent: "bg-emerald-400"
     },
     {
+      title: "Track My Form 🏋️",
+      category: "AI/ML",
+      tech: "React • TensorFlow • TypeScript",
+      description: "AI-driven exercise form tracking and analysis using pose estimation",
+      github: "https://trackmyform.netlify.app/",
+      color: "bg-violet-50",
+      accent: "bg-violet-400"
+    },
+    {
       title: "Pace Pal 🏃",
       category: "IoT & Data Analysis",
       tech: "C++ • Python • Firebase",
@@ -76,15 +85,6 @@ const MinimalistPortfolio = () => {
       github: "https://github.com/tamzeedq/DiscordBot",
       color: "bg-purple-50",
       accent: "bg-purple-400"
-    },
-    {
-      title: "Track My Form 🏋️",
-      category: "AI/ML",
-      tech: "React • TensorFlow • TypeScript",
-      description: "AI-driven exercise form tracking and analysis using pose estimation",
-      github: "https://github.com/tamzeedq/TrackMyForm",
-      color: "bg-violet-50",
-      accent: "bg-violet-400"
     },
     {
       title: "GestureCV 👋",
