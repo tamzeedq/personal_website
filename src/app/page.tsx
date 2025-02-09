@@ -229,7 +229,8 @@ const MinimalistPortfolio = () => {
               >
                 {[
                   { text: "Vancouver, Canada", color: "bg-emerald-400" },
-                  { text: "Currently @ UBC Solar", color: "bg-amber-400" },
+                  { text: "Incoming @ Mastercard", color: "bg-red-500" },
+                  { text: "Previously @ UBC Solar", color: "bg-amber-400" },
                   { text: "Previously @ Tetra Tech", color: "bg-sky-400" }
                 ].map((item, index) => (
                   <motion.p
@@ -453,13 +454,12 @@ const MinimalistPortfolio = () => {
             Experience
           </motion.h2>
           <div className="space-y-12">
-            {[
-              {
-                title: "Software Developer Co-op",
-                company: "Tetra Tech",
-                period: "Jan 2023 – Aug 2023",
-                description: "Led development of full-stack hazard alert systems, that utilize computer vision, and automation tools. Created and deployed a GIS asset managment web application serving 1000+ users.",
-                icon: "/images/companies/tt-icon.jpg" 
+            {[{
+                title: "Software Engineering Intern",
+                company: "Mastercard",
+                period: "May 2025 – Aug 2025",
+                description: "Intern for the Data Collection Team, developing full-stack applications and bridging user data securely to fraud detection systems.",
+                icon: "/images/companies/mastercard-icon.png" 
               },
               {
                 title: "Strategy Software Developer",
@@ -467,6 +467,13 @@ const MinimalistPortfolio = () => {
                 period: "Sep 2023 – Present",
                 description: "Developed race strategy optimization algorithms and real-time data analysis tools. Contributed to team's highest-ever finish at the Formula Sun Grand Prix 2024 through innovative software solutions.",
                 icon: "/images/companies/ubc-solar-icon.png" 
+              },
+              {
+                title: "Software Developer Co-op",
+                company: "Tetra Tech",
+                period: "Jan 2023 – Aug 2023",
+                description: "Led development of full-stack hazard alert systems, that utilize computer vision, and automation tools. Created and deployed a GIS asset managment web application serving 1000+ users.",
+                icon: "/images/companies/tt-icon.jpg" 
               }
             ].map((experience, index) => (
               <motion.div 
