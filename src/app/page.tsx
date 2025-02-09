@@ -464,7 +464,7 @@ const MinimalistPortfolio = () => {
               {
                 title: "Strategy Software Developer",
                 company: "UBC Solar",
-                period: "Sep 2023 – Present",
+                period: "Sep 2023 – Jan 2025",
                 description: "Developed race strategy optimization algorithms and real-time data analysis tools. Contributed to team's highest-ever finish at the Formula Sun Grand Prix 2024 through innovative software solutions.",
                 icon: "/images/companies/ubc-solar-icon.png" 
               },
