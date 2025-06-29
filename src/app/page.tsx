@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin, FaArrowRight, FaFilePdf } from 'react-icons/fa';
 import { HiOutlineMail } from 'react-icons/hi';
 import { motion } from 'framer-motion';
 
-const MinimalistPortfolio = () => {
+const Portfolio = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [activeSection, setActiveSection] = useState('hero');
   const [isAlternateImage, setIsAlternateImage] = useState(false);
@@ -50,6 +50,15 @@ const MinimalistPortfolio = () => {
   };
 
   const projects = [
+    {
+      title: "StyleSense 🎨",
+      category: "DevTools & Systems",
+      tech: "Rust • TypeScript • Tree-sitter • LSP",
+      description: "Real-time customizable code style enforcement VSCode extension with custom Language Server Protocol implementation",
+      github: "https://github.com/tamzeedq/StyleSense",
+      color: "bg-indigo-50",
+      accent: "bg-indigo-400"
+    },
     {
       title: "Breathe App 🌱",
       category: "Full-Stack AI/ML",
@@ -229,7 +238,7 @@ const MinimalistPortfolio = () => {
               >
                 {[
                   { text: "Vancouver, Canada", color: "bg-emerald-400" },
-                  { text: "Incoming @ Mastercard", color: "bg-red-500" },
+                  { text: "SWE Intern @ Mastercard", color: "bg-red-500" },
                   { text: "Previously @ UBC Solar", color: "bg-amber-400" },
                   { text: "Previously @ Tetra Tech", color: "bg-sky-400" }
                 ].map((item, index) => (
@@ -377,7 +386,8 @@ const MinimalistPortfolio = () => {
                   { name: "Java", bg: "bg-orange-50" },
                   { name: "C++", bg: "bg-blue-50" },
                   { name: "SQL", bg: "bg-orange-50" },
-                  { name: "R", bg: "bg-indigo-50" }
+                  { name: "R", bg: "bg-indigo-50" },
+                  { name: "Rust", bg: "bg-orange-50" },
                 ]
               },
               { 
@@ -458,7 +468,7 @@ const MinimalistPortfolio = () => {
                 title: "Software Engineering Intern",
                 company: "Mastercard",
                 period: "May 2025 – Aug 2025",
-                description: "Intern for the Data Collection Team, developing full-stack applications and bridging user data securely to fraud detection systems.",
+                description: "Intern for the Behaviour Data Enrichment Team, developing full-stack applications and optimizing feature engineering for fraud detection systems.",
                 icon: "/images/companies/mastercard-icon.png" 
               },
               {
@@ -642,4 +652,4 @@ const MinimalistPortfolio = () => {
   );
 };
 
-export default MinimalistPortfolio;
+export default Portfolio;
