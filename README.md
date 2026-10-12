@@ -30,6 +30,8 @@ npm run build
 
 The site is a static export, so the build writes plain HTML, CSS, JS and assets to `out/`.
 
+To serve `out/` exactly as Cloudflare will, run `npm run preview` (wrangler needs Node 22). Let Workers Builds produce production builds: Next.js on Windows misnames some prefetch files in `out/`, so don't upload a Windows-built `out/` by hand.
+
 ## Editing content
 
 All content is static and lives in two data files:
