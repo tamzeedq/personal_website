@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import Experience from '@/components/home/Experience'
 import ExperienceA from '@/components/home/experience-variants/ExperienceA'
-import ExperienceB from '@/components/home/experience-variants/ExperienceB'
 import ExperienceC from '@/components/home/experience-variants/ExperienceC'
 
 // Temporary comparison page for the education-timeline experiment.
@@ -14,7 +13,6 @@ export const metadata: Metadata = {
 const VARIANTS = [
   { key: 'current', label: 'Current (no education)', note: 'What is live today.', Component: Experience },
   { key: 'a', label: 'A — extended span', note: 'Axis starts Sep 2021; UBC is a full-length hatched layer under the jobs.', Component: ExperienceA },
-  { key: 'b', label: 'B — background layer', note: 'Jobs unchanged; UBC is a faint band behind them that fades off the left edge.', Component: ExperienceB },
   { key: 'c', label: 'C — labelled lanes', note: 'A gutter with "work" and "school" lane labels; UBC gets its own lane.', Component: ExperienceC },
 ]
 
