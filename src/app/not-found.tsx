@@ -26,7 +26,7 @@ export default function NotFound() {
           Lost <span className="text-accent">404.</span>
         </h1>
         <div className="flex flex-col gap-[20px]">
-          <p className="m-0 text-[clamp(18px,1.8vw,22px)] leading-[1.45] [text-wrap:pretty]">
+          <p className="m-0 text-[clamp(18px,1.8vw,22px)] leading-[1.45] text-pretty">
             This page doesn&apos;t exist, or it moved. The work is still here.
           </p>
           <div className="flex flex-wrap gap-[10px]">

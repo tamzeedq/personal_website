@@ -79,7 +79,7 @@ export default function Experience() {
             {job.dates} · {job.where}
           </span>
           <span
-            className="font-display font-black uppercase leading-[.9] [overflow-wrap:anywhere]"
+            className="font-display font-black uppercase leading-[.9] wrap-anywhere"
             style={{ fontSize: 'clamp(40px,4vw,64px)' }}
           >
             {job.co}
@@ -88,7 +88,7 @@ export default function Experience() {
         </div>
         <ul className="m-0 flex list-none flex-col gap-[10px] p-0">
           {job.points.map((pt) => (
-            <li key={pt} className="grid grid-cols-[22px_minmax(0,1fr)] text-[17px] leading-[1.5] text-dark-2">
+            <li key={pt} className="grid grid-cols-[22px_minmax(0,1fr)] text-[17px] leading-normal text-dark-2">
               <span aria-hidden="true" className="text-accent-on-dark">
                 →
               </span>

@@ -36,7 +36,7 @@ export default function Header() {
       <Link href="/" onClick={homeClick} className="font-medium text-ink">
         TQ — portfolio
       </Link>
-      <nav className="order-3 flex basis-full justify-between gap-[22px] md:order-none md:basis-auto md:justify-center">
+      <nav className="order-3 flex basis-full justify-between gap-[22px] md:order-0 md:basis-auto md:justify-center">
         <Link href="/#work" onClick={sectionClick('work')} className={navLink}>
           01 work
         </Link>
