@@ -28,7 +28,7 @@ const DESCRIPTION =
   'Software developer studying Computer Science and Statistics at UBC in Vancouver. Projects, experience and contact.'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://tamzeedq.netlify.app'),
+  metadataBase: new URL('https://tamzeedq.com'),
   title: 'Tamzeed Quazi',
   description: DESCRIPTION,
   openGraph: {
