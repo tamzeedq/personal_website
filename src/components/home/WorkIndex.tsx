@@ -1,35 +1,30 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useRef, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import ImageSlot from '@/components/ImageSlot'
 import SectionBar from '@/components/SectionBar'
+import { useCanHover } from '@/components/useCanHover'
 import { PROJECTS, projectNum, projectTag, stackStr } from '@/data/projects'
 
-const MOBILE_QUERY = '(max-width: 759.98px)'
-
-/** True below the 760px breakpoint. Defaults to desktop during SSR. */
-function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(false)
-  useEffect(() => {
-    const mq = window.matchMedia(MOBILE_QUERY)
-    const update = () => setIsMobile(mq.matches)
-    update()
-    mq.addEventListener('change', update)
-    return () => mq.removeEventListener('change', update)
-  }, [])
-  return isMobile
-}
-
+/*
+ * Interaction follows hover capability; layout (md: = 760px) follows width.
+ * - Hover devices: entering a row opens its preview, clicking the header opens the case study.
+ * - Touch devices (phones, tablets): tapping the header toggles the preview;
+ *   the "case study →" button navigates.
+ * A touch tap on a hover-capable device (touch laptop) is treated as a tap, too.
+ */
 export default function WorkIndex() {
   const router = useRouter()
-  const isMobile = useIsMobile()
+  const canHover = useCanHover()
   const [openRow, setOpenRow] = useState(0)
+  // Pointer type of the press that produced the next click; null for keyboard clicks.
+  const pressPointer = useRef<string | null>(null)
 
   return (
     <div id="work" className="px-page-x pb-[40px] pt-[clamp(56px,9vw,90px)]">
-      <SectionBar label="01/ Work" desktopHint="hover a row · click to open" mobileHint="tap a row" />
+      <SectionBar label="01/ Work" hoverHint="hover a row · click to open" touchHint="tap a row" />
 
       {PROJECTS.map((p, i) => {
         const isOpen = openRow === i
@@ -38,17 +33,23 @@ export default function WorkIndex() {
           <div
             key={p.slug}
             className="border-b border-line"
-            onMouseEnter={() => {
-              if (!isMobile) setOpenRow(i)
+            onPointerEnter={(e) => {
+              // Ignore touch: a tap fires pointerenter too, and must toggle, not open.
+              if (canHover && e.pointerType !== 'touch') setOpenRow(i)
             }}
           >
             <div
               role="button"
               tabIndex={0}
               aria-expanded={isOpen}
+              onPointerDown={(e) => {
+                pressPointer.current = e.pointerType
+              }}
               onClick={() => {
-                if (isMobile) setOpenRow(isOpen ? -1 : i)
-                else router.push(`/work/${p.slug}`)
+                const tapped = pressPointer.current === 'touch'
+                pressPointer.current = null
+                if (canHover && !tapped) router.push(`/work/${p.slug}`)
+                else setOpenRow(isOpen ? -1 : i)
               }}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {

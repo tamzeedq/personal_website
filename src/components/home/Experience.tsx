@@ -19,7 +19,7 @@ export default function Experience() {
       className="flex flex-col gap-6 px-page-x pb-[50px]"
       style={{ paddingTop: 'clamp(40px,6vw,60px)' }}
     >
-      <SectionBar label="02/ Experience" desktopHint="hover a bar" mobileHint="tap a role" />
+      <SectionBar label="02/ Experience" hoverHint="hover a bar" touchHint="tap a role" />
 
       {/* Desktop timeline */}
       <div className="relative hidden h-[150px] md:block">
@@ -55,6 +55,7 @@ export default function Experience() {
             key={x.co}
             type="button"
             aria-pressed={i === activeJob}
+            onMouseEnter={() => setActiveJob(i)}
             onClick={() => setActiveJob(i)}
             className={`flex min-h-[48px] cursor-pointer items-center justify-between gap-3 rounded-full border-0 px-[18px] text-left transition-[background] duration-200 ${pillColors(i)}`}
           >
