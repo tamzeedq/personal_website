@@ -1,12 +1,14 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Big_Shoulders_Display, Hanken_Grotesk, DM_Mono } from 'next/font/google'
+import { Big_Shoulders, Hanken_Grotesk, DM_Mono } from 'next/font/google'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
-const display = Big_Shoulders_Display({
-  weight: ['700', '900'],
+// Google Fonts merged "Big Shoulders Display" into the variable "Big Shoulders"
+// family; the Display look is opsz 72, pinned via the `font-display` utility.
+const display = Big_Shoulders({
   subsets: ['latin'],
+  axes: ['opsz'],
   variable: '--font-display',
 })
 

@@ -29,8 +29,13 @@ export default function CaseBody({ project, stack }: Props) {
   const lockUntil = useRef(0)
 
   // New case study (route param change keeps this component mounted): start at chapter 0.
-  useEffect(() => {
+  // State is reset during render (React's recommended pattern), the ref in an effect.
+  const [prevSlug, setPrevSlug] = useState(slug)
+  if (slug !== prevSlug) {
+    setPrevSlug(slug)
     setActive(0)
+  }
+  useEffect(() => {
     lockUntil.current = 0
   }, [slug])
 
@@ -63,7 +68,7 @@ export default function CaseBody({ project, stack }: Props) {
     })
   }, [])
 
-  const setRef = (i: number) => (el: HTMLDivElement | null) => {
+  const setRef = (i: number, el: HTMLDivElement | null) => {
     refs.current[i] = el
   }
 
@@ -129,19 +134,19 @@ export default function CaseBody({ project, stack }: Props) {
       </aside>
 
       <div className="flex flex-col gap-[clamp(56px,8vw,80px)]">
-        <div ref={setRef(0)} className="flex flex-col gap-[18px]">
+        <div ref={(el) => setRef(0, el)} className="flex flex-col gap-[18px]">
           <span className={labelCls}>01/ Overview</span>
           <p className="m-0 text-[clamp(22px,2.2vw,30px)] leading-[1.35] [text-wrap:pretty]">
             {caseStudy.overview}
           </p>
         </div>
 
-        <div ref={setRef(1)} className="flex flex-col gap-[18px]">
+        <div ref={(el) => setRef(1, el)} className="flex flex-col gap-[18px]">
           <span className={labelCls}>02/ Problem</span>
           <p className={bodyCls}>{caseStudy.problem}</p>
         </div>
 
-        <div ref={setRef(2)} className="flex flex-col gap-[18px]">
+        <div ref={(el) => setRef(2, el)} className="flex flex-col gap-[18px]">
           <span className={labelCls}>03/ Approach</span>
           <p className={bodyCls}>{caseStudy.approach}</p>
           <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,240px),1fr))] gap-[12px]">
@@ -164,7 +169,7 @@ export default function CaseBody({ project, stack }: Props) {
           </div>
         </div>
 
-        <div ref={setRef(3)} className="flex flex-col gap-[22px]">
+        <div ref={(el) => setRef(3, el)} className="flex flex-col gap-[22px]">
           <span className={labelCls}>04/ Outcome</span>
           <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,160px),1fr))] gap-[12px]">
             {caseStudy.metrics.map((m, i) => (

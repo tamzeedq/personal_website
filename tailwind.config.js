@@ -31,7 +31,8 @@ module.exports = {
         'dark-4': '#a9a69e',
       },
       fontFamily: {
-        display: ['var(--font-display)', 'sans-serif'],
+        // Big Shoulders at opsz 72 == the former "Big Shoulders Display" cut.
+        display: [['var(--font-display)', 'sans-serif'], { fontVariationSettings: '"opsz" 72' }],
         sans: ['var(--font-sans)', 'sans-serif'],
         mono: ['var(--font-mono)', 'monospace'],
       },
