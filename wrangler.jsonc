@@ -1,0 +1,19 @@
+{
+  // Static-assets-only Worker: no `main` script. Cloudflare serves the Next.js
+  // static export (`next build` with output: 'export') straight from ./out.
+  "name": "tamzeedq-portfolio",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./out",
+    // Unmatched paths get out/404.html (the styled not-found page) with a 404.
+    "not_found_handling": "404-page",
+    // /work/foo serves out/work/foo.html; /work/foo/ redirects to /work/foo.
+    "html_handling": "auto-trailing-slash"
+  },
+  // Attached by ROUTE, not as a Worker custom domain. A custom domain would
+  // claim every request for tamzeedq.com, while routes let a more specific
+  // pattern win. The separate `tq-photos` Worker owns `tamzeedq.com/photography*`,
+  // and that more specific route takes precedence over this catch-all one, so
+  // this project never serves, redirects or rewrites anything under /photography.
+  "routes": [{ "pattern": "tamzeedq.com/*", "zone_name": "tamzeedq.com" }]
+}
