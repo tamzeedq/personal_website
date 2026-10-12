@@ -1,39 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import SectionBar from '@/components/SectionBar'
-import NotFoundTitle from '@/components/NotFoundTitle'
 import { PROJECTS, projectNum, projectTag } from '@/data/projects'
-import { Big_Shoulders_Display, Hanken_Grotesk, DM_Mono } from 'next/font/google'
 
-// Next 13.4 renders the root not-found in a bare error shell without the root
-// layout, so the layout's font variables are missing there. Load the same fonts
-// (same files, no extra preload) and scope their variables to this page.
-// In newer Next the page sits inside the layout and these resolve identically.
-const display = Big_Shoulders_Display({
-  weight: ['700', '900'],
-  subsets: ['latin'],
-  variable: '--font-display',
-  preload: false,
-})
-const sans = Hanken_Grotesk({
-  weight: ['400', '500'],
-  subsets: ['latin'],
-  variable: '--font-sans',
-  preload: false,
-})
-const mono = DM_Mono({
-  weight: ['400', '500'],
-  subsets: ['latin'],
-  variable: '--font-mono',
-  preload: false,
-})
-
-const TITLE = 'Not found — Tamzeed Quazi'
-
-// Applied by newer Next versions. Next 13.4 ignores metadata on not-found,
-// so <NotFoundTitle> sets document.title on the client as a fallback.
 export const metadata: Metadata = {
-  title: TITLE,
+  title: 'Not found — Tamzeed Quazi',
   robots: { index: false },
 }
 
@@ -41,10 +12,7 @@ const pill = 'inline-flex items-center rounded-full px-[16px] py-[11px] font-mon
 
 export default function NotFound() {
   return (
-    <section
-      className={`${display.variable} ${sans.variable} ${mono.variable} bg-bg px-page-x pt-[16px] font-sans text-ink`}
-    >
-      <NotFoundTitle title={TITLE} />
+    <section className="px-page-x pt-[16px]">
 
       {/* Top bar, mirrors the case-study header */}
       <div className="flex items-center justify-between gap-[12px] border-b border-line pb-[14px] font-mono text-[12px] font-medium text-muted-2">
