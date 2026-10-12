@@ -46,6 +46,10 @@ export default function Header() {
         <a href={RESUME} target="_blank" rel="noopener noreferrer" className="py-[6px]">
           resume ↗
         </a>
+        {/* Separate site on the same domain: plain anchor for a full page load. */}
+        <a href="/photography/" className="py-[6px]">
+          photos ↗
+        </a>
       </nav>
       <a href="mailto:tamzeed.q@gmail.com" className="py-[6px] text-accent">
         contact ↗
