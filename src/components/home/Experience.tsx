@@ -34,7 +34,7 @@ export default function Experience() {
         ))}
         {EXPERIENCE.map((x, i) => (
           <button
-            key={x.co}
+            key={`${x.co}-${x.start}`}
             type="button"
             aria-pressed={i === activeJob}
             onMouseEnter={() => setActiveJob(i)}
@@ -52,7 +52,7 @@ export default function Experience() {
       <div className="flex flex-col gap-2 md:hidden">
         {EXPERIENCE.map((x, i) => (
           <button
-            key={x.co}
+            key={`${x.co}-${x.start}`}
             type="button"
             aria-pressed={i === activeJob}
             onMouseEnter={() => setActiveJob(i)}

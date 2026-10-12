@@ -21,6 +21,22 @@ export type Job = {
 export const TIMELINE_SPAN = 51
 export const TIMELINE_YEARS = ['2023', '2024', '2025', '2026', '2027']
 
+/**
+ * Education, shaped like a Job so it can reuse the detail panel.
+ * Starts before the timeline (month -16 = Sep 2021), so layouts must clip or extend for it.
+ */
+export const EDUCATION: Job = {
+  co: 'UBC',
+  role: 'BSc, Combined Major in Computer Science and Statistics',
+  dates: 'Sep 2021–May 2026',
+  where: 'Vancouver',
+  start: -16,
+  end: 41,
+  row: 0,
+  points: ['Combined Major in Computer Science and Statistics.', "Dean's List."],
+  mediaLabel: 'Campus photo',
+}
+
 /** Newest first: the first job is the one shown by default. */
 export const EXPERIENCE: Job[] = [
   {
