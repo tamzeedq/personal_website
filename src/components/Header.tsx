@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import type { MouseEvent } from 'react'
-import { scrollToId } from './scroll'
+import { scrollBehavior, scrollToId } from './scroll'
 
 const RESUME = '/docs/Tamzeed_Quazi_Resume.pdf'
 
@@ -11,7 +11,8 @@ export default function Header() {
   const pathname = usePathname()
   const onHome = pathname === '/'
 
-  // On the home page, jump in place with a smooth scroll; elsewhere let the
+  // On the home page, jump in place with a smooth scroll (instant under
+  // reduced motion); elsewhere let the
   // link route to /#id (sections carry scroll-margin for the header offset).
   const sectionClick = (id: string) => (e: MouseEvent) => {
     if (onHome && scrollToId(id)) {
@@ -24,7 +25,7 @@ export default function Header() {
     if (onHome) {
       e.preventDefault()
       history.replaceState(null, '', '/')
-      window.scrollTo({ top: 0, behavior: 'smooth' })
+      window.scrollTo({ top: 0, behavior: scrollBehavior() })
     }
   }
 
