@@ -5,7 +5,8 @@ import ImageSlot from '@/components/ImageSlot'
 import CaseBody from '@/components/case/CaseBody'
 import { PROJECTS, getProject, projectNum, stackStr } from '@/data/projects'
 
-type Params = { params: { slug: string } }
+// Next 15+: route params are passed as a Promise.
+type Params = { params: Promise<{ slug: string }> }
 
 export const dynamicParams = false
 
@@ -13,8 +14,9 @@ export function generateStaticParams() {
   return PROJECTS.map((p) => ({ slug: p.slug }))
 }
 
-export function generateMetadata({ params }: Params): Metadata {
-  const found = getProject(params.slug)
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const { slug } = await params
+  const found = getProject(slug)
   if (!found) return {}
   return {
     title: `${found.project.name} — Tamzeed Quazi`,
@@ -22,8 +24,9 @@ export function generateMetadata({ params }: Params): Metadata {
   }
 }
 
-export default function CaseStudyPage({ params }: Params) {
-  const found = getProject(params.slug)
+export default async function CaseStudyPage({ params }: Params) {
+  const { slug } = await params
+  const found = getProject(slug)
   if (!found) notFound()
 
   const { project: cur, index } = found
