@@ -1,16 +1,26 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import Navbar from './components/navbar'
-import Footer from './components/footer'
-import { Roboto } from 'next/font/google'
- 
-const roboto = Roboto({
-  weight: '500',
+import { Big_Shoulders_Display, Hanken_Grotesk, DM_Mono } from 'next/font/google'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+
+const display = Big_Shoulders_Display({
+  weight: ['700', '900'],
   subsets: ['latin'],
+  variable: '--font-display',
 })
 
-const inter = Inter({ subsets: ['latin'] })
+const sans = Hanken_Grotesk({
+  weight: ['400', '500', '600', '800'],
+  subsets: ['latin'],
+  variable: '--font-sans',
+})
+
+const mono = DM_Mono({
+  weight: ['400', '500'],
+  subsets: ['latin'],
+  variable: '--font-mono',
+})
 
 export const metadata: Metadata = {
   title: 'Tamzeed Quazi',
@@ -23,11 +33,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
       <body>
-        {/* <Navbar></Navbar> */}
-        {children}
-        {/* <Footer></Footer> */}
+        <div className="min-h-screen bg-bg text-ink font-sans overflow-x-clip">
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   )
