@@ -5,7 +5,7 @@ const ITEMS = [...TICKER, ...TICKER]
 export default function Marquee() {
   return (
     <div className="mx-[-30px] mb-0 mt-[clamp(36px,6vw,56px)] rotate-[1.2deg] overflow-hidden bg-ink py-3 text-bg">
-      <div className="flex w-max animate-marquee font-display text-[clamp(22px,3vw,30px)] font-bold uppercase leading-normal">
+      <div className="flex w-max animate-marquee motion-reduce:animate-none font-display text-[clamp(22px,3vw,30px)] font-bold uppercase leading-normal">
         {ITEMS.map((t, i) => (
           <span
             key={i}

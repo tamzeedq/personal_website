@@ -78,7 +78,7 @@ export default function CaseStudyPage({ params }: Params) {
             <Link
               key={label}
               href={`/work/${p.slug}`}
-              className="grid cursor-pointer grid-cols-[clamp(88px,22vw,150px)_minmax(0,1fr)] items-center gap-[16px] rounded-[16px] bg-card p-[10px] text-ink transition-transform duration-[250ms] hover:-translate-y-[4px] hover:text-ink"
+              className="grid cursor-pointer grid-cols-[clamp(88px,22vw,150px)_minmax(0,1fr)] items-center gap-[16px] rounded-[16px] bg-card p-[10px] text-ink transition-transform duration-[250ms] hover:-translate-y-[4px] hover:text-ink motion-reduce:hover:translate-y-0"
             >
               <div className="pointer-events-none h-[clamp(70px,16vw,100px)]">
                 <ImageSlot src={p.media.hero} alt={p.name} label={p.short} radius={10} />

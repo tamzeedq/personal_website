@@ -3,12 +3,19 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import ImageSlot from '@/components/ImageSlot'
 import type { Project } from '@/data/projects'
+import { scrollBehavior } from '@/components/scroll'
 
 const CHAPTERS = ['Overview', 'Problem', 'Approach', 'Outcome'] as const
 /** px below the viewport top where a chapter counts as "current". */
 const ANCHOR = 140
 /** How long a TOC click suppresses the scroll listener (smooth scroll in flight). */
 const CLICK_LOCK_MS = 900
+/**
+ * Under reduced motion the jump is instant: lock just long enough to swallow its
+ * single scroll event (which could otherwise snap to the last chapter at page
+ * bottom), so the tracker resumes right away when the user scrolls.
+ */
+const INSTANT_LOCK_MS = 100
 
 const labelCls = 'font-mono text-[12px] font-medium text-accent'
 const bodyCls = 'm-0 max-w-[720px] text-[clamp(17px,1.6vw,19px)] leading-[1.6] text-ink-2'
@@ -47,11 +54,12 @@ export default function CaseBody({ project, stack }: Props) {
   const jump = useCallback((i: number) => {
     const el = refs.current[i]
     if (!el) return
-    lockUntil.current = Date.now() + CLICK_LOCK_MS
+    const behavior = scrollBehavior()
+    lockUntil.current = Date.now() + (behavior === 'smooth' ? CLICK_LOCK_MS : INSTANT_LOCK_MS)
     setActive(i)
     window.scrollTo({
       top: el.getBoundingClientRect().top + window.scrollY - ANCHOR + 20,
-      behavior: 'smooth',
+      behavior,
     })
   }, [])
 
