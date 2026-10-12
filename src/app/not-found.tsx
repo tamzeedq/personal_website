@@ -74,7 +74,7 @@ export default function NotFound() {
 
       {/* A few places to land instead */}
       <div className="pb-[60px] pt-[clamp(24px,5vw,48px)]">
-        <SectionBar label="or try one of these" desktopHint="click to open" mobileHint="tap to open" />
+        <SectionBar label="or try one of these" hoverHint="click to open" touchHint="tap to open" />
         <ul className="m-0 list-none p-0">
           {PROJECTS.slice(0, 4).map((p, i) => (
             <li key={p.slug} className="border-b border-line">
