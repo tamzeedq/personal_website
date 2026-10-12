@@ -22,9 +22,26 @@ const mono = DM_Mono({
   variable: '--font-mono',
 })
 
+const DESCRIPTION =
+  'Software developer studying Computer Science and Statistics at UBC in Vancouver. Projects, experience and contact.'
+
 export const metadata: Metadata = {
+  metadataBase: new URL('https://tamzeedq.netlify.app'),
   title: 'Tamzeed Quazi',
-  description: 'Tamzeed Quazi Personal Portfolio Website',
+  description: DESCRIPTION,
+  openGraph: {
+    title: 'Tamzeed Quazi',
+    description: DESCRIPTION,
+    url: '/',
+    siteName: 'Tamzeed Quazi',
+    type: 'website',
+    locale: 'en_CA',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Tamzeed Quazi',
+    description: DESCRIPTION,
+  },
 }
 
 export default function RootLayout({

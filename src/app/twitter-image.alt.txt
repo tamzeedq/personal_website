@@ -1,0 +1,1 @@
+Tamzeed Quazi's portfolio: a large "TAMZEED Q." wordmark with the "Q." in red-orange, the line "Software developer, CS + Statistics at UBC, Vancouver, Canada", and a black band listing TypeScript, Python, Rust, Java, C++, React, Next.js and Flask.
