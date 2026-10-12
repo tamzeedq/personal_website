@@ -7,7 +7,7 @@ export default function Hero() {
         <h1 className="whitespace-nowrap font-display text-[clamp(46px,14vw,190px)] font-black uppercase leading-[.8]">
           Tamzeed <span className="text-accent">Q.</span>
         </h1>
-        <div className="aspect-[4/5] rotate-[3deg] overflow-hidden rounded-[10px] bg-photo-bg">
+        <div className="aspect-4/5 rotate-3 overflow-hidden rounded-[10px] bg-photo-bg">
           <img
             src="/images/tamzeed/profile_pic.jpg"
             alt="Tamzeed Quazi"

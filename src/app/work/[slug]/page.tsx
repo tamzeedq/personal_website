@@ -52,17 +52,17 @@ export default async function CaseStudyPage({ params }: Params) {
       <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,380px),1fr))] items-end gap-x-[60px] gap-y-[24px] py-[clamp(28px,5vw,40px)]">
         <div className="flex flex-col gap-[16px]">
           <span className="font-mono text-[13px] font-medium text-accent">{cur.category}</span>
-          <h1 className="m-0 font-display text-[clamp(60px,11vw,170px)] font-black uppercase leading-[.82] [overflow-wrap:anywhere] [text-wrap:balance]">
+          <h1 className="m-0 font-display text-[clamp(60px,11vw,170px)] font-black uppercase leading-[.82] wrap-anywhere text-balance">
             {cur.name}
           </h1>
         </div>
-        <p className="m-0 text-[clamp(18px,1.8vw,22px)] leading-[1.45] [text-wrap:pretty]">
+        <p className="m-0 text-[clamp(18px,1.8vw,22px)] leading-[1.45] text-pretty">
           {cur.description}
         </p>
       </div>
 
       {/* Hero media */}
-      <div className="aspect-[4/3] md:aspect-[16/8]">
+      <div className="aspect-4/3 md:aspect-16/8">
         <ImageSlot
           src={cur.media.hero}
           alt={`${cur.name} screenshot`}
@@ -81,7 +81,7 @@ export default async function CaseStudyPage({ params }: Params) {
             <Link
               key={label}
               href={`/work/${p.slug}`}
-              className="grid cursor-pointer grid-cols-[clamp(88px,22vw,150px)_minmax(0,1fr)] items-center gap-[16px] rounded-[16px] bg-card p-[10px] text-ink transition-transform duration-[250ms] hover:-translate-y-[4px] hover:text-ink motion-reduce:hover:translate-y-0"
+              className="grid cursor-pointer grid-cols-[clamp(88px,22vw,150px)_minmax(0,1fr)] items-center gap-[16px] rounded-[16px] bg-card p-[10px] text-ink transition-transform duration-250 hover:translate-y-[-4px] hover:text-ink motion-reduce:hover:translate-y-0"
             >
               <div className="pointer-events-none h-[clamp(70px,16vw,100px)]">
                 <ImageSlot src={p.media.hero} alt={p.name} label={p.short} radius={10} />

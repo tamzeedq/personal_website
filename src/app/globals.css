@@ -1,34 +1,117 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-html,
-body {
-  margin: 0;
-  background: #efede8;
-  -webkit-text-size-adjust: 100%;
+@theme {
+  /* Single breakpoint from the design handoff: mobile < 760px, desktop >= 760px. */
+  --breakpoint-*: initial;
+  --breakpoint-md: 760px;
+
+  --color-bg: #efede8;
+  --color-ink: #141412;
+  --color-ink-2: #4f4c46;
+  --color-muted: #5f5c55;
+  --color-muted-2: #77746c;
+  --color-muted-3: #a19d93;
+  --color-line: #d3d0c8;
+  --color-grid-dash: #cfcbc2;
+  --color-bar-idle: #dcd8cf;
+  --color-photo-bg: #d8d4ca;
+  --color-card: #ffffff;
+  --color-accent: oklch(0.58 0.2 32);
+  --color-accent-on-dark: oklch(0.72 0.17 32);
+  --color-dark-1: #efede8;
+  --color-dark-2: #d6d3cb;
+  --color-dark-3: #b7b4ac;
+  --color-dark-4: #a9a69e;
+
+  /* Horizontal page padding used throughout the design. */
+  --spacing-page-x: clamp(18px, 3vw, 36px);
+
+  --animate-marquee: mq 30s linear infinite reverse;
+
+  @keyframes mq {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
 }
 
-body {
-  color: #141412;
-  font-family: var(--font-sans), sans-serif;
+/*
+  Font families. --font-display/--font-sans/--font-mono are also the names of
+  the CSS variables next/font sets on <html> (src/app/layout.tsx), so these are
+  `inline`: utilities get the value itself (e.g. `font-family:
+  var(--font-sans), sans-serif`, as in v3) instead of reading the theme
+  variable back. Tailwind still declares these on :root in the theme layer,
+  but next/font's unlayered class on <html> overrides them there.
+*/
+@theme inline {
+  --font-display: var(--font-display), sans-serif;
+  /* Big Shoulders at opsz 72 == the former "Big Shoulders Display" cut. */
+  --font-display--font-variation-settings: 'opsz' 72;
+  --font-sans: var(--font-sans), sans-serif;
+  --font-mono: var(--font-mono), monospace;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/*
+  v4 made the default border colour `currentcolor`; v3's was gray-200
+  (#e5e7eb, not v4's oklch gray-200). Every bordered element here already sets
+  an explicit border colour, so this only keeps the computed defaults equal to
+  v3 and guards future borders that omit a colour.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: #e5e7eb;
+  }
 }
 
-a:hover {
-  color: oklch(0.58 0.2 32);
-}
+/*
+  Site-wide element styles. In v3 these unlayered rules came after
+  `@tailwind utilities`, so they competed with utilities on specificity and
+  source order (`.text-ink` beats `a { color: inherit }`, but `a:hover` beats
+  a plain `.text-ink`). Keeping them at the end of the utilities layer
+  preserves exactly that cascade: unlayered they would beat every utility,
+  and in the base layer they would lose to every utility.
+*/
+@layer utilities {
+  /* v4 preflight sets this to transparent; v3 left the browser default. */
+  html {
+    -webkit-tap-highlight-color: initial;
+  }
 
-button {
-  font: inherit;
-}
+  html,
+  body {
+    margin: 0;
+    background: #efede8;
+    -webkit-text-size-adjust: 100%;
+  }
 
-/* Keep section anchors clear of the sticky header. */
-#work,
-#experience {
-  scroll-margin-top: 70px;
+  body {
+    color: #141412;
+    font-family: var(--font-sans), sans-serif;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: oklch(0.58 0.2 32);
+  }
+
+  button {
+    font: inherit;
+  }
+
+  /* Keep section anchors clear of the sticky header. */
+  #work,
+  #experience {
+    scroll-margin-top: 70px;
+  }
 }

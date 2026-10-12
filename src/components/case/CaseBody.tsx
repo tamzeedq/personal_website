@@ -93,7 +93,7 @@ export default function CaseBody({ project, stack }: Props) {
             )
           })}
         </nav>
-        <div className="grid grid-cols-[repeat(2,minmax(0,1fr))] gap-x-[20px] gap-y-[14px] border-t border-line pt-[18px] font-mono text-[12px] leading-[1.6] md:grid-cols-[minmax(0,1fr)]">
+        <div className="grid grid-cols-2 gap-x-[20px] gap-y-[14px] border-t border-line pt-[18px] font-mono text-[12px] leading-[1.6] md:grid-cols-[minmax(0,1fr)]">
           <div>
             <div className="text-muted-2">role</div>
             <div>{role}</div>
@@ -136,7 +136,7 @@ export default function CaseBody({ project, stack }: Props) {
       <div className="flex flex-col gap-[clamp(56px,8vw,80px)]">
         <div ref={(el) => setRef(0, el)} className="flex flex-col gap-[18px]">
           <span className={labelCls}>01/ Overview</span>
-          <p className="m-0 text-[clamp(22px,2.2vw,30px)] leading-[1.35] [text-wrap:pretty]">
+          <p className="m-0 text-[clamp(22px,2.2vw,30px)] leading-[1.35] text-pretty">
             {caseStudy.overview}
           </p>
         </div>
@@ -150,7 +150,7 @@ export default function CaseBody({ project, stack }: Props) {
           <span className={labelCls}>03/ Approach</span>
           <p className={bodyCls}>{caseStudy.approach}</p>
           <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,240px),1fr))] gap-[12px]">
-            <div className="aspect-[4/3]">
+            <div className="aspect-4/3">
               <ImageSlot
                 src={media.a1}
                 alt={`${name} architecture diagram`}
@@ -158,7 +158,7 @@ export default function CaseBody({ project, stack }: Props) {
                 radius={10}
               />
             </div>
-            <div className="aspect-[4/3]">
+            <div className="aspect-4/3">
               <ImageSlot
                 src={media.a2}
                 alt={`${name} key screen or code`}

@@ -75,7 +75,7 @@ export default function WorkIndex() {
             </div>
 
             {isOpen && (
-              <div className="grid grid-cols-[repeat(2,minmax(0,1fr))] gap-[12px] pb-[24px] pt-[6px] md:grid-cols-[52px_repeat(3,minmax(0,1fr))]">
+              <div className="grid grid-cols-2 gap-[12px] pb-[24px] pt-[6px] md:grid-cols-[52px_repeat(3,minmax(0,1fr))]">
                 <span className="hidden md:block" />
                 <div className="h-[130px] md:h-[190px]">
                   <ImageSlot src={p.media.hero} alt={`${p.name} hero shot`} label="Hero shot" radius={8} />
@@ -84,7 +84,7 @@ export default function WorkIndex() {
                   <ImageSlot src={p.media.s2} alt={`${p.name} second shot`} label="Second shot" radius={8} />
                 </div>
                 <div className="col-span-2 flex flex-col justify-between gap-[16px] pl-0 md:col-auto md:pl-[14px]">
-                  <span className="text-[17px] leading-[1.5] [text-wrap:pretty]">{p.description}</span>
+                  <span className="text-[17px] leading-normal text-pretty">{p.description}</span>
                   <span className="flex flex-wrap gap-[10px] font-mono text-[13px] font-medium">
                     <Link
                       href={`/work/${p.slug}`}
