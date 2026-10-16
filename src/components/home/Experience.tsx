@@ -57,7 +57,7 @@ function eduLook(active: boolean) {
 const EDU_TRANSITION = 'transition-[background,color,border-color] duration-200 motion-reduce:transition-none'
 
 /**
- * Where company / school marks appear (mock; the live page uses 'none'):
+ * Where company / school marks appear (the live page uses the default, 'bars'):
  * - 'panel': beside the big name in the detail panel;
  * - 'bars': also a small mark inside every timeline bar.
  */
@@ -128,7 +128,7 @@ function PanelName({ job, className = '' }: { job: Job; className?: string }) {
   )
 }
 
-export default function Experience({ id = 'experience', logos = 'none' }: { id?: string; logos?: LogoMode }) {
+export default function Experience({ id = 'experience', logos = 'bars' }: { id?: string; logos?: LogoMode }) {
   const inPanel = logos !== 'none'
   const inBars = logos === 'bars'
   const [active, setActive] = useState(0)

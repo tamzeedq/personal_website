@@ -18,15 +18,15 @@ const VARIANTS: { key: string; label: string; note: string; node: ReactNode }[] 
   },
   {
     key: 'h',
-    label: 'H — logos in bars + panel',
+    label: 'H — chosen (logos in bars + panel)',
     note: 'G, plus a small mark at the start of every timeline bar and mobile pill.',
     node: <Experience id="experience-h" logos="bars" />,
   },
   {
     key: 'f',
-    label: 'F — chosen (no logos)',
+    label: 'F — no logos',
     note: 'Single work lane on the 2023 axis; hatched UBC bar cut off at 2021.',
-    node: <Experience id="experience-f" />,
+    node: <Experience id="experience-f" logos="none" />,
   },
 ]
 
