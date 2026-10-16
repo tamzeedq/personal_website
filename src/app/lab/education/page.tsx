@@ -1,12 +1,9 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import Experience from '@/components/home/Experience'
-import ExperienceA from '@/components/home/experience-variants/ExperienceA'
-import ExperienceC from '@/components/home/experience-variants/ExperienceC'
-import ExperienceLanes from '@/components/home/experience-variants/ExperienceLanes'
 
-// Temporary comparison page for the education-timeline experiment.
-// Remove it (and the unused variants) once a version is chosen.
+// Temporary comparison page for experience-timeline experiments.
+// Remove it once the experiments are done.
 export const metadata: Metadata = {
   title: 'Education timeline lab — Tamzeed Quazi',
   robots: { index: false },
@@ -14,26 +11,11 @@ export const metadata: Metadata = {
 
 const VARIANTS: { key: string; label: string; note: string; node: ReactNode }[] = [
   {
-    key: 'd',
-    label: 'D — single work lane, outlined, ← 2021',
-    note: 'C’s lanes with one tall work lane; 2023 axis; UBC outlined and cut off at 2021.',
-    node: <ExperienceLanes id="experience-d" axis="2023" edu="outline" />,
-  },
-  {
-    key: 'e',
-    label: 'E — single work lane, hatched, full degree',
-    note: 'Lanes on A’s axis from Sep 2021; full-length hatched UBC bar.',
-    node: <ExperienceLanes id="experience-e" axis="degree" edu="hatched" />,
-  },
-  {
     key: 'f',
-    label: 'F — single work lane, hatched, ← 2021',
-    note: 'Lanes on the 2023 axis; hatched UBC bar cut off at 2021.',
-    node: <ExperienceLanes id="experience-f" axis="2023" edu="hatched" />,
+    label: 'F — chosen',
+    note: 'Single work lane on the 2023 axis; hatched UBC bar cut off at 2021.',
+    node: <Experience id="experience-f" />,
   },
-  { key: 'a', label: 'Reference: A — extended span', note: 'Previous round.', node: <ExperienceA id="experience-a" /> },
-  { key: 'c', label: 'Reference: C — labelled lanes', note: 'Previous round.', node: <ExperienceC id="experience-c" /> },
-  { key: 'current', label: 'Reference: current (no education)', note: 'What is live today.', node: <Experience /> },
 ]
 
 export default function EducationLab() {
