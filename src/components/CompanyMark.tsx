@@ -12,6 +12,11 @@ type Props = {
    * white tile (matching the logo tiles) on the dark detail panel.
    */
   tone?: 'light' | 'dark'
+  /**
+   * Optional CSS length (e.g. a clamp()) that overrides the rendered edge so the mark can scale
+   * with fluid type. `size` should then be its largest value: it still picks the image source.
+   */
+  fluid?: string
   className?: string
 }
 
@@ -37,8 +42,9 @@ export function monogram(name: string): string {
  * Tiles are white rounded squares (or a brand's own full-bleed square), which read on both
  * the light page and the dark panel.
  */
-export default function CompanyMark({ src, name, size, tone = 'light', className = '' }: Props) {
-  const radius = Math.round(size * RADIUS)
+export default function CompanyMark({ src, name, size, tone = 'light', fluid, className = '' }: Props) {
+  const edge = fluid ?? size
+  const radius = fluid ? `calc(${fluid} * ${RADIUS})` : Math.round(size * RADIUS)
 
   if (src) {
     // Tiles ship as name-tile.png (128px) plus name-tile@2x.png (256px).
@@ -52,7 +58,7 @@ export default function CompanyMark({ src, name, size, tone = 'light', className
         width={size}
         height={size}
         className={`block shrink-0 ${className}`}
-        style={{ width: size, height: size, borderRadius: radius }}
+        style={{ width: edge, height: edge, borderRadius: radius }}
         loading="lazy"
       />
     )
@@ -61,7 +67,8 @@ export default function CompanyMark({ src, name, size, tone = 'light', className
   const text = monogram(name)
   // Big Shoulders is condensed, so three letters still fit at ~half the tile. Small marks get
   // relatively larger letters so they stay legible at ~22px.
-  const fontSize = size * (text.length >= 3 ? (size < 32 ? 0.5 : 0.44) : 0.52)
+  const ratio = text.length >= 3 ? (size < 32 ? 0.5 : 0.44) : 0.52
+  const fontSize = fluid ? `calc(${fluid} * ${ratio})` : size * ratio
 
   return (
     <span
@@ -69,7 +76,7 @@ export default function CompanyMark({ src, name, size, tone = 'light', className
       className={`flex shrink-0 select-none items-center justify-center font-display font-black uppercase leading-none ${
         tone === 'dark' ? 'bg-card text-ink' : 'bg-ink text-bg'
       } ${className}`}
-      style={{ width: size, height: size, borderRadius: radius, fontSize, letterSpacing: '0.01em' }}
+      style={{ width: edge, height: edge, borderRadius: radius, fontSize, letterSpacing: '0.01em' }}
     >
       {text}
     </span>

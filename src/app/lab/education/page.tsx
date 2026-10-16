@@ -11,8 +11,20 @@ export const metadata: Metadata = {
 
 const VARIANTS: { key: string; label: string; note: string; node: ReactNode }[] = [
   {
+    key: 'g',
+    label: 'G — logos in panel',
+    note: 'Logo or monogram beside the big name in the detail panel; timeline bars unchanged.',
+    node: <Experience id="experience-g" logos="panel" />,
+  },
+  {
+    key: 'h',
+    label: 'H — logos in bars + panel',
+    note: 'G, plus a small mark at the start of every timeline bar and mobile pill.',
+    node: <Experience id="experience-h" logos="bars" />,
+  },
+  {
     key: 'f',
-    label: 'F — chosen',
+    label: 'F — chosen (no logos)',
     note: 'Single work lane on the 2023 axis; hatched UBC bar cut off at 2021.',
     node: <Experience id="experience-f" />,
   },

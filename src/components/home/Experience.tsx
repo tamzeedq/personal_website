@@ -8,6 +8,7 @@
  */
 
 import { useState, type CSSProperties } from 'react'
+import CompanyMark, { monogram } from '@/components/CompanyMark'
 import ImageSlot from '@/components/ImageSlot'
 import SectionBar from '@/components/SectionBar'
 import { useCanHover } from '@/components/useCanHover'
@@ -55,7 +56,81 @@ function eduLook(active: boolean) {
 
 const EDU_TRANSITION = 'transition-[background,color,border-color] duration-200 motion-reduce:transition-none'
 
-export default function Experience({ id = 'experience' }: { id?: string }) {
+/**
+ * Where company / school marks appear (mock; the live page uses 'none'):
+ * - 'panel': beside the big name in the detail panel;
+ * - 'bars': also a small mark inside every timeline bar.
+ */
+export type LogoMode = 'none' | 'panel' | 'bars'
+
+/** Mark inside a 34px desktop pill; (34 - 22) / 2 = 6px inset keeps it concentric with the pill's end. */
+const BAR_MARK = 22
+/** Mark inside a 48px mobile pill, inset (48 - 28) / 2 = 10px. */
+const MOBILE_MARK = 28
+/**
+ * Panel mark: ~0.86 of the name's clamp(40px,4vw,64px), so it is about one
+ * line of the 0.9-leading heading tall and scales with it.
+ */
+const PANEL_MARK = 'clamp(34px,3.45vw,55px)'
+
+/**
+ * Small decorative mark inside a bar. Always the white tile (tone="dark"),
+ * so monograms match the white logo tiles on both the idle and accent pills.
+ * pointer-events-none keeps the whole pill one hit target.
+ */
+function BarMark({ job, size }: { job: Job; size: number }) {
+  return <CompanyMark src={job.logo} name={job.co} size={size} tone="dark" className="pointer-events-none self-center" />
+}
+
+/**
+ * Mark for the hatched school bar. Without a logo it is an outlined monogram in
+ * the bar's own line language: a solid 1.5px border in the bar's current colour
+ * (muted idle, accent active) on a page-coloured fill that masks the hatching.
+ * Same 22% corners as the tiles.
+ */
+function SchoolMark({ job, size, active }: { job: Job; size: number; active: boolean }) {
+  if (job.logo) return <BarMark job={job} size={size} />
+  const text = monogram(job.co)
+  return (
+    <span
+      aria-hidden="true"
+      className={`pointer-events-none flex shrink-0 select-none items-center justify-center self-center border-[1.5px] bg-bg font-display font-black uppercase leading-none ${EDU_TRANSITION} ${
+        active ? 'border-current' : 'border-muted-3'
+      }`}
+      style={{ width: size, height: size, borderRadius: Math.round(size * 0.22), fontSize: size * (text.length >= 3 ? 0.45 : 0.52) }}
+    >
+      {text}
+    </span>
+  )
+}
+
+/** Name in a mobile pill, with the mark before it in 'bars' mode (the 'none' markup is unchanged). */
+function MobileName({ job, withMark, school }: { job: Job; withMark: boolean; school?: { active: boolean } }) {
+  const name = <span className="font-display text-[22px] font-bold uppercase">{job.co}</span>
+  if (!withMark) return name
+  return (
+    <span className="flex items-center gap-[10px]">
+      {school ? <SchoolMark job={job} size={MOBILE_MARK} active={school.active} /> : <BarMark job={job} size={MOBILE_MARK} />}
+      {name}
+    </span>
+  )
+}
+
+/** The big company name in the detail panel. */
+function PanelName({ job, className = '' }: { job: Job; className?: string }) {
+  return (
+    <span
+      className={`${className} font-display font-black uppercase leading-[.9] wrap-anywhere`}
+      style={{ fontSize: 'clamp(40px,4vw,64px)' }}
+    >
+      {job.co}
+    </span>
+  )
+}
+
+export default function Experience({ id = 'experience', logos = 'none' }: { id?: string; logos?: LogoMode }) {
+  const inPanel = logos !== 'none'
+  const inBars = logos === 'bars'
   const [active, setActive] = useState(0)
   const canHover = useCanHover()
   const job: Job = active === EDU ? EDUCATION : EXPERIENCE[active]
@@ -129,11 +204,12 @@ export default function Experience({ id = 'experience' }: { id?: string }) {
                   type="button"
                   aria-pressed={i === active}
                   {...handlers(i)}
-                  className={`absolute box-border flex h-[34px] min-w-max cursor-pointer items-center whitespace-nowrap rounded-full border-0 px-[14px] font-display text-[18px] font-bold uppercase transition-[background,color] duration-200 motion-reduce:transition-none ${
-                    centred ? '-translate-x-1/2' : ''
-                  } ${jobColors(i)}`}
+                  className={`absolute box-border flex h-[34px] min-w-max cursor-pointer items-center whitespace-nowrap rounded-full border-0 font-display text-[18px] font-bold uppercase transition-[background,color] duration-200 motion-reduce:transition-none ${
+                    inBars ? 'gap-2 pl-[6px] pr-[14px]' : 'px-[14px]'
+                  } ${centred ? '-translate-x-1/2' : ''} ${jobColors(i)}`}
                   style={{ ...placement, width: pct(x.end - x.start), top: ROW_TOP[x.row] }}
                 >
+                  {inBars && <BarMark job={x} size={BAR_MARK} />}
                   {x.co}
                 </button>
               )
@@ -162,6 +238,7 @@ export default function Experience({ id = 'experience' }: { id?: string }) {
                     ← {eduStartYear}
                   </span>
                 )}
+                {inBars && <SchoolMark job={EDUCATION} size={BAR_MARK} active={eduActive} />}
                 <span className="font-display text-[18px] font-bold uppercase">{EDUCATION.co}</span>
                 <span aria-hidden="true" className={`font-mono text-[11px] font-normal ${look.note}`}>
                   BSc CS + Stats
@@ -193,9 +270,11 @@ export default function Experience({ id = 'experience' }: { id?: string }) {
               type="button"
               aria-pressed={i === active}
               {...handlers(i)}
-              className={`flex min-h-[48px] cursor-pointer items-center justify-between gap-3 rounded-full border-0 px-[18px] text-left transition-[background,color] duration-200 motion-reduce:transition-none ${jobColors(i)}`}
+              className={`flex min-h-[48px] cursor-pointer items-center justify-between gap-3 rounded-full border-0 pr-[18px] text-left transition-[background,color] duration-200 motion-reduce:transition-none ${
+                inBars ? 'pl-[10px]' : 'pl-[18px]'
+              } ${jobColors(i)}`}
             >
-              <span className="font-display text-[22px] font-bold uppercase">{x.co}</span>
+              <MobileName job={x} withMark={inBars} />
               <span className="font-mono text-[11px] font-normal">{x.dates}</span>
             </button>
           ))}
@@ -212,10 +291,12 @@ export default function Experience({ id = 'experience' }: { id?: string }) {
             type="button"
             aria-pressed={eduActive}
             {...handlers(EDU)}
-            className={`box-border flex min-h-[48px] cursor-pointer items-center justify-between gap-3 rounded-full px-[18px] text-left ${EDU_TRANSITION} ${look.className}`}
+            className={`box-border flex min-h-[48px] cursor-pointer items-center justify-between gap-3 rounded-full pr-[18px] text-left ${EDU_TRANSITION} ${
+              inBars ? 'pl-[10px]' : 'pl-[18px]'
+            } ${look.className}`}
             style={look.style}
           >
-            <span className="font-display text-[22px] font-bold uppercase">{EDUCATION.co}</span>
+            <MobileName job={EDUCATION} withMark={inBars} school={{ active: eduActive }} />
             <span className={`font-mono text-[11px] font-normal ${look.note}`}>{EDUCATION.dates}</span>
           </button>
         </div>
@@ -234,12 +315,15 @@ export default function Experience({ id = 'experience' }: { id?: string }) {
           <span className="font-mono text-[12px] font-normal text-accent-on-dark">
             {job.dates} · {job.where}
           </span>
-          <span
-            className="font-display font-black uppercase leading-[.9] wrap-anywhere"
-            style={{ fontSize: 'clamp(40px,4vw,64px)' }}
-          >
-            {job.co}
-          </span>
+          {inPanel ? (
+            // Mark top-aligned with the first line, so a wrapped name hangs beside it.
+            <span className="flex items-start gap-[clamp(12px,1.1vw,18px)]">
+              <CompanyMark key={job.co} src={job.logo} name={job.co} size={55} fluid={PANEL_MARK} tone="dark" />
+              <PanelName job={job} className="min-w-0" />
+            </span>
+          ) : (
+            <PanelName job={job} />
+          )}
           <span className="text-[16px] text-dark-3">{job.role}</span>
         </div>
         <ul className="m-0 flex list-none flex-col gap-[10px] p-0">
