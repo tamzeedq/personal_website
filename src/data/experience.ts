@@ -11,6 +11,8 @@ export type Job = {
   /** Image path under /public. Missing renders as a placeholder labelled `mediaLabel`. */
   media?: string
   mediaLabel: string
+  /** Square logo tile under /public (e.g. /images/companies/x-tile.png). Missing shows a typeset monogram. */
+  logo?: string
 }
 
 /**
@@ -52,6 +54,7 @@ export const EXPERIENCE: Job[] = [
       "Built the functional test suite for the service's gRPC API and migrated it to a new protobuf contract.",
     ],
     mediaLabel: 'Team / office photo',
+    logo: '/images/companies/mastercard-tile.png',
   },
   {
     co: 'UBC Civil Eng',
@@ -81,6 +84,7 @@ export const EXPERIENCE: Job[] = [
       'Finalist in an internal hackathon for an admin/applicant portal for Venture for Canada.',
     ],
     mediaLabel: 'Team / office photo',
+    logo: '/images/companies/mastercard-tile.png',
   },
   {
     co: 'UBC Solar',
@@ -95,6 +99,7 @@ export const EXPERIENCE: Job[] = [
       "Contributed to the team's highest-ever finish at FSGP 2024.",
     ],
     mediaLabel: 'Car / race photo',
+    logo: '/images/companies/ubc-solar-tile.png',
   },
   {
     co: 'Tetra Tech',
@@ -110,5 +115,6 @@ export const EXPERIENCE: Job[] = [
       'Cut computer-vision preprocessing time by 90% and sped up PostgreSQL queries by 30% with PostGIS.',
     ],
     mediaLabel: 'App screenshot',
+    logo: '/images/companies/tetra-tech-tile.png',
   },
 ]
