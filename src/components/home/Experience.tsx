@@ -56,13 +56,6 @@ function eduLook(active: boolean) {
 
 const EDU_TRANSITION = 'transition-[background,color,border-color] duration-200 motion-reduce:transition-none'
 
-/**
- * Where company / school marks appear (the live page uses the default, 'bars'):
- * - 'panel': beside the big name in the detail panel;
- * - 'bars': also a small mark inside every timeline bar.
- */
-export type LogoMode = 'none' | 'panel' | 'bars'
-
 /** Mark inside a 34px desktop pill; (34 - 22) / 2 = 6px inset keeps it concentric with the pill's end. */
 const BAR_MARK = 22
 /** Mark inside a 48px mobile pill, inset (48 - 28) / 2 = 10px. */
@@ -104,33 +97,17 @@ function SchoolMark({ job, size, active }: { job: Job; size: number; active: boo
   )
 }
 
-/** Name in a mobile pill, with the mark before it in 'bars' mode (the 'none' markup is unchanged). */
-function MobileName({ job, withMark, school }: { job: Job; withMark: boolean; school?: { active: boolean } }) {
-  const name = <span className="font-display text-[22px] font-bold uppercase">{job.co}</span>
-  if (!withMark) return name
+/** Name in a mobile pill, with its mark before it. */
+function MobileName({ job, school }: { job: Job; school?: { active: boolean } }) {
   return (
     <span className="flex items-center gap-[10px]">
       {school ? <SchoolMark job={job} size={MOBILE_MARK} active={school.active} /> : <BarMark job={job} size={MOBILE_MARK} />}
-      {name}
+      <span className="font-display text-[22px] font-bold uppercase">{job.co}</span>
     </span>
   )
 }
 
-/** The big company name in the detail panel. */
-function PanelName({ job, className = '' }: { job: Job; className?: string }) {
-  return (
-    <span
-      className={`${className} font-display font-black uppercase leading-[.9] wrap-anywhere`}
-      style={{ fontSize: 'clamp(40px,4vw,64px)' }}
-    >
-      {job.co}
-    </span>
-  )
-}
-
-export default function Experience({ id = 'experience', logos = 'bars' }: { id?: string; logos?: LogoMode }) {
-  const inPanel = logos !== 'none'
-  const inBars = logos === 'bars'
+export default function Experience() {
   const [active, setActive] = useState(0)
   const canHover = useCanHover()
   const job: Job = active === EDU ? EDUCATION : EXPERIENCE[active]
@@ -152,7 +129,7 @@ export default function Experience({ id = 'experience', logos = 'bars' }: { id?:
     }`
 
   return (
-    <div id={id} className="flex flex-col gap-6 px-page-x pb-[50px]" style={{ paddingTop: 'clamp(40px,6vw,60px)' }}>
+    <div id="experience" className="flex flex-col gap-6 px-page-x pb-[50px]" style={{ paddingTop: 'clamp(40px,6vw,60px)' }}>
       <SectionBar label="02/ Experience" hoverHint="hover a bar" touchHint="tap a role" />
 
       {/* Desktop: a double-height work lane and a school lane */}
@@ -204,12 +181,10 @@ export default function Experience({ id = 'experience', logos = 'bars' }: { id?:
                   type="button"
                   aria-pressed={i === active}
                   {...handlers(i)}
-                  className={`absolute box-border flex h-[34px] min-w-max cursor-pointer items-center whitespace-nowrap rounded-full border-0 font-display text-[18px] font-bold uppercase transition-[background,color] duration-200 motion-reduce:transition-none ${
-                    inBars ? 'gap-2 pl-[6px] pr-[14px]' : 'px-[14px]'
-                  } ${centred ? '-translate-x-1/2' : ''} ${jobColors(i)}`}
+                  className={`absolute box-border flex h-[34px] min-w-max cursor-pointer items-center whitespace-nowrap rounded-full border-0 font-display text-[18px] font-bold uppercase transition-[background,color] duration-200 motion-reduce:transition-none gap-2 pl-[6px] pr-[14px] ${centred ? '-translate-x-1/2' : ''} ${jobColors(i)}`}
                   style={{ ...placement, width: pct(x.end - x.start), top: ROW_TOP[x.row] }}
                 >
-                  {inBars && <BarMark job={x} size={BAR_MARK} />}
+                  <BarMark job={x} size={BAR_MARK} />
                   {x.co}
                 </button>
               )
@@ -238,7 +213,7 @@ export default function Experience({ id = 'experience', logos = 'bars' }: { id?:
                     ← {eduStartYear}
                   </span>
                 )}
-                {inBars && <SchoolMark job={EDUCATION} size={BAR_MARK} active={eduActive} />}
+                <SchoolMark job={EDUCATION} size={BAR_MARK} active={eduActive} />
                 <span className="font-display text-[18px] font-bold uppercase">{EDUCATION.co}</span>
                 <span aria-hidden="true" className={`font-mono text-[11px] font-normal ${look.note}`}>
                   BSc CS + Stats
@@ -270,11 +245,9 @@ export default function Experience({ id = 'experience', logos = 'bars' }: { id?:
               type="button"
               aria-pressed={i === active}
               {...handlers(i)}
-              className={`flex min-h-[48px] cursor-pointer items-center justify-between gap-3 rounded-full border-0 pr-[18px] text-left transition-[background,color] duration-200 motion-reduce:transition-none ${
-                inBars ? 'pl-[10px]' : 'pl-[18px]'
-              } ${jobColors(i)}`}
+              className={`flex min-h-[48px] cursor-pointer items-center justify-between gap-3 rounded-full border-0 pl-[10px] pr-[18px] text-left transition-[background,color] duration-200 motion-reduce:transition-none ${jobColors(i)}`}
             >
-              <MobileName job={x} withMark={inBars} />
+              <MobileName job={x} />
               <span className="font-mono text-[11px] font-normal">{x.dates}</span>
             </button>
           ))}
@@ -291,12 +264,10 @@ export default function Experience({ id = 'experience', logos = 'bars' }: { id?:
             type="button"
             aria-pressed={eduActive}
             {...handlers(EDU)}
-            className={`box-border flex min-h-[48px] cursor-pointer items-center justify-between gap-3 rounded-full pr-[18px] text-left ${EDU_TRANSITION} ${
-              inBars ? 'pl-[10px]' : 'pl-[18px]'
-            } ${look.className}`}
+            className={`box-border flex min-h-[48px] cursor-pointer items-center justify-between gap-3 rounded-full pl-[10px] pr-[18px] text-left ${EDU_TRANSITION} ${look.className}`}
             style={look.style}
           >
-            <MobileName job={EDUCATION} withMark={inBars} school={{ active: eduActive }} />
+            <MobileName job={EDUCATION} school={{ active: eduActive }} />
             <span className={`font-mono text-[11px] font-normal ${look.note}`}>{EDUCATION.dates}</span>
           </button>
         </div>
@@ -315,15 +286,16 @@ export default function Experience({ id = 'experience', logos = 'bars' }: { id?:
           <span className="font-mono text-[12px] font-normal text-accent-on-dark">
             {job.dates} · {job.where}
           </span>
-          {inPanel ? (
-            // Mark top-aligned with the first line, so a wrapped name hangs beside it.
-            <span className="flex items-start gap-[clamp(12px,1.1vw,18px)]">
-              <CompanyMark key={job.co} src={job.logo} name={job.co} size={55} fluid={PANEL_MARK} tone="dark" />
-              <PanelName job={job} className="min-w-0" />
+          {/* Mark top-aligned with the first line, so a wrapped name hangs beside it. */}
+          <span className="flex items-start gap-[clamp(12px,1.1vw,18px)]">
+            <CompanyMark key={job.co} src={job.logo} name={job.co} size={55} fluid={PANEL_MARK} tone="dark" />
+            <span
+              className="min-w-0 font-display font-black uppercase leading-[.9] wrap-anywhere"
+              style={{ fontSize: 'clamp(40px,4vw,64px)' }}
+            >
+              {job.co}
             </span>
-          ) : (
-            <PanelName job={job} />
-          )}
+          </span>
           <span className="text-[16px] text-dark-3">{job.role}</span>
         </div>
         <ul className="m-0 flex list-none flex-col gap-[10px] p-0">
