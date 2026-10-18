@@ -25,7 +25,7 @@ const mono = DM_Mono({
 })
 
 const DESCRIPTION =
-  'Software developer studying Computer Science and Statistics at UBC in Vancouver. Projects, experience and contact.'
+  'Software engineer at Mastercard in Vancouver and UBC Computer Science and Statistics graduate. Projects, experience and contact.'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://tamzeedq.com'),

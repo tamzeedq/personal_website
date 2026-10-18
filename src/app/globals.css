@@ -110,7 +110,7 @@
   }
 
   /* Keep section anchors clear of the sticky header. */
-  #work,
+  #projects,
   #experience {
     scroll-margin-top: 70px;
   }

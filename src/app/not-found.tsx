@@ -27,14 +27,14 @@ export default function NotFound() {
         </h1>
         <div className="flex flex-col gap-[20px]">
           <p className="m-0 text-[clamp(18px,1.8vw,22px)] leading-[1.45] text-pretty">
-            This page doesn&apos;t exist, or it moved. The work is still here.
+            This page doesn&apos;t exist, or it moved. The projects are still here.
           </p>
           <div className="flex flex-wrap gap-[10px]">
             <Link href="/" className={`${pill} bg-ink text-bg hover:text-bg`}>
               ← back home
             </Link>
-            <Link href="/#work" className={`${pill} border border-ink text-ink hover:text-ink`}>
-              all work →
+            <Link href="/#projects" className={`${pill} border border-ink text-ink hover:text-ink`}>
+              all projects →
             </Link>
           </div>
         </div>
@@ -47,7 +47,7 @@ export default function NotFound() {
           {PROJECTS.slice(0, 4).map((p, i) => (
             <li key={p.slug} className="border-b border-line">
               <Link
-                href={`/work/${p.slug}`}
+                href={`/projects/${p.slug}`}
                 className="group grid grid-cols-[28px_minmax(0,1fr)_auto] items-center gap-[12px] py-[6px] text-ink hover:text-ink md:grid-cols-[52px_minmax(0,1fr)_150px]"
               >
                 <span className="font-mono text-[12px] text-muted-2">{projectNum(i)}</span>

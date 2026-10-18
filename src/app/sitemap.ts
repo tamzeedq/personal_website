@@ -11,6 +11,6 @@ const SITE = 'https://tamzeedq.com'
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: `${SITE}/` },
-    ...PROJECTS.map((p) => ({ url: `${SITE}/work/${p.slug}` })),
+    ...PROJECTS.map((p) => ({ url: `${SITE}/projects/${p.slug}` })),
   ]
 }

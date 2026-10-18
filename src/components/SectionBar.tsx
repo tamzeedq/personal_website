@@ -1,5 +1,5 @@
 /**
- * "01/ Work ............ hint" bar used at the top of each home section.
+ * "01/ Projects ............ hint" bar used at the top of each home section.
  * The hint follows hover capability, not width, via a CSS media query
  * (same query as useCanHover), so it is right on first paint with no hydration flash.
  */

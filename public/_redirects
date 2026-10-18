@@ -1,0 +1,5 @@
+# The "work" section was renamed "projects" (Workers Static Assets _redirects).
+# Static rules first: the topmost matching rule wins.
+/work    /    301
+/work/   /    301
+/work/*  /projects/:splat  301

@@ -10,6 +10,8 @@ export type Job = {
   points: string[]
   /** Image path under /public. Missing renders as a placeholder labelled `mediaLabel`. */
   media?: string
+  /** CSS object-position for cropping `media`, e.g. "center 80%". Defaults to centred. */
+  mediaPosition?: string
   mediaLabel: string
   /** Square logo tile under /public (e.g. /images/companies/x-tile.png). Missing shows a typeset monogram. */
   logo?: string
@@ -35,8 +37,16 @@ export const EDUCATION: Job = {
   start: -16,
   end: 41,
   row: 0,
-  points: ['Combined Major in Computer Science and Statistics.', "Dean's List."],
-  mediaLabel: 'Campus photo',
+  points: [
+    'Combined Major in Computer Science and Statistics.',
+    "Dean's List.",
+    'Clubs and Activities: UBC LaunchPad, UBC Solar, UBC IRC (Core Volunteer), UBC Rec Volleyball.',
+  ],
+  media: '/images/ubc/nwhacks_2026.jpg',
+  // Presenters stand near the bottom of the frame.
+  mediaPosition: 'center 85%',
+  mediaLabel: 'Presenting Atlasic at nwHacks 2026',
+  logo: '/images/companies/ubc-tile.png',
 }
 
 /** Newest first: the first job is the one shown by default. */
@@ -53,7 +63,8 @@ export const EXPERIENCE: Job[] = [
       'Built a containerized local test environment for a fraud rules service with Docker, Testcontainers and Java gRPC mocks.',
       "Built the functional test suite for the service's gRPC API and migrated it to a new protobuf contract.",
     ],
-    mediaLabel: 'Team / office photo',
+    media: '/images/mastercard/vancouver_skyline.jpg',
+    mediaLabel: 'Mastercard logo over the Vancouver skyline',
     logo: '/images/companies/mastercard-tile.png',
   },
   {
@@ -69,7 +80,11 @@ export const EXPERIENCE: Job[] = [
       'Cut batch simulation runtime by 3.2× through parallel processing.',
       'Helped train a PyTorch autoencoder for water leak detection that reached 97.5% accuracy on simulated data.',
     ],
-    mediaLabel: 'App screenshot',
+    media: '/images/ubc_civil_eng/wntr_earthquake.png',
+    // Keep the two network maps in view when the box crops.
+    mediaPosition: 'center 75%',
+    mediaLabel: 'Earthquake scenario in the Streamlit app',
+    logo: '/images/companies/ubc-civil-eng-tile.png',
   },
   {
     co: 'Mastercard',
@@ -83,7 +98,8 @@ export const EXPERIENCE: Job[] = [
       'Built a POC data quality service with AWS Redshift, Java and Next.js, featured in quarterly engineering highlights.',
       'Finalist in an internal hackathon for an admin/applicant portal for Venture for Canada.',
     ],
-    mediaLabel: 'Team / office photo',
+    media: '/images/mastercard/vancouver_office.jpg',
+    mediaLabel: 'Mastercard Vancouver office',
     logo: '/images/companies/mastercard-tile.png',
   },
   {
@@ -95,10 +111,14 @@ export const EXPERIENCE: Job[] = [
     end: 24,
     row: 1,
     points: [
-      'Developed race strategy optimization software.',
-      "Contributed to the team's highest-ever finish at FSGP 2024.",
+      'Built genetic algorithms in Python to optimize race speeds for the solar car.',
+      'Built an Electron + React app to visualize race simulation data.',
+      "Created a reusable Jupyter notebook for data analysis, contributing to the team's highest-ever Formula Sun Grand Prix placement in 2024.",
     ],
-    mediaLabel: 'Car / race photo',
+    media: '/images/ubc_solar/team.jpg',
+    // Team and car fill the lower middle of the frame.
+    mediaPosition: 'center 80%',
+    mediaLabel: 'UBC Solar team with the car',
     logo: '/images/companies/ubc-solar-tile.png',
   },
   {
@@ -114,7 +134,8 @@ export const EXPERIENCE: Job[] = [
       'Launched a web app to 1000+ users on Azure VM and Blob Storage.',
       'Cut computer-vision preprocessing time by 90% and sped up PostgreSQL queries by 30% with PostGIS.',
     ],
-    mediaLabel: 'App screenshot',
+    media: '/images/tetra_tech/fusionmap.jpg',
+    mediaLabel: 'FusionMap 3D terrain view with hazard layers',
     logo: '/images/companies/tetra-tech-tile.png',
   },
 ]

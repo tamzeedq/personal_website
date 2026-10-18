@@ -3,6 +3,7 @@
 import { useRef, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import GitHubMark from '@/components/GitHubMark'
 import ImageSlot from '@/components/ImageSlot'
 import SectionBar from '@/components/SectionBar'
 import { useCanHover } from '@/components/useCanHover'
@@ -12,9 +13,21 @@ import { PROJECTS, projectNum, projectTag, stackStr } from '@/data/projects'
  * Interaction follows hover capability; layout (md: = 760px) follows width.
  * - Hover devices: entering a row opens its preview, clicking the header opens the case study.
  * - Touch devices (phones, tablets): tapping the header toggles the preview;
- *   the "case study →" button navigates.
+ *   the "more →" button navigates.
  * A touch tap on a hover-capable device (touch laptop) is treated as a tap, too.
  */
+/**
+ * Desktop preview columns by screenshot count: number gutter, the shots, then
+ * the description. With no shots the description spans the row.
+ */
+const PREVIEW_COLS = [
+  'md:grid-cols-[52px_minmax(0,1fr)]',
+  'md:grid-cols-[52px_minmax(0,1fr)_minmax(0,2fr)]',
+  'md:grid-cols-[52px_repeat(3,minmax(0,1fr))]',
+]
+
+const outlineBtn = 'inline-flex items-center gap-[7px] rounded-full border border-ink px-[16px] py-[11px] text-ink'
+
 export default function WorkIndex() {
   const router = useRouter()
   const canHover = useCanHover()
@@ -23,12 +36,12 @@ export default function WorkIndex() {
   const pressPointer = useRef<string | null>(null)
 
   return (
-    <div id="work" className="px-page-x pb-[40px] pt-[clamp(56px,9vw,90px)]">
-      <SectionBar label="01/ Work" hoverHint="hover a row · click to open" touchHint="tap a row" />
+    <div id="projects" className="px-page-x pb-[40px] pt-[clamp(56px,9vw,90px)]">
+      <SectionBar label="01/ Projects" hoverHint="hover a row · click to open" touchHint="tap a row" />
 
       {PROJECTS.map((p, i) => {
         const isOpen = openRow === i
-        const codeHref = p.links.code ?? p.links.demo
+        const shots = [p.media.hero, p.media.s2].filter((src): src is string => !!src)
         return (
           <div
             key={p.slug}
@@ -48,7 +61,7 @@ export default function WorkIndex() {
               onClick={() => {
                 const tapped = pressPointer.current === 'touch'
                 pressPointer.current = null
-                if (canHover && !tapped) router.push(`/work/${p.slug}`)
+                if (canHover && !tapped) router.push(`/projects/${p.slug}`)
                 else setOpenRow(isOpen ? -1 : i)
               }}
               onKeyDown={(e) => {
@@ -75,33 +88,43 @@ export default function WorkIndex() {
             </div>
 
             {isOpen && (
-              <div className="grid grid-cols-2 gap-[12px] pb-[24px] pt-[6px] md:grid-cols-[52px_repeat(3,minmax(0,1fr))]">
+              <div className={`grid grid-cols-2 gap-[12px] pb-[24px] pt-[6px] ${PREVIEW_COLS[shots.length]}`}>
                 <span className="hidden md:block" />
-                <div className="h-[130px] md:h-[190px]">
-                  <ImageSlot src={p.media.hero} alt={`${p.name} hero shot`} label="Hero shot" radius={8} />
-                </div>
-                <div className="h-[130px] md:h-[190px]">
-                  <ImageSlot src={p.media.s2} alt={`${p.name} second shot`} label="Second shot" radius={8} />
-                </div>
-                <div className="col-span-2 flex flex-col justify-between gap-[16px] pl-0 md:col-auto md:pl-[14px]">
+                {shots.map((src, s) => (
+                  <div key={src} className={`h-[130px] md:h-[190px] ${shots.length === 1 ? 'col-span-2 md:col-auto' : ''}`}>
+                    <ImageSlot src={src} position={p.media.position} alt={`${p.name} screenshot ${s + 1}`} label={p.short} radius={8} />
+                  </div>
+                ))}
+                <div
+                  className={`col-span-2 flex flex-col justify-between gap-[16px] pl-0 md:col-auto ${
+                    shots.length ? 'md:pl-[14px]' : ''
+                  }`}
+                >
                   <span className="text-[17px] leading-normal text-pretty">{p.description}</span>
-                  <span className="flex flex-wrap gap-[10px] font-mono text-[13px] font-medium">
-                    <Link
-                      href={`/work/${p.slug}`}
-                      className="cursor-pointer rounded-full border-0 bg-ink px-[16px] py-[11px] font-mono text-[13px] font-medium text-bg"
-                    >
-                      case study →
-                    </Link>
-                    {codeHref && (
+                  {/* Right-aligned with "more" last, so it sits in the same spot on every row. */}
+                  <span className="flex flex-wrap justify-end gap-[10px] font-mono text-[13px] font-medium">
+                    {p.links.code && (
                       <a
-                        href={codeHref}
+                        href={p.links.code}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="rounded-full border border-ink px-[16px] py-[11px] text-ink"
+                        className={outlineBtn}
                       >
-                        code ↗
+                        <GitHubMark />
+                        code
                       </a>
                     )}
+                    {p.links.demo && (
+                      <a href={p.links.demo} target="_blank" rel="noopener noreferrer" className={outlineBtn}>
+                        demo ↗
+                      </a>
+                    )}
+                    <Link
+                      href={`/projects/${p.slug}`}
+                      className="cursor-pointer rounded-full border-0 bg-ink px-[16px] py-[11px] font-mono text-[13px] font-medium text-bg"
+                    >
+                      more →
+                    </Link>
                   </span>
                 </div>
               </div>

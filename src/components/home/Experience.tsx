@@ -309,7 +309,7 @@ export default function Experience() {
           ))}
         </ul>
         <div className="h-[180px]">
-          <ImageSlot key={active} src={job.media} alt={`${job.co} — ${job.mediaLabel}`} label={job.mediaLabel} radius={10} />
+          <ImageSlot key={active} src={job.media} position={job.mediaPosition} alt={`${job.co} — ${job.mediaLabel}`} label={job.mediaLabel} radius={10} />
         </div>
       </div>
     </div>

@@ -16,7 +16,7 @@ export default function Hero() {
         </div>
       </div>
       <div className="flex flex-wrap justify-between gap-x-[30px] gap-y-[6px] px-page-x pt-[22px] text-[15px] text-muted">
-        <span>Software developer · CS + Statistics @ UBC</span>
+        <span>Software engineer @ Mastercard · UBC CS + Statistics</span>
         <span>Vancouver, Canada</span>
       </div>
     </>

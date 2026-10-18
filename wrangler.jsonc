@@ -7,7 +7,7 @@
     "directory": "./out",
     // Unmatched paths get out/404.html (the styled not-found page) with a 404.
     "not_found_handling": "404-page",
-    // /work/foo serves out/work/foo.html; /work/foo/ redirects to /work/foo.
+    // /projects/foo serves out/projects/foo.html; /projects/foo/ redirects to /projects/foo.
     "html_handling": "auto-trailing-slash"
   },
   // Attached by ROUTE, not as a Worker custom domain. A custom domain would
