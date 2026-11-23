@@ -1,5 +1,5 @@
 import Hero from '@/components/home/Hero'
-import Marquee from '@/components/home/Marquee'
+import Skills from '@/components/home/Skills'
 import About from '@/components/home/About'
 import WorkIndex from '@/components/home/WorkIndex'
 import Experience from '@/components/home/Experience'
@@ -10,10 +10,13 @@ export default function Home() {
     <section>
       <HashScroll />
       <Hero />
-      <Marquee />
-      <About />
-      <WorkIndex />
-      <Experience />
+      {/* Everything below the full-bleed hero sits in the centred content column. */}
+      <div className="mx-auto w-[calc(100%-36px)] md:w-[85%]">
+        <Skills />
+        <About />
+        <Experience />
+        <WorkIndex />
+      </div>
     </section>
   )
 }

@@ -129,8 +129,8 @@ export default function Experience() {
     }`
 
   return (
-    <div id="experience" className="flex flex-col gap-6 px-page-x pb-[50px]" style={{ paddingTop: 'clamp(40px,6vw,60px)' }}>
-      <SectionBar label="02/ Experience" hoverHint="hover a bar" touchHint="tap a role" />
+    <div id="experience" className="flex flex-col gap-6" style={{ paddingTop: 'clamp(56px,9vw,90px)' }}>
+      <SectionBar label="01/ Experience" hoverHint="hover a bar" touchHint="tap a role" />
 
       {/* Desktop: a double-height work lane and a school lane */}
       <div className="relative hidden md:block" style={{ height: HEADER_H + WORK_H + LANE_H + 2 }}>

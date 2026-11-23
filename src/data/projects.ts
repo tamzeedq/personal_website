@@ -136,7 +136,7 @@ const INPUT: ProjectInput[] = [
       metrics: [
         { value: '1 s', label: 'GPS sampling interval' },
         { value: '4', label: 'metrics logged per reading' },
-        { value: 'Live', label: 'cloud sync to Firebase over Wi-Fi from a 2-part rig' },
+        { value: 'Live', label: 'cloud sync to Firebase over Wi-Fi from a 2-part hardware rig' },
       ],
     },
   },
@@ -221,9 +221,9 @@ const INPUT: ProjectInput[] = [
       outcome:
         'It works as a hands-free mouse for the basics: pointing, clicking and opening YouTube from across the table. Next would be smoother cursor movement, more gestures for things like scrolling and pausing, and tuning the click threshold so it fits different hands and cameras.',
       metrics: [
-        { value: 'Live', label: 'cursor follows your fingertip on every webcam frame' },
-        { value: '21', label: 'hand landmarks read from each frame by MediaPipe' },
+        { value: '21', label: 'hand landmarks tracked every frame' },
         { value: '3', label: 'gestures: point, pinch to click, peace sign' },
+        { value: '0', label: 'extra hardware: just the built-in webcam' },
       ],
     },
   },
@@ -263,7 +263,10 @@ export const getProject = (slug: string) => {
   return index === -1 ? undefined : { project: PROJECTS[index], index }
 }
 
-export const TICKER = [
-  'TypeScript', 'Python', 'Rust', 'Java', 'C++', 'React',
-  'Next.js', 'Flask', 'PostgreSQL', 'TensorFlow', 'AWS', 'Docker',
+/** Toolkit lanes on the home page. `duration` is one loop; lanes alternate direction. */
+export const SKILL_GROUPS = [
+  { label: 'lang', duration: '46s', items: ['TypeScript', 'Python', 'Rust', 'Java', 'C++'] },
+  { label: 'frameworks', duration: '58s', items: ['React', 'Next.js', 'Flask', 'Electron'] },
+  { label: 'data', duration: '52s', items: ['PostgreSQL', 'TensorFlow', 'NumPy', 'OpenCV'] },
+  { label: 'cloud', duration: '40s', items: ['AWS', 'Docker', 'Firebase'] },
 ]

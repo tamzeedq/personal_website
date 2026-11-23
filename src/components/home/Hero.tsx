@@ -1,24 +1,93 @@
+'use client'
+
 /* eslint-disable @next/next/no-img-element */
 
+import type { MouseEvent } from 'react'
+import { RESUME } from '@/components/Header'
+import { scrollToId } from '@/components/scroll'
+
+/**
+ * Full-screen photo cover. The name sits in dark ink on the light sky; the
+ * intro and buttons sit in white on the dark lower half of the photo. The
+ * global sticky header stays hidden until this section scrolls away (Header
+ * watches #hero), so the page opens on the photo alone.
+ */
 export default function Hero() {
+  const jump = (id: string) => (e: MouseEvent) => {
+    if (scrollToId(id)) {
+      e.preventDefault()
+      history.replaceState(null, '', `#${id}`)
+    }
+  }
+
+  const ghostBtn =
+    'flex min-h-[46px] items-center justify-center rounded-full border border-white bg-[rgba(20,20,18,.35)] px-[18px] text-white hover:text-white hover:bg-[rgba(20,20,18,.55)]'
+
   return (
-    <>
-      <div className="grid grid-cols-[minmax(0,1fr)_clamp(76px,18vw,230px)] items-end gap-[clamp(12px,3vw,30px)] px-[clamp(14px,2.4vw,30px)] pt-5">
-        <h1 className="whitespace-nowrap font-display text-[clamp(46px,14vw,190px)] font-black uppercase leading-[.8]">
-          Tamzeed <span className="text-accent">Q.</span>
+    <section
+      id="hero"
+      className="relative flex h-[100svh] min-h-[600px] flex-col justify-between overflow-hidden bg-[#2b2d30]"
+    >
+      <img
+        src="/images/tamzeed/hero_waterfront.jpg"
+        alt="Tamzeed standing at a wooden railing by the water, with mountains and a cloudy sky behind"
+        fetchPriority="high"
+        className="absolute inset-0 h-full w-full object-cover object-[48%_center] md:object-[center_14%]"
+      />
+
+      <div className="relative px-[18px] pt-4 text-ink md:px-page-x md:pt-6">
+        <div className="flex flex-wrap items-center justify-between gap-x-5 gap-y-2 font-mono text-[12px] md:text-[13px]">
+          <span className="font-medium">tamzeed quazi</span>
+          <nav aria-label="Primary" className="flex flex-wrap gap-x-5 gap-y-1">
+            <a href="#experience" onClick={jump('experience')}>
+              <span className="hidden md:inline">01 </span>experience
+            </a>
+            <a href="#projects" onClick={jump('projects')}>
+              <span className="hidden md:inline">02 </span>projects
+            </a>
+            <a href={RESUME} target="_blank" rel="noopener noreferrer">
+              resume ↗
+            </a>
+            <a href="/photography/">photos ↗</a>
+            <a href="mailto:tamzeed.q@gmail.com">contact ↗</a>
+          </nav>
+        </div>
+
+        <h1 className="mt-6 flex flex-col font-display text-[23vw] font-black uppercase leading-[.8] md:mt-9 md:block md:whitespace-nowrap md:text-[14.6vw] md:tracking-[-0.005em]">
+          <span>Tamzeed</span> <span>
+            Quazi<span className="text-accent">.</span>
+          </span>
         </h1>
-        <div className="aspect-4/5 rotate-3 overflow-hidden rounded-[10px] bg-photo-bg">
-          <img
-            src="/images/tamzeed/profile_pic.jpg"
-            alt="Tamzeed Quazi"
-            className="block h-full w-full object-cover"
-          />
+        <div className="flex justify-between gap-4 pt-3 font-mono text-[12px] md:pt-[14px] md:text-[13px]">
+          <span>software engineer</span>
+          <span>vancouver, canada</span>
         </div>
       </div>
-      <div className="flex flex-wrap justify-between gap-x-[30px] gap-y-[6px] px-page-x pt-[22px] text-[15px] text-muted">
-        <span>Software engineer @ Mastercard · UBC CS + Statistics</span>
-        <span>Vancouver, Canada</span>
+
+      <div className="relative flex flex-col gap-4 px-[18px] pb-7 text-white md:flex-row md:flex-wrap md:items-end md:justify-between md:gap-6 md:px-page-x md:pb-8">
+        <p className="m-0 max-w-[420px] text-[16px] leading-[1.45] [text-shadow:0_1px_12px_rgba(0,0,0,.55)] md:text-[clamp(17px,1.5vw,20px)]">
+          Building fraud detection at Mastercard. UBC Computer Science and Statistics grad. Off the clock: side projects,
+          hiking and a lot of photos.
+        </p>
+        <div className="grid grid-cols-2 gap-2 font-mono text-[13px] font-medium md:flex md:flex-wrap md:items-center md:gap-[10px]">
+          <a href="#experience" onClick={jump('experience')} className={ghostBtn}>
+            experience
+          </a>
+          <a href="#projects" onClick={jump('projects')} className={ghostBtn}>
+            projects
+          </a>
+          <a
+            href="#experience"
+            onClick={jump('experience')}
+            className="col-span-2 flex min-h-[46px] items-center justify-center gap-2 rounded-full bg-white px-[18px] text-ink hover:text-ink"
+          >
+            scroll
+            <span aria-hidden="true" className="inline-block motion-safe:animate-nudge">
+              ↓
+            </span>
+          </a>
+        </div>
       </div>
-    </>
+    </section>
   )
 }
