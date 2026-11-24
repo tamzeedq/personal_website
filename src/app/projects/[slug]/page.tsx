@@ -53,6 +53,10 @@ export default async function CaseStudyPage({ params }: Params) {
         <div className="flex flex-col gap-[16px]">
           <span className="font-mono text-[13px] font-medium text-accent">{cur.category}</span>
           <h1 className="m-0 font-display text-[clamp(60px,11vw,170px)] font-black uppercase leading-[.82] wrap-anywhere text-balance">
+            {/* Leading accent dot marks page and section titles (see ".About me" on the home page). */}
+            <span aria-hidden="true" className="text-accent">
+              .
+            </span>
             {cur.name}
           </h1>
         </div>

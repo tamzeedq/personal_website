@@ -23,7 +23,10 @@ export default function NotFound() {
       {/* Wordmark + message */}
       <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,380px),1fr))] items-end gap-x-[60px] gap-y-[28px] py-[clamp(36px,7vw,72px)]">
         <h1 className="m-0 whitespace-nowrap font-display text-[clamp(46px,14vw,190px)] font-black uppercase leading-[.8]">
-          Lost <span className="text-accent">404.</span>
+          <span aria-hidden="true" className="text-accent">
+            .
+          </span>
+          Lost 404
         </h1>
         <div className="flex flex-col gap-[20px]">
           <p className="m-0 text-[clamp(18px,1.8vw,22px)] leading-[1.45] text-pretty">

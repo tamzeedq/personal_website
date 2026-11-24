@@ -26,14 +26,27 @@
   /* Horizontal page padding used throughout the design. */
   --spacing-page-x: clamp(18px, 3vw, 36px);
 
-  --animate-marquee: mq 30s linear infinite reverse;
+  /* Toolkit lanes: each lane sets its own duration and direction inline. */
+  --animate-drift: drift 50s linear infinite;
+  /* "scroll ↓" cue in the hero. */
+  --animate-nudge: nudge 1.8s ease-in-out infinite;
 
-  @keyframes mq {
+  @keyframes drift {
     from {
       transform: translateX(0);
     }
     to {
       transform: translateX(-50%);
+    }
+  }
+
+  @keyframes nudge {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(5px);
     }
   }
 }

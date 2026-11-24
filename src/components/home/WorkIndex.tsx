@@ -36,8 +36,8 @@ export default function WorkIndex() {
   const pressPointer = useRef<string | null>(null)
 
   return (
-    <div id="projects" className="px-page-x pb-[40px] pt-[clamp(56px,9vw,90px)]">
-      <SectionBar label="01/ Projects" hoverHint="hover a row · click to open" touchHint="tap a row" />
+    <div id="projects" className="pb-[clamp(72px,9vw,110px)] pt-[clamp(56px,9vw,90px)]">
+      <SectionBar label="02/ Projects" hoverHint="hover a row · click to open" touchHint="tap a row" />
 
       {PROJECTS.map((p, i) => {
         const isOpen = openRow === i

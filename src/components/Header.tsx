@@ -2,14 +2,32 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import type { MouseEvent } from 'react'
+import { useEffect, useState, type MouseEvent } from 'react'
 import { scrollBehavior, scrollToId } from './scroll'
 
-const RESUME = '/docs/Tamzeed_Quazi_Resume_2026.pdf'
+export const RESUME = '/docs/Tamzeed_Quazi_Resume_2026.pdf'
 
+/**
+ * Sticky site header. On the home page the full-screen hero carries its own
+ * nav, so this header is fixed (it takes no space above the hero) and slides
+ * in only once #hero has scrolled out of view.
+ */
 export default function Header() {
   const pathname = usePathname()
   const onHome = pathname === '/'
+  const [pastHero, setPastHero] = useState(false)
+
+  useEffect(() => {
+    if (!onHome) return
+    const hero = document.getElementById('hero')
+    if (!hero) return
+    // Show the header once less than ~70px (its own height) of the hero remains.
+    const io = new IntersectionObserver(([entry]) => setPastHero(!entry.isIntersecting), {
+      rootMargin: '-70px 0px 0px 0px',
+    })
+    io.observe(hero)
+    return () => io.disconnect()
+  }, [onHome])
 
   // On the home page, jump in place with a smooth scroll (instant under
   // reduced motion); elsewhere let the
@@ -33,17 +51,26 @@ export default function Header() {
   // Section numbers only from md up: with them, the four links overflow a 375px phone and wrap.
   const num = (n: string) => <span className="hidden md:inline">{n} </span>
 
+  const position = onHome
+    ? `fixed inset-x-0 transition-transform duration-300 motion-reduce:transition-none ${
+        pastHero ? 'translate-y-0' : '-translate-y-full'
+      }`
+    : 'sticky'
+
   return (
-    <header className="sticky top-0 z-20 flex flex-wrap items-center justify-between gap-x-5 gap-y-3 bg-[rgba(239,237,232,.88)] px-[18px] pb-2 pt-3 font-mono text-[12px] text-muted-2 backdrop-blur-[10px] md:px-page-x md:py-5">
+    <header
+      inert={onHome && !pastHero ? true : undefined}
+      className={`${position} top-0 z-20 flex flex-wrap items-center justify-between gap-x-5 gap-y-3 bg-[rgba(239,237,232,.88)] px-[18px] pb-2 pt-3 font-mono text-[12px] text-muted-2 backdrop-blur-[10px] md:px-page-x md:py-5`}
+    >
       <Link href="/" onClick={homeClick} className="font-medium text-ink">
-        TQ — portfolio
+        tq
       </Link>
       <nav className="order-3 flex basis-full justify-between gap-[22px] md:order-0 md:basis-auto md:justify-center">
-        <Link href="/#projects" onClick={sectionClick('projects')} className={navLink}>
-          {num('01')}projects
-        </Link>
         <Link href="/#experience" onClick={sectionClick('experience')} className={navLink}>
-          {num('02')}experience
+          {num('01')}experience
+        </Link>
+        <Link href="/#projects" onClick={sectionClick('projects')} className={navLink}>
+          {num('02')}projects
         </Link>
         <a href={RESUME} target="_blank" rel="noopener noreferrer" className="whitespace-nowrap py-[6px]">
           resume ↗
