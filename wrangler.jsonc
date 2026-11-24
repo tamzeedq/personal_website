@@ -15,5 +15,8 @@
   // pattern win. The separate `tq-photos` Worker owns `tamzeedq.com/photography*`,
   // and that more specific route takes precedence over this catch-all one, so
   // this project never serves, redirects or rewrites anything under /photography.
-  "routes": [{ "pattern": "tamzeedq.com/*", "zone_name": "tamzeedq.com" }]
+  "routes": [{ "pattern": "tamzeedq.com/*", "zone_name": "tamzeedq.com" }],
+  // Required by `wrangler preview`, which Workers Builds runs for non-production
+  // branches (PR previews). Empty: assets and settings above are inherited.
+  "previews": {}
 }
