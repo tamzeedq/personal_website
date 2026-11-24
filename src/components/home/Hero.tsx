@@ -32,12 +32,15 @@ export default function Hero() {
         src="/images/tamzeed/hero_waterfront.jpg"
         alt="Tamzeed standing at a wooden railing by the water, with mountains and a cloudy sky behind"
         fetchPriority="high"
-        className="absolute inset-0 h-full w-full object-cover object-[48%_center] md:object-[center_14%]"
+        className="absolute inset-0 h-full w-full object-cover object-[48%_center] md:object-[center_25%]"
       />
 
       <div className="relative px-[18px] pt-4 text-ink md:px-page-x md:pt-6">
         <div className="flex flex-wrap items-center justify-between gap-x-5 gap-y-2 font-mono text-[12px] md:text-[13px]">
-          <span className="font-medium">tamzeed quazi</span>
+          {/* Monogram only: the full name is the h1 right below. */}
+          <span aria-hidden="true" className="font-medium">
+            tq
+          </span>
           <nav aria-label="Primary" className="flex flex-wrap gap-x-5 gap-y-1">
             <a href="#experience" onClick={jump('experience')}>
               <span className="hidden md:inline">01 </span>experience
@@ -66,8 +69,7 @@ export default function Hero() {
 
       <div className="relative flex flex-col gap-4 px-[18px] pb-7 text-white md:flex-row md:flex-wrap md:items-end md:justify-between md:gap-6 md:px-page-x md:pb-8">
         <p className="m-0 max-w-[420px] text-[16px] leading-[1.45] [text-shadow:0_1px_12px_rgba(0,0,0,.55)] md:text-[clamp(17px,1.5vw,20px)]">
-          Building fraud detection at Mastercard. UBC Computer Science and Statistics grad. Off the clock: side projects,
-          hiking and a lot of photos.
+          Welcome to my page! Have a look around and see what I've been up to.
         </p>
         <div className="grid grid-cols-2 gap-2 font-mono text-[13px] font-medium md:flex md:flex-wrap md:items-center md:gap-[10px]">
           <a href="#experience" onClick={jump('experience')} className={ghostBtn}>

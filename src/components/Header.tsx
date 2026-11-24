@@ -63,7 +63,7 @@ export default function Header() {
       className={`${position} top-0 z-20 flex flex-wrap items-center justify-between gap-x-5 gap-y-3 bg-[rgba(239,237,232,.88)] px-[18px] pb-2 pt-3 font-mono text-[12px] text-muted-2 backdrop-blur-[10px] md:px-page-x md:py-5`}
     >
       <Link href="/" onClick={homeClick} className="font-medium text-ink">
-        TQ — portfolio
+        tq
       </Link>
       <nav className="order-3 flex basis-full justify-between gap-[22px] md:order-0 md:basis-auto md:justify-center">
         <Link href="/#experience" onClick={sectionClick('experience')} className={navLink}>

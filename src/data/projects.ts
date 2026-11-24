@@ -265,8 +265,8 @@ export const getProject = (slug: string) => {
 
 /** Toolkit lanes on the home page. `duration` is one loop; lanes alternate direction. */
 export const SKILL_GROUPS = [
-  { label: 'lang', duration: '46s', items: ['TypeScript', 'Python', 'Rust', 'Java', 'C++'] },
-  { label: 'frameworks', duration: '58s', items: ['React', 'Next.js', 'Flask', 'Electron'] },
-  { label: 'data', duration: '52s', items: ['PostgreSQL', 'TensorFlow', 'NumPy', 'OpenCV'] },
-  { label: 'cloud', duration: '40s', items: ['AWS', 'Docker', 'Firebase'] },
+  { label: 'lang', duration: '46s', items: ['TypeScript', 'Python', 'Java', 'C++', 'R'] },
+  { label: 'frameworks', duration: '58s', items: ['React', 'Next.js', 'Node.js', 'Flask', 'Spring Boot'] },
+  { label: 'data', duration: '52s', items: ['PostgreSQL', 'TensorFlow', 'PyTorch', 'NumPy', 'Pandas'] },
+  { label: 'cloud', duration: '40s', items: ['AWS', 'Docker', 'Kubernetes', 'Jenkins'] },
 ]

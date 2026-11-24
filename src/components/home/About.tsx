@@ -6,9 +6,9 @@ const linkCls =
 
 const FACTS = [
   { k: 'based', v: 'Vancouver, Canada' },
-  { k: 'now', v: 'Mastercard · fraud detection' },
-  { k: 'studied', v: 'UBC · CS + Statistics' },
-  { k: 'elsewhere', v: 'hiking · travel · photos' },
+  { k: 'currently', v: 'Mastercard SWE' },
+  { k: 'education', v: 'UBC · CS + Statistics' },
+  // { k: 'elsewhere', v: 'hiking · travel · photos' },
 ]
 
 /** Dark intro card between the toolkit and the sections. Unnumbered, so the nav's section numbers stay put. */
@@ -41,8 +41,9 @@ export default function About() {
               Recent UBC grad, now a software engineer at Mastercard working on fraud detection services.
             </p>
             <p className="m-0 max-w-[620px] text-[17px] leading-[1.6] text-dark-2 text-pretty">
-              In my free time I keep building things, like the projects below. Away from the screen I love hiking,
-              travelling and exploring new places, and I take a lot of pictures along the way. You can see them on my{' '}
+              In my free time I build whatever comes to mind, like the projects below. I'm most drawn to applied AI, 
+              especially tools that are reliable enough to make someone's day a little easier so they can focus on the hard problems. 
+              Away from the screen I'm into hiking, training, and all things superheroes and comics. I also love travelling and exploring new places, and I take a lot of pictures along the way. You can see them on my{' '}
               <a href="/photography/" className={linkCls}>
                 photography site
               </a>
